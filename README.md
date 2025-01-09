@@ -1000,7 +1000,7 @@ Returns all memberships for club.
       "Memberships": [
         {
           "id": 1,
-          "club": "equestrian club,
+          "club": "equestrian club",
           "character": "timmy",
         }
       ]
@@ -1028,7 +1028,7 @@ Returns all memberships for character.
       "Memberships": [
         {
           "id": 1,
-          "club": "equestrian club,
+          "club": "equestrian club",
           "character": "timmy",
         }
       ]
