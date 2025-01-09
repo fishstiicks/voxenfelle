@@ -1,5 +1,11 @@
 # voxenfelle
 
+## Database Schema Design
+![image](https://github.com/user-attachments/assets/87cc2a77-7626-45b6-ab52-a8047853adcd)
+
+## Wireframe
+![0108 vxf wireframe](https://github.com/user-attachments/assets/3cf74090-5a9b-4dc6-aa13-2c4e3aab54ef)
+
 ## API Documentation
 
 ## USER AUTHENTICATION/AUTHORIZATION
