@@ -16,12 +16,11 @@ function ArtsPage() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchArts()).finally(() => setLoading(false));
+    dispatch(fetchArts());
   }, [dispatch]);
 
   const refreshArts = () => {
-    setLoading(true);
-    dispatch(fetchArts()).finally(() => setLoading(false));
+    dispatch(fetchArts());
   };
 
   const openCreateArtModal = () => {

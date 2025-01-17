@@ -21,7 +21,6 @@ function CharacterRelationsPage() {
   const user = useSelector((state) => state.session.user);
 
   const { setModalContent, openModal } = useModal();
-  const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState(null);
 
   if (savedScrollPosition) {
@@ -29,7 +28,7 @@ function CharacterRelationsPage() {
   }
 
   useEffect(() => {
-    dispatch(fetchCharacters()).finally(() => setLoading(false));
+    dispatch(fetchCharacters());
   }, [dispatch]);
 
   useEffect(() => {
@@ -37,17 +36,8 @@ function CharacterRelationsPage() {
       fetch(`/api/characters/${name}`)
         .then((response) => response.json())
         .then((data) => {
-          if (data.error) {
-            setLoading(false);
-            return;
-          }
           setCharacter(data);
-          setLoading(false);
         })
-        .catch((err) => {
-          console.error('Failed to fetch character:', err);
-          setLoading(false);
-        });
     }
   }, [name]);
 
@@ -129,10 +119,6 @@ function CharacterRelationsPage() {
       year: 'numeric',
     });
   };
-
-  if (loading) {
-    return <p>Loading characters...</p>;
-  }
 
   return (
     <div className="main-content">

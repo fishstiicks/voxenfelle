@@ -15,13 +15,9 @@ function CharacterDetailPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Fetch the session user
-  const sessionUser = useSelector((state) => state.session.user); // Assuming the session user is in the Redux state
-
-  // Select relationships from the store
+  const sessionUser = useSelector((state) => state.session.user); 
   const relationships = useSelector((state) => state.relationships || []);
 
-  // Fetch character details
   useEffect(() => {
     const fetchCharacter = async () => {
       try {
@@ -40,10 +36,9 @@ function CharacterDetailPage() {
     fetchCharacter();
   }, [name]);
 
-  // Fetch relationships
   useEffect(() => {
     if (name) {
-      dispatch(fetchRelationships(name)); // Fetch relationships only if a character name exists
+      dispatch(fetchRelationships(name));
     }
   }, [name, dispatch]);
 
@@ -97,7 +92,7 @@ function CharacterDetailPage() {
   };
 
   if (!character) {
-    return <p>Loading...</p>; // Make sure to handle the loading state
+    return <p>Loading...</p>;
   }
 
   return (
@@ -105,7 +100,6 @@ function CharacterDetailPage() {
       <div className="character-links">
         <a href={`/characters/${name}/relations`}>Relations</a>
         <a href={`/characters/${name}/art`}>Art</a>
-        {/* Render Edit and Delete buttons only if the character.mun equals sessionUser.username */}
         {character.mun === sessionUser?.username && (
           <>
             <button onClick={handleEditClick}>Edit Character</button>
