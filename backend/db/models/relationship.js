@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
   class Relationship extends Model {
     static associate(models) {
       this.belongsTo(models.Character, { foreignKey: 'you', targetKey: 'name' });
-      this.belongsTo(models.Character, { foreignKey: 'them', targetKey: 'name' });
     }
   }
   Relationship.init({
@@ -17,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     special: DataTypes.STRING,
-    description: DataTypes.STRING,
-    lastUpdate: DataTypes.DATE
+    description: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Relationship',

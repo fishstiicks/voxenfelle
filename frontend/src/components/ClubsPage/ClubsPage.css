@@ -1,0 +1,94 @@
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 0.5fr)); /* Grid with responsive columns */
+  gap: 60px;
+  margin: 20px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.club-card {
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.club-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: 'B612 Mono', monospace;
+}
+
+.club-card p {
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+.club-card a {
+  text-decoration: none;
+}
+
+.club-card a:hover {
+  color: #FAD058;
+}
+
+.member-images {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 10px;
+  padding: 10px 0;
+  height: 150px;
+  justify-content: center;
+}
+
+.picrew-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.picrew-image:hover {
+  filter: brightness(80%);
+}
+
+#club-member-name {
+  color: rgb(82, 82, 82);
+  font-size: 11px;
+  font-family: 'B612 Mono', monospace;
+}
+
+.create-club-btn, .edit-club-btn, .delete-club-btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.create-club-btn:hover {
+  background-color: #f2b600;
+}
+
+.edit-club-btn {
+  background-color: #FAD058;
+  margin-right: 10px;
+}
+
+.edit-club-btn:hover {
+  background-color: #f2b600;
+}
+
+.delete-club-btn {
+  background-color: #555555;
+  color: rgb(245, 245, 245);
+}
+
+.delete-club-btn:hover {
+  background-color: #222222;
+}

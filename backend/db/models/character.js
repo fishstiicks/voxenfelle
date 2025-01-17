@@ -8,9 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User, { foreignKey: 'mun', targetKey: 'username' });
       this.hasMany(models.Art, { foreignKey: 'character', sourceKey: 'name' });
       this.hasMany(models.Membership, { foreignKey: 'character', sourceKey: 'name' });
-      this.hasMany(models.Relationship, { foreignKey: 'you', sourceKey: 'name' });
-      this.hasMany(models.Relationship, { foreignKey: 'them', sourceKey: 'name' });
-    }
+      this.hasMany(models.Relationship, { foreignKey: 'you', sourceKey: 'name' });    }
   }
   Character.init({
     mun: {
@@ -118,10 +116,12 @@ module.exports = (sequelize, DataTypes) => {
     soulbond: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     },
     souldrop: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize,

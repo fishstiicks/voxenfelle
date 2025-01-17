@@ -1,0 +1,76 @@
+.art-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 16px;
+    margin: 20px;
+  }
+  
+  .art-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .art-image {
+    width: 500px;
+    height: 500px; 
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .art-image:hover {
+    cursor: pointer;
+  }
+  
+  .art-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px; 
+  }
+  
+  #art-info {
+    flex: 1; 
+  }
+  
+  #art-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px; 
+  }
+  
+  .create-art-btn {
+    padding: 10px 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .create-art-btn:hover {
+    background-color: #f2b600;
+  }
+  
+  .grey-btn {
+    padding: 5px 10px;
+    background-color: #a3a3a3;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .grey-btn:hover {
+    background-color: #929292;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  

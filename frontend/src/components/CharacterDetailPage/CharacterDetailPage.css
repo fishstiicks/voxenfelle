@@ -1,0 +1,145 @@
+.character-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 10%;
+    background-color: #FAD058;
+    left: 15px;
+    padding-bottom: 10px;
+    top: 0;
+    padding-top: 110px;
+}
+
+.character-links a {
+    background-color: #FAD058;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.1s ease;
+    text-decoration: none;
+}
+
+.character-links a:hover {
+    background-color: #f2b600;
+    cursor: pointer;
+}
+
+#char-middle {
+    margin-left: 15%;
+}
+
+.char-image {
+    border-radius: 200px;
+    height: 200px;
+}
+
+.character-header {
+    display: flex;
+    margin-top: 20px;
+}
+
+#character-title {
+    margin-left: 15px;
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#character-reputation {
+    margin-left: 220px;
+    margin-top: -60px;
+    margin-bottom: 20px;
+}
+
+#char-stats {
+    text-align: right;
+    color: rgb(129, 129, 129);
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#char-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.char-long-info {
+    display: flex;
+    width: 70%;
+}
+
+.char-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.char-long-header {
+    margin-bottom: 2px;
+}
+
+#char-font {
+font-family: 'B612 Mono', monospace;
+}
+
+#character-short-info {
+    margin-left: 50px;
+    width: 80%;
+}
+
+#review-tile {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#review-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#review-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+}
+
+#review-image:hover {
+    filter: brightness(80%);
+}
+
+#review-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: -10px;
+}
+
+#review-special {
+    font-family: 'B612 Mono', monospace;
+    text-transform: uppercase;
+    color: rgb(36, 36, 36);
+}
+
+#review-date {
+    color:#464646;
+    margin-top: -20px;
+    font-size: 12px;
+    text-align: right;
+    margin-right: 15px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #969696;
+    margin-left: auto; /* Centers the <hr /> */
+    margin-right: auto;
+  }

@@ -69,7 +69,6 @@ Returns the information about the current user that is logged in.
     {
       "user": {
         "id": 1,
-        "email": "john.smith@gmail.com",
         "username": "JohnSmith"
       }
     }
@@ -120,7 +119,6 @@ information.
     {
       "user": {
         "id": 1,
-        "email": "john.smith@gmail.com",
         "username": "JohnSmith"
       }
     }
@@ -150,7 +148,7 @@ information.
     {
       "message": "Bad Request",
       "errors": {
-        "credential": "Email or username is required",
+        "credential": "Username is required",
         "password": "Password is required"
       }
     }
@@ -172,7 +170,6 @@ user's information.
 
     ```json
     {
-      "email": "john.smith@gmail.com",
       "username": "JohnSmith",
       "password": "secret password"
     }
@@ -189,13 +186,12 @@ user's information.
     {
       "user": {
         "id": 1,
-        "email": "john.smith@gmail.com",
         "username": "JohnSmith"
       }
     }
     ```
 
-- Error response: User already exists with the specified email or username
+- Error response: User already exists with the specified username
 
   - Status Code: 500
   - Headers:
@@ -206,7 +202,6 @@ user's information.
     {
       "message": "User already exists",
       "errors": {
-        "email": "User with that email already exists",
         "username": "User with that username already exists"
       }
     }
@@ -223,7 +218,6 @@ user's information.
     {
       "message": "Bad Request",
       "errors": {
-        "email": "Invalid email",
         "username": "Username is required"
       }
     }

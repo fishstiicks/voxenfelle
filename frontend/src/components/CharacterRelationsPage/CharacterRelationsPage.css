@@ -1,0 +1,23 @@
+#relationship-buttons {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-top: -5px;
+}
+  
+#special-tag {
+    text-transform: uppercase;
+    margin-top: -15px;
+    font-family: 'B612 Mono', monospace;
+}
+
+#relationship-text {
+    margin-top: -10px;
+    text-align: left;
+}
+
+#updated-at {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: right;
+}

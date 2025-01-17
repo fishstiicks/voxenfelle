@@ -2,6 +2,10 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const charactersRouter = require('./characters'); 
+const clubsRouter = require('./clubs.js')
+const artsRouter = require('./arts.js')
+
 const { restoreUser } = require("../../utils/auth.js");
 
 // Connect restoreUser middleware to the API router
@@ -12,6 +16,10 @@ router.use(restoreUser);
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+
+router.use('/characters', charactersRouter);
+router.use('/clubs', clubsRouter);
+router.use('/arts', artsRouter);
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });
