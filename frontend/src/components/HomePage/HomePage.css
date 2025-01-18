@@ -1,0 +1,13 @@
+#homepage-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word;
+}
+
+#homepage-header {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+

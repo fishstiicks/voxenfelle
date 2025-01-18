@@ -8,17 +8,22 @@
 }
 
 .club-card {
-  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f0f7;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px #89868a;
   padding: 20px;
   width: 100%;
+  height: 530px;
   text-align: center;
 }
 
 .club-card h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 20px;
   font-family: 'B612 Mono', monospace;
 }
 
@@ -32,7 +37,7 @@
 }
 
 .club-card a:hover {
-  color: #FAD058;
+  color: rgb(224, 168, 0);
 }
 
 .member-images {
@@ -41,7 +46,7 @@
   overflow-y: auto;
   gap: 10px;
   padding: 10px 0;
-  height: 150px;
+  height: 300px;
   justify-content: center;
 }
 
@@ -62,7 +67,12 @@
   font-family: 'B612 Mono', monospace;
 }
 
-.create-club-btn, .edit-club-btn, .delete-club-btn {
+#create-header {
+  display: flex;
+  justify-content: right;
+}
+
+.create-club-btn {
   padding: 10px 20px;
   margin-top: 10px;
   border-radius: 5px;
@@ -72,23 +82,38 @@
 }
 
 .create-club-btn:hover {
-  background-color: #f2b600;
+  background-color: rgb(224, 168, 0);
 }
 
-.edit-club-btn {
-  background-color: #FAD058;
+.manage-club-btn {
+  background-color: #beb9be;
   margin-right: 10px;
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+  font-family: 'B612 Mono', monospace;
 }
 
-.edit-club-btn:hover {
-  background-color: #f2b600;
+.manage-club-btn:hover {
+  background-color: #9e999e;
 }
 
-.delete-club-btn {
-  background-color: #555555;
-  color: rgb(245, 245, 245);
+#club-btn-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100px;
 }
 
-.delete-club-btn:hover {
-  background-color: #222222;
+#club-info {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+#club-desc {
+  margin-top: -14px;
 }

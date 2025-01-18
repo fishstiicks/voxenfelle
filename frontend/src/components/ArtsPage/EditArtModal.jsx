@@ -1,42 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateArtData } from '../../store/arts'; // Import the action to update art
+import { updateArtData } from '../../store/arts'; // Import the updateArtData action
 import { useModal } from '../../context/Modal'; // Assuming you have a context to handle modal close
 
 const EditArtModal = ({ art, refreshArts }) => {
   const dispatch = useDispatch();
-  const { closeModal } = useModal(); // To close modal after success
+  const { closeModal } = useModal(); // To close the modal after success
   const [url, setUrl] = useState(art.url);
   const [character, setCharacter] = useState(art.character);
-  const [reference, setReference] = useState(art.reference || false); // Assuming reference is a boolean (true or false)
-  const [error, setError] = useState('');
-  const [mun, setMun] = useState(art.mun); // Set the 'mun' value from the current art data
+  const [reference, setReference] = useState(art.reference);
+  const [error, setError] = useState(''); // Track any error during update
 
   useEffect(() => {
     // Reinitialize form fields if art prop changes (e.g., if a different art is passed for editing)
     setUrl(art.url);
     setCharacter(art.character);
-    setReference(art.reference || false); // Ensure reference is boolean (false if undefined)
-    setMun(art.mun); // Ensure 'mun' is kept in sync
+    setReference(art.reference);
   }, [art]);
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation check to ensure URL and character aren't empty
+    // Basic validation check to ensure url, character, and reference aren't empty
     if (!url.trim() || !character.trim()) {
       setError('URL and Character are required.');
       return;
     }
 
-    const updatedArtData = { url, character, reference, mun };
+    const updatedArtData = { url, character, reference };
     dispatch(updateArtData(art.id, updatedArtData))
       .then(() => {
         closeModal();
         refreshArts();
       })
-      .catch((err) => setError('Something went wrong during update.'));
+      .catch(() => {
+        setError('An error occurred while updating the art.');
+      });
   };
 
   // Close the modal without making changes
@@ -51,7 +51,7 @@ const EditArtModal = ({ art, refreshArts }) => {
         <h2>Edit Art</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="artUrl">URL</label>
+            <label htmlFor="artUrl"><span>Art URL</span></label>
             <input
               type="text"
               id="artUrl"
@@ -62,7 +62,7 @@ const EditArtModal = ({ art, refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="character">Character</label>
+            <label htmlFor="character"><span>Character</span></label>
             <input
               type="text"
               id="character"
@@ -73,20 +73,20 @@ const EditArtModal = ({ art, refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="reference">Is this a reference?</label>
+            <div className="checkbox">
+            <label htmlFor="reference"><span>Is this a reference?</span></label>
             <input
               type="checkbox"
               id="reference"
               checked={reference}
-              onChange={(e) => setReference(e.target.checked)} // Toggle the reference state
+              onChange={(e) => setReference(e.target.checked)}
             />
+            </div>
           </div>
-
-          {error && <p className="error-message">{error}</p>}
 
           <div className="form-buttons">
             <button type="submit">Update Art</button>
-            <button type="button" onClick={handleClose}>
+            <button type="button" onClick={handleClose} className="cancel-btn">
               Cancel
             </button>
           </div>

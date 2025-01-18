@@ -44,11 +44,11 @@ const CreateArtModal = ({ refreshArts }) => {
       <div className="modal-content">
         <h2>Create Art</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="url">Art URL</label>
+        <div className="form-group">
+            <label htmlFor="artUrl"><span>Art URL</span></label>
             <input
               type="text"
-              id="url"
+              id="artUrl"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               required
@@ -56,7 +56,7 @@ const CreateArtModal = ({ refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="character">Character</label>
+            <label htmlFor="character"><span>Character</span></label>
             <input
               type="text"
               id="character"
@@ -67,13 +67,15 @@ const CreateArtModal = ({ refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="reference">Reference Art?</label>
+            <div className="checkbox">
+            <label htmlFor="reference"><span>Is this a reference?</span></label>
             <input
               type="checkbox"
               id="reference"
               checked={reference}
               onChange={(e) => setReference(e.target.checked)}
             />
+            </div>
           </div>
 
           <div className="form-buttons">

@@ -10,7 +10,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   padding-top: 80px;
-  background-color: #f8f8f8;
+  background-color: #F5F0F6;
   text-decoration: none;
   position: relative;
 }
@@ -20,19 +20,19 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 800px;
-  background: linear-gradient(to top, rgb(170, 170, 170), transparent);
+  height: 600px;
+  background: linear-gradient(to top, #9b989c, transparent);
   z-index: -5;
 }
 
 .main-content {
   padding: 20px;
-  width: 80%;
+  width: 83%;
 }
 
 .header {
   width: 100%; 
-  background-color: #181818; 
+  background-color: #262627; 
   padding: 10px 20px;  
   position: fixed;  
   top: 0; 
@@ -54,7 +54,7 @@ body {
 }
 
 #headerText {
-  color: rgb(236, 236, 236);
+  color: #F5F0F6;
   text-decoration: none;
 }
 
@@ -79,22 +79,22 @@ body {
 .header-link {
   text-decoration: none;
   font-size: 18px;
-  color: white;
+  color: #F5F0F6;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .header-link:hover {
-  color: #FAD058;
+  color: #F9CF57;
 }
 
 #welcome {
-  color: rgb(233, 233, 233);
+  color: #F5F0F6;
 }
 
 .username {
-  color: #FAD058;
+  color: #F9CF57;
   font-weight: bold;
 }
 
@@ -103,20 +103,20 @@ body {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+  background: linear-gradient(to bottom, #39393A, #1a1a1a);
   height: 100vh;
-  width: 10%;  
+  width: 10.5%;  
   position: fixed;
   top: 0;
   right: 0;
   padding-right: 20px;
-  border-left:#FAD058 double 5px;
+  border-left:#F9CF57 double 5px;
 }
 
 .navigation-list a, .navigation-list button {
   text-decoration: none;
   font-size: 14px;
-  color: #dfdfdf;
+  color: #F5F0F6;
   text-align: left;
   border: none;
   background-color: transparent;
@@ -125,12 +125,38 @@ body {
 }
 
 .navigation-list a:hover, .navigation-list button:hover {
-  color: #949494;
+  color: #F9CF57;
   background-color: transparent;
 }
 
+#navbar-picrew-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+#navbar-picrew {
+  display: flex;
+  width: 100px;
+  border-radius: 200px;
+}
+
+#navbar-char-name {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+#navbar-picrew:hover {
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
 button {
-  background-color: #FAD058;
+  background-color: #F9CF57;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -140,6 +166,12 @@ button {
 }
 
 button:hover {
-  background-color: #f2b600;
+  background-color: rgb(224, 168, 0);
   cursor: pointer;
+}
+
+#logout-btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: right;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateClubData } from '../../store/clubs';
 import { useModal } from '../../context/Modal';
@@ -7,23 +7,27 @@ const EditClubModal = ({ club, refreshClubs }) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [name, setName] = useState(club.name);
-  const [description, setDescription] = useState(club.description);
+  const [description, setDescription] = useState(club.description || '');
   const [error, setError] = useState('');
 
   useEffect(() => {
     setName(club.name);
-    setDescription(club.description);
+    setDescription(club.description || '');
   }, [club]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim() || !description.trim()) {
-      setError('Name and Description are required.');
+    if (!name.trim()) {
+      setError('Name required.');
       return;
     }
 
-    const updatedClubData = { name, description };
+    const updatedClubData = { 
+        name, 
+        description: description.trim() === '' ? null : description
+      };
+      
     dispatch(updateClubData(club.id, updatedClubData))
       .then(() => {
         closeModal();

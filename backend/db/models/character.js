@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         isIn: {
-          args: [['Civilian', 'Noble']],  
+          args: [['Civilian', 'Noble']],
           msg: 'Lineage must be either "Civilian" or "Noble"'
         }
       }
@@ -60,14 +60,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         isIn: {
-          args: [['Aura', 'Void']],  
+          args: [['Aura', 'Void', 'None']],
           msg: 'Source must be either "Aura" or "Void"'
         }
       }
     },
     hexcode: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     weapon: {
       type: DataTypes.STRING,

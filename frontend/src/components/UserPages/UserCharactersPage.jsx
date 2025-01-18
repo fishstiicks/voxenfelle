@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharacters } from '../../store/characters';
-import { Link } from 'react-router-dom';
-import { useModal } from '../../context/Modal'; 
-import './CharactersPage.css';
-import CreateCharacterModal from '../CreateCharacterModal/CreateCharacterModal.jsx'; 
+import { Link, useParams } from 'react-router-dom';
+import '../UserPages/UserPages.css';
 
 function CharactersPage() {
   const dispatch = useDispatch();
-  const { setModalContent } = useModal(); 
+  const { name } = useParams();
+
   const characters = useSelector((state) => state.characters.characters) || [];
+  const errors = useSelector((state) => state.characters.errors);
 
   const [filterState, setFilterState] = useState({ PC: false, NPC: false });
   const [filterSource, setFilterSource] = useState({ Aura: false, Void: false });
@@ -18,18 +18,16 @@ function CharactersPage() {
     dispatch(fetchCharacters());
   }, [dispatch]);
 
-  const refreshCharacters = () => {
-    dispatch(fetchCharacters());
-  };
-
   const filteredCharacters = characters.filter((character) => {
+    const matchesMun = character.mun === name;
+    
     const matchesState =
       (filterState.PC && character.state === 'PC') || (filterState.NPC && character.state === 'NPC') || (!filterState.PC && !filterState.NPC);
 
     const matchesSource =
       (filterSource.Aura && character.source === 'Aura') || (filterSource.Void && character.source === 'Void') || (!filterSource.Aura && !filterSource.Void);
 
-    return matchesState && matchesSource;
+    return matchesMun && matchesState && matchesSource;
   });
 
   const handleStateChange = (e) => {
@@ -46,63 +44,60 @@ function CharactersPage() {
     }));
   };
 
-  const openCreateCharacterModal = () => {
-    setModalContent(<CreateCharacterModal refreshCharacters={refreshCharacters}/>);
-  };
-
   return (
-    <div className="main-content">
-        <div id="char-page-header">
-        <div className="filter-box">
-          <h3>FILTER</h3>
-          <label>
-            <input
-              type="checkbox"
-              name="PC"
-              checked={filterState.PC}
-              onChange={handleStateChange}
-            />
-            PC
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="NPC"
-              checked={filterState.NPC}
-              onChange={handleStateChange}
-            />
-            NPC
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="Aura"
-              checked={filterSource.Aura}
-              onChange={handleSourceChange}
-            />
-            Aura
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="Void"
-              checked={filterSource.Void}
-              onChange={handleSourceChange}
-            />
-            Void
-          </label>
-        </div>
-
-        <button className="create-btn" onClick={openCreateCharacterModal}>Create Character</button>
-        </div>
-
-      <div className="character-list">
+    <div className="main-content" id="relations-list">
+    <div className="character-links">
+      <p id="char-link-name" className="character-name">{name}</p>
+      <a href={`/users/${name}/characters`}>Characters</a>
+      <a href={`/users/${name}/art`}>Art</a>
+    </div>
+      <div className="filter-box">
+        <h3>FILTER</h3>
+        <label>
+          <input
+            type="checkbox"
+            name="PC"
+            checked={filterState.PC}
+            onChange={handleStateChange}
+          />
+          PC
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="NPC"
+            checked={filterState.NPC}
+            onChange={handleStateChange}
+          />
+          NPC
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="Aura"
+            checked={filterSource.Aura}
+            onChange={handleSourceChange}
+          />
+          Aura
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="Void"
+            checked={filterSource.Void}
+            onChange={handleSourceChange}
+          />
+          Void
+        </label>
+      </div>
+      
+      <div id="user-chars">
         {filteredCharacters.length > 0 ? (
           filteredCharacters.map((character) => {
             const displayHex = character.source === 'Void' ? '#c21c1c' : character.hexcode;
 
             return (
-              <div key={character.id} className="character-item">
+              <div key={character.id} className="user-character-item">
                 <Link to={`/characters/${character.name}`}>
                   <img
                     style={{

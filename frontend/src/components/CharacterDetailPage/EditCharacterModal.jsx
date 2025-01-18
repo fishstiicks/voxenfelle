@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import * as characterActions from '../../store/characters';
 
-const EditCharacterModal = ({ character, refreshCharacter, handleNameChange }) => {
+const EditCharacterModal = ({ character, refreshCharacter, handleNameChange, convertCm }) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
@@ -15,13 +15,13 @@ const EditCharacterModal = ({ character, refreshCharacter, handleNameChange }) =
   const [weapon, setWeapon] = useState(character.weapon || '');
   const [power, setPower] = useState(character.power || '');
   const [picrew, setPicrew] = useState(character.picrew || '');
-  const [state, setState] = useState(character.state || 'NPC');
+  const [state, setState] = useState(character.state || 'PC');
   const [lineage, setLineage] = useState(character.lineage || 'Civilian');
   const [source, setSource] = useState(character.source || 'Aura');
   const [hexcode, setHexcode] = useState(character.hexcode || '');
   const [reputation, setReputation] = useState(character.reputation || '');
-  const [className, setClassName] = useState(character.class || '');
-  const [dorm, setDorm] = useState(character.dorm || '');
+  const [className, setClassName] = useState(character.class || '2-A');
+  const [dorm, setDorm] = useState(character.dorm || '101');
   const [str, setStr] = useState(character.str || 0);
   const [dex, setDex] = useState(character.dex || 0);
   const [con, setCon] = useState(character.con || 0);
@@ -73,240 +73,251 @@ const EditCharacterModal = ({ character, refreshCharacter, handleNameChange }) =
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Edit Character</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <span>Name</span>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </label>
-          {errors.name && <p>{errors.name}</p>}
+        <h1>Edit Character</h1>
+      <form onSubmit={handleSubmit}>
+      <label>
+          <span>Picrew URL</span>
+          <input
+            type="text"
+            value={picrew}
+            onChange={(e) => setPicrew(e.target.value)}
+            required
+          />
+        </label>
+        {errors.picrew && <p>{errors.picrew}</p>}
 
-          <label>
-            <span>Full Name</span>
-            <input
-              type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              required
-            />
-          </label>
-          {errors.fullName && <p>{errors.fullName}</p>}
+        <label>
+          <span>Type</span>
+          <select value={state} onChange={(e) => setState(e.target.value)} required>
+            <option value="PC">PC</option>
+            <option value="NPC">NPC</option>
+          </select>
+        </label>
+        {errors.state && <p>{errors.state}</p>}
 
-          <label>
-            <span>Pronouns</span>
-            <input
-              type="text"
-              value={pronouns}
-              onChange={(e) => setPronouns(e.target.value)}
-            />
-          </label>
-          {errors.pronouns && <p>{errors.pronouns}</p>}
+        <label>
+          <span>Name</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
+        {errors.name && <p>{errors.name}</p>}
 
+        <label>
+          <span>Full Name</span>
+          <input
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
+        </label>
+        {errors.fullName && <p>{errors.fullName}</p>}
+
+        <label>
+          <span>Pronouns</span>
+          <input
+            type="text"
+            value={pronouns}
+            onChange={(e) => setPronouns(e.target.value)}
+          />
+        </label>
+        {errors.pronouns && <p>{errors.pronouns}</p>}
+
+        <label>
+        <span>Height (cm)</span>
+        <input
+            type="number"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+            required
+        />
+        </label>
+        {height && (
+        <p className="ft-text">&nbsp;Converted Height: {convertCm(height)}</p>
+        )}
+        {errors.height && <p>{errors.height}</p>}
+
+        <label>
+          <span>Weapon</span>
+          <textarea
+            id="description"
+            value={weapon}
+            onChange={(e) => setWeapon(e.target.value)}
+            required
+          />
+        </label>
+        {errors.weapon && <p>{errors.weapon}</p>}
+
+        <label>
+          <span>Power</span>
+          <textarea
+            id="description"
+            value={power}
+            onChange={(e) => setPower(e.target.value)}
+            required
+          />
+        </label>
+        {errors.power && <p>{errors.power}</p>}
+
+        <label>
+          <span>Reputation</span>
+          <textarea
+            id="description"
+            type="text"
+            value={reputation}
+            onChange={(e) => setReputation(e.target.value)}
+            required
+          />
+        </label>
+        {errors.reputation && <p>{errors.reputation}</p>}
+
+        <label>
+          <span>Lineage</span>
+          <select value={lineage} onChange={(e) => setLineage(e.target.value)} required>
+            <option value="Civilian">Civilian</option>
+            <option value="Noble">Noble</option>
+          </select>
+        </label>
+        {errors.lineage && <p>{errors.lineage}</p>}
+
+        <label>
+          <span>Source</span>
+          <select value={source} onChange={(e) => setSource(e.target.value)} required>
+            <option value="Aura">Aura</option>
+            <option value="Void">Void</option>
+            <option value="None">None</option>
+          </select>
+        </label>
+        {errors.source && <p>{errors.source}</p>}
+
+        <label>
+          <span>Hexcode</span>
+          <input
+            type="text"
+            placeholder="(fill with # if aura)"
+            value={hexcode}
+            
+            onChange={(e) => setHexcode(e.target.value)}
+          />
+        </label>
+        {errors.hexcode && <p>{errors.hexcode}</p>}
+
+        <label>
+          <span>Class</span>
+          <select value={className} onChange={(e) => setClassName(e.target.value)} required>
+            <option value="2-A">2-A</option>
+            <option value="2-B">2-B</option>
+            <option value="2-C">2-C</option>
+          </select>
+        </label>
+        {errors.class && <p>{errors.class}</p>}
+
+        <label>
+          <span>Dorm</span>
+          <select value={dorm} onChange={(e) => setDorm(e.target.value)} required>
+            <option value="101">101</option>
+            <option value="102">102</option>
+            <option value="103">103</option>
+            <option value="104">104</option>
+            <option value="105">105</option>
+            <option value="106">106</option>
+            <option value="201">101</option>
+            <option value="202">202</option>
+            <option value="203">203</option>
+            <option value="204">204</option>
+            <option value="205">205</option>
+            <option value="206">206</option>
+            <option value="301">301</option>
+            <option value="302">302</option>
+            <option value="303">303</option>
+            <option value="304">304</option>
+            <option value="305">305</option>
+            <option value="306">306</option>
+            <option value="401">401</option>
+            <option value="402">402</option>
+            <option value="403">403</option>
+            <option value="404">404</option>
+            <option value="405">405</option>
+            <option value="406">406</option>
+          </select>
+        </label>
+        {errors.dorm && <p>{errors.dorm}</p>}
+
+        <div id="table-boxes">
           <label>
-            <span>Height</span>
+            <span>Strength</span>
             <input
               type="number"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-            />
-          </label>
-          {errors.height && <p>{errors.height}</p>}
-
-          <label>
-            <span>Weapon</span>
-            <input
-              type="text"
-              value={weapon}
-              onChange={(e) => setWeapon(e.target.value)}
-            />
-          </label>
-          {errors.weapon && <p>{errors.weapon}</p>}
-
-          <label>
-            <span>Power</span>
-            <input
-              type="text"
-              value={power}
-              onChange={(e) => setPower(e.target.value)}
-            />
-          </label>
-          {errors.power && <p>{errors.power}</p>}
-
-          <label>
-            <span>Picrew URL</span>
-            <input
-              type="text"
-              value={picrew}
-              onChange={(e) => setPicrew(e.target.value)}
-            />
-          </label>
-          {errors.picrew && <p>{errors.picrew}</p>}
-
-          <label>
-            <span>State</span>
-            <select value={state} onChange={(e) => setState(e.target.value)} required>
-              <option value="PC">PC</option>
-              <option value="NPC">NPC</option>
-            </select>
-          </label>
-          {errors.state && <p>{errors.state}</p>}
-
-          <label>
-            <span>Lineage</span>
-            <select value={lineage} onChange={(e) => setLineage(e.target.value)} required>
-              <option value="Civilian">Civilian</option>
-              <option value="Noble">Noble</option>
-            </select>
-          </label>
-          {errors.lineage && <p>{errors.lineage}</p>}
-
-          <label>
-            <span>Source</span>
-            <select value={source} onChange={(e) => setSource(e.target.value)} required>
-              <option value="Aura">Aura</option>
-              <option value="Void">Void</option>
-            </select>
-          </label>
-          {errors.source && <p>{errors.source}</p>}
-
-          <label>
-            <span>Hexcode</span>
-            <input
-              type="text"
-              value={hexcode}
-              onChange={(e) => setHexcode(e.target.value)}
+              value={str}
+              onChange={(e) => setStr(e.target.value)}
               required
             />
           </label>
-          {errors.hexcode && <p>{errors.hexcode}</p>}
+          {errors.str && <p>{errors.str}</p>}
 
           <label>
-            <span>Reputation</span>
+            <span>Dexterity</span>
             <input
-              type="text"
-              value={reputation}
-              onChange={(e) => setReputation(e.target.value)}
+              type="number"
+              value={dex}
+              onChange={(e) => setDex(e.target.value)}
               required
             />
           </label>
-          {errors.reputation && <p>{errors.reputation}</p>}
+          {errors.dex && <p>{errors.dex}</p>}
 
           <label>
-            <span>Class</span>
+            <span>Constitution</span>
             <input
-              type="text"
-              value={className}
-              onChange={(e) => setClassName(e.target.value)}
+              type="number"
+              value={con}
+              onChange={(e) => setCon(e.target.value)}
               required
             />
           </label>
-          {errors.class && <p>{errors.class}</p>}
+          {errors.con && <p>{errors.con}</p>}
 
           <label>
-            <span>Dorm</span>
+            <span>Charisma</span>
             <input
-              type="text"
-              value={dorm}
-              onChange={(e) => setDorm(e.target.value)}
+              type="number"
+              value={cha}
+              onChange={(e) => setCha(e.target.value)}
               required
             />
           </label>
-          {errors.dorm && <p>{errors.dorm}</p>}
-
-          <div>
-            <label>
-              <span>Strength</span>
-              <input
-                type="number"
-                value={str}
-                onChange={(e) => setStr(e.target.value)}
-                required
-              />
-            </label>
-            {errors.str && <p>{errors.str}</p>}
-
-            <label>
-              <span>Dexterity</span>
-              <input
-                type="number"
-                value={dex}
-                onChange={(e) => setDex(e.target.value)}
-                required
-              />
-            </label>
-            {errors.dex && <p>{errors.dex}</p>}
-
-            <label>
-              <span>Constitution</span>
-              <input
-                type="number"
-                value={con}
-                onChange={(e) => setCon(e.target.value)}
-                required
-              />
-            </label>
-            {errors.con && <p>{errors.con}</p>}
-
-            <label>
-              <span>Charisma</span>
-              <input
-                type="number"
-                value={cha}
-                onChange={(e) => setCha(e.target.value)}
-                required
-              />
-            </label>
-            {errors.cha && <p>{errors.cha}</p>}
-
-            <label>
-              <span>Intelligence</span>
-              <input
-                type="number"
-                value={int}
-                onChange={(e) => setInt(e.target.value)}
-                required
-              />
-            </label>
-            {errors.int && <p>{errors.int}</p>}
-
-            <label>
-              <span>Magic</span>
-              <input
-                type="number"
-                value={mag}
-                onChange={(e) => setMag(e.target.value)}
-                required
-              />
-            </label>
-            {errors.mag && <p>{errors.mag}</p>}
-          </div>
+          {errors.cha && <p>{errors.cha}</p>}
 
           <label>
-            <span>Soulbond</span>
+            <span>Intelligence</span>
             <input
-              type="checkbox"
-              checked={soulbond}
-              onChange={(e) => setSoulbond(e.target.checked)}
+              type="number"
+              value={int}
+              onChange={(e) => setInt(e.target.value)}
+              required
             />
           </label>
+          {errors.int && <p>{errors.int}</p>}
 
           <label>
-            <span>Souldrop</span>
+            <span>Magic</span>
             <input
-              type="checkbox"
-              checked={souldrop}
-              onChange={(e) => setSouldrop(e.target.checked)}
+              type="number"
+              value={mag}
+              onChange={(e) => setMag(e.target.value)}
+              required
             />
           </label>
+          {errors.mag && <p>{errors.mag}</p>}
+        </div>
 
           <div className="form-buttons">
-            <button type="submit">Save Changes</button>
-            <button type="button" onClick={closeModal}>Cancel</button>
+            <button type="submit">Edit Character</button>
+            <button type="button" onClick={closeModal} className="cancel-btn">Cancel</button>
           </div>
         </form>
       </div>

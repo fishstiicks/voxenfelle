@@ -139,6 +139,28 @@ export const removeClub = (clubId) => async (dispatch) => {
     }
 };
 
+// CREATE MEMBERSHIP
+export const createMembership = (clubName, characterName) => async (dispatch) => {
+    try {
+        const response = await csrfFetch(`/api/clubs/${clubName}/${characterName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            const newMembership = await response.json();
+            dispatch(addMembership(newMembership));
+        } else {
+            const errorData = await response.json();
+            dispatch(setErrors(errorData.message || 'Failed to add membership.'));
+        }
+    } catch (error) {
+        console.error('Error adding membership:', error);
+        dispatch(setErrors('An error occurred while adding membership.'));
+    }
+};
 
 const initialState = {
     clubs: [],
@@ -167,7 +189,16 @@ const clubsReducer = (state = initialState, action) => {
         case SET_MEMBERSHIPS:
             return { ...state, memberships: action.payload.memberships };
         case ADD_MEMBERSHIP:
-            return { ...state, memberships: [...state.memberships, action.payload.membership] };
+            return {
+                ...state,
+                membershipsByClub: {
+                    ...state.membershipsByClub,
+                    [action.payload.membership.club]: [
+                        ...(state.membershipsByClub[action.payload.membership.club] || []),
+                        action.payload.membership,
+                    ],
+                },
+            };
         case DELETE_MEMBERSHIP:
             return {
                 ...state,

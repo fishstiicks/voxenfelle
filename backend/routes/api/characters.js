@@ -30,11 +30,8 @@ const validateCharacter = [
     .isIn(['Civilian', 'Noble'])
     .withMessage('Lineage must be either "Civilian" or "Noble".'),
   check('source')
-    .isIn(['Aura', 'Void'])
-    .withMessage('Source must be either "Aura" or "Void".'),
-  check('hexcode')
-    .exists({ checkFalsy: true })
-    .withMessage('Hexcode is required.'),
+    .isIn(['Aura', 'Void', 'None'])
+    .withMessage('Source must be either "Aura", "Void", or "None".'),
   check('weapon')
     .exists({ checkFalsy: true })
     .withMessage('Weapon is required.'),
@@ -99,14 +96,29 @@ router.post('/', validateCharacter, async (req, res) => {
 
 // GET ALL CHARACTERS
 router.get('/', async (req, res) => {
-  try {
-    const characters = await Character.findAll();
-    return res.status(200).json({ characters: characters });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Unable to fetch characters.' });
-  }
-});
+    try {
+      const characters = await Character.findAll({
+        order: [['name', 'ASC']],
+      });
+      return res.status(200).json({ characters: characters });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Unable to fetch characters.' });
+    }
+  });
+
+// GET ALL CHARACTERS BY MUN
+router.get('/mun/:name', async (req, res) => {
+    try {
+      const { name } = req.params;
+      const characters = await Character.findAll({
+        where: { mun: name }})
+      return res.status(200).json({ characters });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Unable to fetch characters.' });
+    }
+  });
 
 // GET CHARACTER BY NAME
 router.get('/:name', async (req, res) => {
@@ -215,30 +227,28 @@ router.get('/:characterName/relationships', async (req, res) => {
   
       console.log('Fetching relationships for:', characterName);
   
-      // Fetch relationships where the given character is "them"
       const relationships = await Relationship.findAll({
         where: { them: characterName },
         include: [
           {
             model: Character,
-            attributes: ['name', 'picrew'], // No alias used here
-          }
+            attributes: ['name', 'picrew'],
+          },
         ],
+        order: [['updatedAt', 'DESC']],
       });
   
       if (relationships.length === 0) {
         console.log('No relationships found');
       }
   
-      // Map through relationships to include the picrew URL for 'youCharacter'
       const relationshipsWithPicrew = relationships.map((relationship) => ({
         ...relationship.toJSON(),
-        youPicrew: relationship.Character.picrew, // Access the included Character model
+        youPicrew: relationship.Character.picrew,
       }));
   
       console.log('Relationships with picrew:', relationshipsWithPicrew);
   
-      // Respond with relationships data
       res.json({ Relationships: relationshipsWithPicrew });
     } catch (error) {
       console.error('Error fetching relationships:', error);

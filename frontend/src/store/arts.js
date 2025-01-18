@@ -23,17 +23,17 @@ const getArtByMun = (art) => createAction(GET_ART_BY_MUN, art);
 // GET ART
 export const fetchArts = () => async (dispatch) => {
     try {
-      const response = await csrfFetch("/api/arts");  // Make the GET request to the correct endpoint
+      const response = await csrfFetch("/api/arts");
   
       if (response.ok) {
         const data = await response.json();
-        dispatch(setArts(data.arts));  // Dispatch the action to update the arts in the Redux store
+        dispatch(setArts(data.arts));
       } else {
         const errorData = await response.json();
-        dispatch(setErrors(errorData.error || 'Failed to load arts.'));  // Dispatch error action
+        dispatch(setErrors(errorData.error || 'Failed to load arts.'));
       }
     } catch (error) {
-      dispatch(setErrors('An error occurred while fetching arts.'));  // Handle any errors
+      dispatch(setErrors('An error occurred while fetching arts.'));
     }
   };
   
@@ -74,7 +74,7 @@ export const updateArtData = (id, updatedArtData) => async (dispatch) => {
 
         if (response.ok) {
             const updatedArt = await response.json();
-            dispatch(updateArt(updatedArt)); // Dispatch to update art
+            dispatch(updateArt(updatedArt));
             return updatedArt;
         } else {
             const errorData = await response.json();
@@ -97,7 +97,7 @@ export const removeArt = (artId) => async (dispatch) => {
         });
 
         if (response.ok) {
-            dispatch(deleteArt(artId)); // Dispatch to remove art
+            dispatch(deleteArt(artId));
         } else {
             const errorData = await response.json();
             dispatch(setErrors(errorData.error || 'Failed to delete art.'));
@@ -119,7 +119,7 @@ export const fetchArtById = (id) => async (dispatch) => {
 
         if (response.ok) {
             const data = await response.json();
-            dispatch(getArtById(data)); // Dispatch to get art by ID
+            dispatch(getArtById(data));
         } else {
             const errorData = await response.json();
             dispatch(setErrors(errorData.error || 'Failed to fetch art by ID.'));
@@ -141,7 +141,7 @@ export const fetchArtByCharacter = (character) => async (dispatch) => {
 
         if (response.ok) {
             const data = await response.json();
-            dispatch(getArtByCharacter(data.Art)); // Dispatch to get art by character
+            dispatch(getArtByCharacter(data.Art));
         } else {
             const errorData = await response.json();
             dispatch(setErrors(errorData.error || 'Failed to fetch art by character.'));
@@ -163,7 +163,7 @@ export const fetchArtByMun = (mun) => async (dispatch) => {
 
         if (response.ok) {
             const data = await response.json();
-            dispatch(getArtByMun(data.Art)); // Dispatch to get art by Mun
+            dispatch(getArtByMun(data.Art));
         } else {
             const errorData = await response.json();
             dispatch(setErrors(errorData.error || 'Failed to fetch art by Mun.'));
@@ -200,9 +200,9 @@ const artReducer = (state = initialState, action) => {
       case GET_ART_BY_ID:
         return { ...state, arts: [action.payload.art] };
       case GET_ART_BY_CHARACTER:
-        return { ...state, arts: action.payload.art };
+        return { ...state, arts: action.payload };
       case GET_ART_BY_MUN:
-        return { ...state, arts: action.payload.art };
+        return { ...state, arts: action.payload };
       case SET_ERRORS:
         return { ...state, errors: action.payload };
       default:

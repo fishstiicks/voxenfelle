@@ -10,25 +10,22 @@ const validateClub = [
     .optional() 
     .isString()
     .withMessage('Club name must be a string.')
-    .isLength({ max: 255 })
-    .withMessage('Club name must be at most 255 characters long.'),
+    .isLength({ max: 50 })
+    .withMessage('Club name max 50.'),
   check('description')
     .optional() 
-    .isString()
-    .withMessage('Description must be a string.')
-    .isLength({ max: 1000 })
-    .withMessage('Description must be at most 1000 characters long.'),
+    .isLength({ max: 80 })
+    .withMessage('Description must be at most 80 characters long.'),
   handleValidationErrors
 ];
 
 const validateMembership = [
-    check('club')
-      .exists({ checkFalsy: true })
-      .withMessage('Club is required'),
-    check('character')
-      .exists({ checkFalsy: true })
-      .withMessage('Character is required'),
-    handleValidationErrors
+    check('clubName')
+    .exists({ checkFalsy: true })
+    .withMessage('Club is required'),
+  check('characterName')
+    .exists({ checkFalsy: true })
+    .withMessage('Character is required'),
   ];
 
 const router = express.Router();
@@ -185,63 +182,53 @@ router.get('/memberships', async (req, res) => {
     }
   });
 
-  router.get('/:clubName/members', async (req, res) => {
+// GET ALL MEMBERS IN A CLUB
+router.get('/:clubName/members', async (req, res) => {
     try {
-      const { clubName } = req.params;
-      console.log("Fetching memberships for club: ", clubName);
-  
-      const memberships = await Membership.findAll({
+        const { clubName } = req.params;
+
+        const memberships = await Membership.findAll({
         where: { club: clubName },
         include: [{
-          model: Character,
-          attributes: ['name', 'picrew']
+            model: Character,
+            attributes: ['name', 'picrew']
         }]
-      });
-  
-      console.log("Found memberships: ", memberships);
-  
-      if (memberships.length === 0) {
+        });
+
+        if (memberships.length === 0) {
         return res.status(404).json({ error: `No memberships found for the club: ${clubName}` });
-      }
-  
-      const membersWithDetails = memberships.map(membership => ({
+        }
+
+        const membersWithDetails = memberships.map(membership => ({
         id: membership.id,
         character: membership.Character
-      }));
-  
-      return res.status(200).json({ Memberships: membersWithDetails });
+        }));
+
+        return res.status(200).json({ Memberships: membersWithDetails });
     } catch (error) {
-      console.error(error);
-      return res.status(500).json({ error: 'Unable to fetch memberships.' });
+        return res.status(500).json({ error: 'Unable to fetch memberships.' });
     }
-  });
-  
-
-  router.delete('/:clubName/:characterName', requireAuth, async (req, res) => {
-  try {
-    const { clubName, characterName } = req.params;
-    const { user } = req;
-
-    const membership = await Membership.findOne({
-      where: { club: clubName, character: characterName }
-    });
-
-    if (!membership) {
-      return res.status(404).json({ message: `Membership not found for club: ${clubName} and character: ${characterName}.` });
-    }
-
-    if (user.username !== membership.mun) {
-      return res.status(403).json({ message: 'You are not authorized to delete this membership.' });
-    }
-
-    await membership.destroy();
-    return res.status(200).json({ message: 'Successfully deleted' });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Something went wrong while deleting the membership.' });
-  }
 });
 
+// GET ALL CLUBS FOR A CHARACTER
+router.get('/:name/clubs', async (req, res) => {
+    try {
+        const { name } = req.params;
+
+        const memberships = await Membership.findAll({
+        where: { character: name }
+        });
+
+        if (memberships.length === 0) {
+        return res.status(404).json({ error: `No memberships found for this character.` });
+        }
+
+        return res.status(200).json({ Memberships: memberships });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Unable to fetch memberships.' });
+    }
+});
 
 // DELETE A MEMBERSHIP
 router.delete('/:clubName/:characterName', requireAuth, async (req, res) => {

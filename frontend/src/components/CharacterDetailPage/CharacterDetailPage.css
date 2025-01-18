@@ -1,17 +1,27 @@
+#char-link-name {
+    text-align: center;
+    font-size: 25px;
+    margin-top: -5px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .character-links {
     display: flex;
     flex-direction: column;
     position: fixed;
     width: 10%;
-    background-color: #FAD058;
+    background-color: #F9CF57;
     left: 15px;
     padding-bottom: 10px;
     top: 0;
     padding-top: 110px;
+    font-family: 'B612 Mono', monospace;
 }
 
 .character-links a {
-    background-color: #FAD058;
+    background-color: #F9CF57;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -22,12 +32,18 @@
 }
 
 .character-links a:hover {
-    background-color: #f2b600;
+    background-color: rgb(224, 168, 0);
     cursor: pointer;
 }
 
+.char-link-btn {
+    width: 100%;
+    text-align: right;
+    font-family: 'B612 Mono', monospace;
+}
+
 #char-middle {
-    margin-left: 15%;
+    margin-left: 14%;
 }
 
 .char-image {
@@ -38,6 +54,11 @@
 .character-header {
     display: flex;
     margin-top: 20px;
+    margin-left: 50px;
+}
+
+.character-header-text {
+    display: grid;
 }
 
 #character-title {
@@ -48,14 +69,14 @@
 }
 
 #character-reputation {
-    margin-left: 220px;
-    margin-top: -60px;
+    margin-left: 20px;
+    margin-top: -20px;
     margin-bottom: 20px;
 }
 
 #char-stats {
     text-align: right;
-    color: rgb(129, 129, 129);
+    color: #8b8b92;
     font-size: 12px;
     margin-right: 5px;
 }
@@ -130,7 +151,7 @@ font-family: 'B612 Mono', monospace;
 }
 
 #review-date {
-    color:#464646;
+    color:#39393A;
     margin-top: -20px;
     font-size: 12px;
     text-align: right;
@@ -140,6 +161,15 @@ font-family: 'B612 Mono', monospace;
 hr {
     border: 0;
     border-top: 1px solid #969696;
-    margin-left: auto; /* Centers the <hr /> */
+    margin-left: auto;
     margin-right: auto;
   }
+
+#clubs-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 20px;
+    padding-left: 0;
+    margin: 0;
+}

@@ -17,7 +17,6 @@ function CharacterRelationsPage() {
 
   const characters = useSelector((state) => state.characters.characters) || [];
   const relationships = useSelector((state) => state.relationships.relationships) || {};
-  const errors = useSelector((state) => state.characters.errors);
   const user = useSelector((state) => state.session.user);
 
   const { setModalContent, openModal } = useModal();
@@ -58,9 +57,7 @@ function CharacterRelationsPage() {
           otherCharacterName={otherCharacterName}
           refreshRelationships={refreshRelationships}
         />
-      );
-      openModal();
-    }
+      )}
   };
 
   const openEditRelationshipModal = (otherCharacterName) => {
@@ -73,9 +70,7 @@ function CharacterRelationsPage() {
           currentRelationship={relationships[otherCharacterName]}
           refreshRelationships={refreshRelationships}
         />
-      );
-      openModal();
-    }
+      )}
   };
 
   const openDeleteRelationshipModal = (relationshipId) => {
@@ -86,9 +81,7 @@ function CharacterRelationsPage() {
         relationshipId={relationshipId}
         refreshRelationships={refreshRelationships}
         onDelete={() => handleDelete(relationshipId)}
-      />
-    );
-    openModal();
+      />)
   };
 
   const handleDelete = async (relationshipId) => {
@@ -120,64 +113,87 @@ function CharacterRelationsPage() {
     });
   };
 
+  if (!character) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="main-content">
-      <div className="character-list">
-        {errors && <p className="error-message">{errors}</p>}
-        {characters.length > 0 ? (
-          characters.map((characterItem) => {
-            return (
-              <div key={characterItem.id} className="character-item" title={characterItem.name}>
-                <Link to={`/characters/${characterItem.name}`}>
-                  <img
-                    src={characterItem.picrew}
-                    alt={characterItem.name}
-                    className="character-image"
-                  />
-                  <div id="character-name-pronouns">
-                    <div id="character-name">{characterItem.name}</div>
-                    <div id="character-pronouns"><i>{characterItem.pronouns}</i></div>
-                  </div>
-                </Link>
+      <div className="character-links">
+        <p id="char-link-name" className="character-name">{name}</p>
+        <a href={`/characters/${name}`}>Profile</a>
+        <a href={`/characters/${name}/relations`}>Relations</a>
+        <a href={`/characters/${name}/art`}>Art</a>
+        <a href={`/users/${character.mun}/characters`}>Mun</a>
+      </div>
 
-                <div id="relationship-text">{relationships[characterItem.name] ? (
-                  <div>
-                    <p className="relationship-info">
-                      <span id="special-tag"><b>{relationships[characterItem.name].special} </b></span>
-                      <span id="relationship-desc">{relationships[characterItem.name].description}</span>
-                      <div id="updated-at">
-                        <i>Last updated: {formatDate(relationships[characterItem.name].updatedAt)}</i>
-                      </div>
-                    </p>
-                  </div>
-                ) : (
-                  <p>No relationship exists yet.</p>
-                )}</div>
+      <div id="relations-list">
+        <div className="character-list">
+          {characters.length > 0 ? (
+            characters.map((characterItem) => {
+              const displayHex = characterItem.source === 'Void' ? '#c21c1c' : characterItem.hexcode;
 
-                {user && character && character.mun === user.username && (
-                  <div id="relationship-buttons">
-                    {relationships[characterItem.name] ? (
-                      <>
-                        <button onClick={() => openEditRelationshipModal(characterItem.name)} className="grey-btn">
-                          Edit Relationship
+              return (
+                <div key={characterItem.id} className="character-item" title={characterItem.name}>
+                  <Link to={`/characters/${characterItem.name}`}>
+                    <img
+                      style={{
+                        backgroundColor: `${displayHex}`,
+                      }}
+                      src={characterItem.picrew}
+                      alt={characterItem.name}
+                      className="character-image"
+                    />
+                    <div id="character-name-pronouns">
+                      {characterItem.source === 'Void' ? (
+                        <div id="character-bar" style={{ color: '#c21c1c' }}>✖</div>
+                      ) : (characterItem.source !== 'None' && (
+                        <div id="character-bar" style={{ color: displayHex }}>✦</div>
+                      ))}
+                      <div id="character-name">{characterItem.name}</div>
+                      <div id="character-pronouns"><i>{characterItem.pronouns}</i></div>
+                    </div>
+                  </Link>
+
+                  <div id="relationship-text">{relationships[characterItem.name] ? (
+                    <div>
+                      <p className="relationship-info">
+                        <span id="special-tag"><b>{relationships[characterItem.name].special} </b></span>
+                        <span id="relationship-desc">{relationships[characterItem.name].description}</span>
+                        <div id="updated-at">
+                          <i>Last updated: {formatDate(relationships[characterItem.name].updatedAt)}</i>
+                        </div>
+                      </p>
+                    </div>
+                  ) : (
+                    <p></p>
+                  )}</div>
+
+                  {user && character && character.mun === user.username && (
+                    <div id="relationship-buttons">
+                      {relationships[characterItem.name] ? (
+                        <>
+                          <button onClick={() => openEditRelationshipModal(characterItem.name)} className="grey-btn">
+                            Edit Relationship
+                          </button>
+                          <button onClick={() => openDeleteRelationshipModal(relationships[characterItem.name].id)} className="grey-btn">
+                            Delete Relationship
+                          </button>
+                        </>
+                      ) : (
+                        <button onClick={() => openCreateRelationshipModal(characterItem.name)} className="grey-btn">
+                          Create Relationship
                         </button>
-                        <button onClick={() => openDeleteRelationshipModal(relationships[characterItem.name].id)} className="grey-btn">
-                          Delete Relationship
-                        </button>
-                      </>
-                    ) : (
-                      <button onClick={() => openCreateRelationshipModal(characterItem.name)} className="grey-btn">
-                        Create Relationship
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })
-        ) : (
-          <p>No characters available.</p>
-        )}
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          ) : (
+            <p>No characters available.</p>
+          )}
+        </div>
       </div>
       <div className="fixed-gradient"></div>
     </div>

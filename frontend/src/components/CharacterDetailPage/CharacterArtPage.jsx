@@ -1,27 +1,45 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArts, removeArt } from '../../store/arts';
+import { useParams, Link } from 'react-router-dom';
+import { fetchArtByCharacter, removeArt } from '../../store/arts';
 import { useModal } from '../../context/Modal';
-import { Link } from 'react-router-dom';
 import CreateArtModal from '../ArtsPage/CreateArtModal';
 import EditArtModal from '../ArtsPage/EditArtModal';
 import ArtModal from '../ArtsPage/ArtFullModal';
-import '../ArtsPage/ArtsPage.css';
+import '../CharacterDetailPage/CharacterArtPage.css'
 
 function ArtsPage() {
   const dispatch = useDispatch();
+  const { name } = useParams();
   const arts = useSelector((state) => state.arts.arts) || [];
-  const errors = useSelector((state) => state.arts.errors);
   const user = useSelector((state) => state.session.user);
+  const [character, setCharacter] = useState(null);
   const { setModalContent, openModal } = useModal();
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchArts());
-  }, [dispatch]);
+    const fetchCharacter = async () => {
+      try {
+        const response = await fetch(`/api/characters/${name}`);
+        if (!response.ok) {
+          throw new Error('Character not found');
+        }
+        const data = await response.json();
+        setCharacter(data);
+      } catch (error) {
+        setCharacter(null);
+      }
+    };
+
+    fetchCharacter();
+  }, [name]);
+
+  useEffect(() => {
+    dispatch(fetchArtByCharacter(name));
+  }, [dispatch, name]);
 
   const refreshArts = () => {
-    dispatch(fetchArts());
+    dispatch(fetchArtByCharacter(name));
   };
 
   const openCreateArtModal = () => {
@@ -46,19 +64,30 @@ function ArtsPage() {
     setSelectedImage(null);
   };
 
+  if (!character) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>
+    <div className="character-links">
+            <p id="char-link-name" className="character-name">{name}</p>
+            <a href={`/characters/${name}`}>Profile</a>
+                <a href={`/characters/${name}/relations`}>Relations</a>
+                <a href={`/characters/${name}/art`}>Art</a>
+                <a href={`/users/${character.mun}/characters`}>Mun</a>
+    </div>
+
       {user && (
         <div className="create-art-btn-container">
-            <button onClick={openCreateArtModal} className="create-art-btn">
-                Add Image
-            </button>
-        </div>
+        <button onClick={openCreateArtModal} className="create-art-btn">
+            Add Image
+        </button>
+    </div>
       )}
 
+      <div id="char-art-list">
       <div className="art-list">
-        {errors && <p className="error-message">{errors}</p>}
         {arts.length > 0 ? (
           arts.map((art) => {
             if (!art || !art.url) return null;
@@ -71,7 +100,7 @@ function ArtsPage() {
                   onClick={() => openFullSizeModal(art.url)}
                 />
                 <div className="art-details">
-                  <span id="art-info"><Link to={`/characters/${art.character}/art`}>{art.character}</Link> by <Link to={`/users/${art.mun}/art`}>{art.mun}</Link></span>
+                <span id="art-info">By <Link to={`/users/${art.mun}/art`}>{art.mun}</Link></span>
                   {user && art.mun === user.username && (
                     <span id="art-buttons">
                       <button
@@ -96,11 +125,12 @@ function ArtsPage() {
           <p>No art available.</p>
         )}
       </div>
+      
 
       {selectedImage && (
         <ArtModal imageUrl={selectedImage} onClose={closeModal} />
       )}
-
+    </div>
     <div className="fixed-gradient"></div>
     </div>
   );

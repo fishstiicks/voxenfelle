@@ -1,27 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArts, removeArt } from '../../store/arts';
+import { useParams, Link } from 'react-router-dom';
+import { fetchArtByMun, removeArt } from '../../store/arts';
 import { useModal } from '../../context/Modal';
-import { Link } from 'react-router-dom';
 import CreateArtModal from '../ArtsPage/CreateArtModal';
 import EditArtModal from '../ArtsPage/EditArtModal';
 import ArtModal from '../ArtsPage/ArtFullModal';
-import '../ArtsPage/ArtsPage.css';
+import '../CharacterDetailPage/CharacterArtPage.css'
 
 function ArtsPage() {
   const dispatch = useDispatch();
+  const { name } = useParams();
   const arts = useSelector((state) => state.arts.arts) || [];
-  const errors = useSelector((state) => state.arts.errors);
   const user = useSelector((state) => state.session.user);
   const { setModalContent, openModal } = useModal();
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchArts());
-  }, [dispatch]);
+    dispatch(fetchArtByMun(name));
+  }, [dispatch, name]);
 
   const refreshArts = () => {
-    dispatch(fetchArts());
+    dispatch(fetchArtByMun(name));
   };
 
   const openCreateArtModal = () => {
@@ -49,16 +49,22 @@ function ArtsPage() {
 
   return (
     <div>
+    <div className="character-links">
+            <p id="char-link-name" className="character-name">{name}</p>
+            <a href={`/users/${name}/characters`}>Characters</a>
+            <a href={`/users/${name}/art`}>Art</a>
+    </div>
+
       {user && (
         <div className="create-art-btn-container">
-            <button onClick={openCreateArtModal} className="create-art-btn">
-                Add Image
-            </button>
-        </div>
+        <button onClick={openCreateArtModal} className="create-art-btn">
+            Add Image
+        </button>
+    </div>
       )}
 
+      <div id="char-art-list">
       <div className="art-list">
-        {errors && <p className="error-message">{errors}</p>}
         {arts.length > 0 ? (
           arts.map((art) => {
             if (!art || !art.url) return null;
@@ -71,7 +77,7 @@ function ArtsPage() {
                   onClick={() => openFullSizeModal(art.url)}
                 />
                 <div className="art-details">
-                  <span id="art-info"><Link to={`/characters/${art.character}/art`}>{art.character}</Link> by <Link to={`/users/${art.mun}/art`}>{art.mun}</Link></span>
+                <span id="art-info"><Link to={`/characters/${art.character}/art`}>{art.character}</Link></span>
                   {user && art.mun === user.username && (
                     <span id="art-buttons">
                       <button
@@ -96,11 +102,12 @@ function ArtsPage() {
           <p>No art available.</p>
         )}
       </div>
+      
 
       {selectedImage && (
         <ArtModal imageUrl={selectedImage} onClose={closeModal} />
       )}
-
+    </div>
     <div className="fixed-gradient"></div>
     </div>
   );

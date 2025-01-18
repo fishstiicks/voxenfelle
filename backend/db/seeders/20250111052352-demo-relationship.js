@@ -5,14 +5,13 @@ module.exports = {
     await queryInterface.bulkInsert('Relationships', [{
       you: 'War',
       them: 'Chou-chou',
-      special: 'Soulbond',
+      special: 'Protective',
       description: 'Annoying pink thing, but I like her.',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       you: 'Chou-chou',
       them: 'War',
-      special: 'N/A',
       description: 'Old comrades.',
       createdAt: new Date(),
       updatedAt: new Date()

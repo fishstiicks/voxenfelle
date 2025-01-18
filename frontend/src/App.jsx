@@ -6,8 +6,12 @@ import Header from './components/Header/Header';
 import CharactersPage from './components/CharactersPage/CharactersPage.jsx';
 import ClubsPage from './components/ClubsPage/ClubsPage.jsx';
 import ArtsPage from './components/ArtsPage/ArtsPage.jsx';
+import UserArtPage from './components/UserPages/UserArtPage.jsx';
+import UserCharactersPage from './components/UserPages/UserCharactersPage.jsx';
+import CharacterArtPage from './components/CharacterDetailPage/CharacterArtPage.jsx'
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage.jsx';
 import CharacterRelationsPage from './components/CharacterRelationsPage/CharacterRelationsPage.jsx';
+import HomePage from './components/HomePage/HomePage.jsx'
 import * as sessionActions from './store/session';
 
 function Layout() {
@@ -35,7 +39,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>Welcome!</h1>,
+        element: <HomePage />,
       },
       {
         path: '/characters',
@@ -43,19 +47,31 @@ const router = createBrowserRouter([
       },
       {
         path: '/characters/:name',
-        element: <CharacterDetailPage />,  // Route to the CharacterDetailPage with dynamic name
+        element: <CharacterDetailPage />,
       },
       {
         path: '/clubs',
         element: <ClubsPage />,
       },
       {
-        path: '/arts',
+        path: '/art',
         element: <ArtsPage />,
       },
       {
         path: '/characters/:name/relations',
         element: <CharacterRelationsPage />,
+      },
+      {
+        path: '/characters/:name/art',
+        element: <CharacterArtPage />
+      },
+      {
+        path: '/users/:name/art',
+        element: <UserArtPage />
+      },
+      {
+        path: '/users/:name/characters',
+        element: <UserCharactersPage />
       }
     ],
   },

@@ -47,7 +47,7 @@ const EditRelationshipModal = ({ characterName, otherCharacterName, currentRelat
         <h2>Edit Relationship</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="special">Special</label>
+            <label htmlFor="special"><span>Title</span></label>
             <input
               type="text"
               id="special"
@@ -57,7 +57,7 @@ const EditRelationshipModal = ({ characterName, otherCharacterName, currentRelat
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description"><span>Description</span></label>
             <textarea
               id="description"
               value={description}
@@ -69,7 +69,7 @@ const EditRelationshipModal = ({ characterName, otherCharacterName, currentRelat
 
           <div className="form-buttons">
             <button type="submit">Update Relationship</button>
-            <button type="button" onClick={handleClose}>
+            <button type="button" onClick={handleClose} className='cancel-btn'>
               Cancel
             </button>
           </div>
