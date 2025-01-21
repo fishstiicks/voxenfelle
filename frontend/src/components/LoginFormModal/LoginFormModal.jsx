@@ -30,7 +30,8 @@ function LoginFormModal() {
       password: 'password'
     };
 
-      await dispatch(sessionActions.login(demoUser));
+      await dispatch(sessionActions.login(demoUser))
+      .then(closeModal)
   };
 
   return (
