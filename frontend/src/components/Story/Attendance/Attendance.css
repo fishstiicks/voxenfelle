@@ -3,6 +3,33 @@
     grid-template-columns: 35% 65%;
 }
 
+#events-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.events-header {
+    font-size: 40px;
+    font-weight: bold;
+    background-color:#363636;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: #F5F0F6;
+}
+
+.event-listing {
+    display: flex;
+    gap: 50px;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.event-date {
+    width: 30%;
+    font-weight: bold;
+    color: #363636;
+}
+
 #npc-box {
     display: flex;
     flex-direction: column;
@@ -55,7 +82,7 @@
 }
 
 .npc-identity {
-    color: rgb(90, 90, 90);
+    color: #808080;
     margin-top: -3px;
     margin-bottom: -5px;
     font-style: italic;

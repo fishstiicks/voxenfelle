@@ -69,7 +69,6 @@ function Attendance() {
           {sessionUser ? 
               stories.map((story) => (
                 <div className="attendance-listing" key={story}>
-                  <div className="attendance-date"></div>
                   <div className="attendance-title">
                     <Link to={`/story/${story}`}>{story}</Link>
                   </div>
@@ -87,9 +86,8 @@ function Attendance() {
                 </div>
               ))
             :
-            stories.reverse().map((story) => (
+            stories.map((story) => (
               <div className="attendance-listing" key={story}>
-                <div className="attendance-date"></div>
                 <div className="attendance-title">
                   <Link to={`/story/${story}`}>{story}</Link>
                 </div>
@@ -101,11 +99,49 @@ function Attendance() {
               </div>
             ))
           }
+
+          <div className='attendance-listing'>
+            <div className='attendance-title'>To Solstia</div>
+            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+          </div>
+
+          <div className='attendance-listing'>
+            <div className='attendance-title'>The Vessel</div>
+            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+          </div>
+
+          <div className='attendance-listing'>
+            <div className='attendance-title'>The Ordainment</div>
+            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+          </div>
+
+          <div className='attendance-listing'>
+            <div className='attendance-title'>???</div>
+            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+          </div>
+
         </div>
       </div>
       
       <div id='npc-box'>
       <div className='npcs'>
+
+      <div id='events-box'>
+      <div className='events-header'>UPCOMING EVENTS</div>
+        <div className='event-listing'>
+          <p className='event-date'>JANUARY 25 @ 7 PM EST</p>
+          <p className='event-desc'>Plot RP</p>
+        </div>
+        <div className='event-listing'>
+          <p className='event-date'>FEBRUARY 1</p>
+          <p className='event-desc'>Game Jam Starts</p>
+        </div>
+        <div className='event-listing'>
+          <p className='event-date'>MARCH 15</p>
+          <p className='event-desc'>Game Release</p>
+        </div>
+      </div>
+
       <p className='npc-header'>VOXENFELLE ACADEMY</p>
       <div className='npc-row'>
           <div className='npc-listing'>
