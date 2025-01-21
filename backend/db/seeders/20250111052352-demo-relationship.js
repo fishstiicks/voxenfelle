@@ -1,6 +1,6 @@
 'use strict';
 
-const { Relationship } = require('../models');
+const { Relationship } = require('../../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
