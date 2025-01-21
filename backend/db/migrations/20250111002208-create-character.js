@@ -92,6 +92,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    options.tableName = "Characters";
     await queryInterface.dropTable('Characters');
   }
 };

@@ -26,6 +26,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    options.tableName = "Stories";
     await queryInterface.dropTable('Stories');
   }
 };

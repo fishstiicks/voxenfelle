@@ -32,6 +32,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    options.tableName = "Clubs";
     await queryInterface.dropTable('Clubs');
   }
 };

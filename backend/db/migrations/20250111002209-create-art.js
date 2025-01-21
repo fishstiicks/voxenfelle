@@ -35,6 +35,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    options.tableName = "Arts";
     await queryInterface.dropTable('Arts');
   }
 };
