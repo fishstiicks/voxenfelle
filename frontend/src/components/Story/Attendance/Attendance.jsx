@@ -30,7 +30,7 @@ function Attendance() {
 
   useEffect(() => {
     if (sessionUser) {
-      const fetchAttendance = async () => {;
+      const fetchAttendance = async () => {
 
         const status = {};
         for (let story of stories) {
@@ -157,7 +157,7 @@ function Attendance() {
             </div>
             <div className='npc-blurb'>
               <p>PACT: Energy Shield</p>
-              <p>Formerly part of the Void Army. Currently working for the government/in Voxenfelle’s research department under the same collar restrictions.</p>
+              <p>Formerly part of the Void Army. Currently working for the government/in Voxenfelle's research department under the same collar restrictions.</p>
               <p>Despite appearances, he has the softer personality between former Void Army members. Often seen making regular trips to an orphanage in Hysse.</p></div>
         </div>
         </div>
@@ -190,7 +190,7 @@ function Attendance() {
                 <div className='npc-blurb'>
                   <p>AURA: Creation [Animal]</p>
                   <p>Minister of Aura Management. Retired hunter.</p>
-                  <p>Notorious for mismanagement of hunter resource and unreliability. Infamously lead to a village’s destruction by voidwalkers due to not showing up. Rumours also say he rigged the votes to win.</p>
+                  <p>Notorious for mismanagement of hunter resource and unreliability. Infamously lead to a village's destruction by voidwalkers due to not showing up. Rumours also say he rigged the votes to win.</p>
                   <p>A weak-willed man who was forced into politics by his family. Constantly haunted by his past mistakes.</p></div>
             </div>
 

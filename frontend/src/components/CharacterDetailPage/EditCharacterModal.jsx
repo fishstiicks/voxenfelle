@@ -28,9 +28,9 @@ const EditCharacterModal = ({ character, refreshCharacter, handleNameChange, con
   const [cha, setCha] = useState(character.cha || 0);
   const [int, setInt] = useState(character.int || 0);
   const [mag, setMag] = useState(character.mag || 0);
-  const [soulbond, setSoulbond] = useState(character.soulbond || false);
-  const [souldrop, setSouldrop] = useState(character.souldrop || false);
-  const [errors, setErrors] = useState({});
+  const [soulbond] = useState(character.soulbond || false);
+  const [souldrop] = useState(character.souldrop || false);
+  const [errors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();

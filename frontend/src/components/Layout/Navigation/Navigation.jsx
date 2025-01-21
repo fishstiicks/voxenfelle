@@ -5,13 +5,15 @@ import { useModal } from '../../../context/Modal.jsx';  // Importing useModal ho
 import OpenModalButton from '../../OpenModalButton/OpenModal.jsx';  // Import for modal buttons
 import LoginFormModal from '../../LoginFormModal/LoginFormModal.jsx';  // Login modal
 import SignupFormModal from '../../SignupFormModal/SignupFormModal.jsx';  // Signup modal
+import * as sessionActions from '../../../store/session.js'; 
+
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [characters, setCharacters] = useState([]);
   const { setModalContent } = useModal();  // Destructure to open modal and set content
-  const [error, setError] = useState('');
+  const [setError] = useState('');
 
   // Function for logging out
   const logout = (e) => {

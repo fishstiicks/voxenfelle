@@ -9,7 +9,6 @@ function CharactersPage() {
   const { name } = useParams();
 
   const characters = useSelector((state) => state.characters.characters) || [];
-  const errors = useSelector((state) => state.characters.errors);
 
   const [filterState, setFilterState] = useState({ PC: false, NPC: false });
   const [filterSource, setFilterSource] = useState({ Aura: false, Void: false });

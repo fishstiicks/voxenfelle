@@ -18,10 +18,11 @@ const beatrix = 'https://i.ibb.co/CQ5fKMm/BEATRIX.png';
 const pomme = 'https://i.ibb.co/v4m2QpF/vfx-pomme-picrew.png';
 const tomoya = 'https://i.ibb.co/6NhGwhp/TOMOYA.png';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';
 import { Link } from 'react-router-dom';
+import { csrfFetch } from '../../store/csrf';
 
 function TwoRooksI() {
 
@@ -88,8 +89,8 @@ function TwoRooksI() {
             <div className="story-speech-text text">
                 <div className="story-speech-name">ROWAN S. SULLIVAN</div>
                 <p>Hello, this is Sullivan</p>
-                <p>I’ve been having trouble sending the flash drive over. I may have to deliver it myself</p>
-                <p>I’ll be there around noon tomorrow, please wait for me then.</p>
+                <p>I've been having trouble sending the flash drive over. I may have to deliver it myself</p>
+                <p>I'll be there around noon tomorrow, please wait for me then.</p>
             </div>
         </div>
         
@@ -195,7 +196,7 @@ function TwoRooksI() {
 
         <p>Seems like it's his bedtime.</p>
 
-        <p>As you continue to discuss with your peers, the night eventually draws to a close. Tomorrow, Sullivan’s flash drive will arrive. Finally, you’ll receive a shot at turning the tides in your favour.</p>
+        <p>As you continue to discuss with your peers, the night eventually draws to a close. Tomorrow, Sullivan's flash drive will arrive. Finally, you'll receive a shot at turning the tides in your favour.</p>
 
         <p>With this, your eyes start to close—accompanied by a vague sense of determination blooming in your chest.</p>
 
@@ -210,12 +211,12 @@ function TwoRooksI() {
         </div>
         <div className="story-body">
             <p>You peer at the afternoon sky from your seat.</p>
-            <p>Though you’ve waited for hours, Sullivan has yet to arrive with the flash drive. Worry and unrest starts to settle in the atmosphere—it’s long past noon now, and with no sight of the minister, you and your fellow peers can’t help but feel like something has gone wrong.</p>
-            <p>From the edges of your vision, you notice the sky darkening. Looks like it’ll be a cloudy evening today.</p>
+            <p>Though you've waited for hours, Sullivan has yet to arrive with the flash drive. Worry and unrest starts to settle in the atmosphere—it's long past noon now, and with no sight of the minister, you and your fellow peers can't help but feel like something has gone wrong.</p>
+            <p>From the edges of your vision, you notice the sky darkening. Looks like it'll be a cloudy evening today.</p>
             <p>Grey clouds roll across the sky, casting shadows over the earth below. As your eyes glance over the darkened horizon, something in the distance catches your eye.</p>
             <p>Someone is at the school gates.</p>
             <p>You head down to the first floor and make your way out the main building, walking a good distance towards the front gate. </p>
-            <p>It’s too blurry to tell who it is from here, but sure enough, you see a figure ahead of you. They start to walk forwards, and as your eyes adjust their focus, you realise the figure seemed to be dragging a large bag behind them. Had Sullivan finally arrived?</p>
+            <p>It's too blurry to tell who it is from here, but sure enough, you see a figure ahead of you. They start to walk forwards, and as your eyes adjust their focus, you realise the figure seemed to be dragging a large bag behind them. Had Sullivan finally arrived?</p>
             <p>The figure continues walking.</p>
             <p>As their silhouette comes closer and turns clearer, realisation starts to dawn—along with a sinking feeling of dread—as two things become clear to you:</p>
             <p>One, that the person walking towards you was not Rowan S. Sullivan,</p>
@@ -225,7 +226,7 @@ function TwoRooksI() {
                 <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“‘Sup guys.”</p>
+                <p>"‘Sup guys."</p>
             </div>
             </div>
 
@@ -235,7 +236,7 @@ function TwoRooksI() {
             <img src={cain} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Wow, did you guys come all the way out here to greet me? I’m so damn touched! <i>Whew</i>, feelin’ like a celebrity over here.”</p>
+                <p>"Wow, did you guys come all the way out here to greet me? I'm so damn touched! <i>Whew</i>, feelin' like a celebrity over here."</p>
             </div>
             </div>
 
@@ -245,11 +246,11 @@ function TwoRooksI() {
             <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“...”</p>
+                <p>"..."</p>
             </div>
             </div>
 
-            <p>Rowan S. Sullivan’s figure sits unconscious on the ground, held up by the collar as Cain drags him around like an old sack of potatoes.</p>
+            <p>Rowan S. Sullivan's figure sits unconscious on the ground, held up by the collar as Cain drags him around like an old sack of potatoes.</p>
 
             <div className='story-speech npc'>
             <img src={cain} className='story-avatar'></img>
@@ -258,34 +259,34 @@ function TwoRooksI() {
                 <p>"Heyy." Cain greets. "Why the scary faces? You guys didn't miss me?"</p>
                 <p>He pouts, but it quickly turns into a chuckle instead.</p>
                 <p>"Well, it's me again! Been a while, huh? How've you guys been? Got your rights back yet?" He tilts his head curiously. "Probably not, huh?"</p>
-                <p>“Anyway, why was I here again?” He blinks. “Oh, right. I found <i>this guy</i> over here,”</p>
-                <p>Cain pauses to shake Sullivan’s body.</p>
-                <p>“Trying to do something he really shouldn’t be doing. So, obviously, I had to teach him a lesson.”</p>
-                <p>“Oh, speaking of which, I found this little thing too.”</p>
+                <p>"Anyway, why was I here again?" He blinks. "Oh, right. I found <i>this guy</i> over here,"</p>
+                <p>Cain pauses to shake Sullivan's body.</p>
+                <p>"Trying to do something he really shouldn't be doing. So, obviously, I had to teach him a lesson."</p>
+                <p>"Oh, speaking of which, I found this little thing too."</p>
             </div>
             </div>
 
             <p>Cain lifts his other hand up. In his fingers you see something small, glinting under the sparse sunlight.</p>
-            <p>It’s the flash drive.</p>
+            <p>It's the flash drive.</p>
 
             <div className='story-speech npc'>
             <img src={cain} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Sullivan here was guarding it with his life. Funny, huh? Little old man trying to play the hero. Geez, the void’s gonna freeze over here!”</p>
+                <p>"Sullivan here was guarding it with his life. Funny, huh? Little old man trying to play the hero. Geez, the void's gonna freeze over here!"</p>
                 <p>Cain barks out another laugh, this one more mocking than the last.</p>
-                <p>“Well, I’ll be taking these two now. Sorry to rain on your parade. Good luck with life, yeah?”</p>
-                <p>“...Is what I <i>would</i> say, but that’s not really any fun at all.”</p>
-                <p>“So how about we play another game together? This one will be real fun, <i>and</i> real fair.</p>
+                <p>"Well, I'll be taking these two now. Sorry to rain on your parade. Good luck with life, yeah?"</p>
+                <p>"...Is what I <i>would</i> say, but that's not really any fun at all."</p>
+                <p>"So how about we play another game together? This one will be real fun, <i>and</i> real fair.</p>
                 <p>He flashes a smile, eyeing you one by one.</p>
-                <p>“How about this? Steal the flash drive back from me and you win. You get to keep it too, Yunge’s dirt and all. If you can’t…”</p>
-                <p>“Well, I don’t think you really wanna find out.” Chuckling.</p>
-                <p>“Anyway, it’s not like you really have a choice, so…”</p>
+                <p>"How about this? Steal the flash drive back from me and you win. You get to keep it too, Yunge's dirt and all. If you can't…"</p>
+                <p>"Well, I don't think you really wanna find out." Chuckling.</p>
+                <p>"Anyway, it's not like you really have a choice, so…"</p>
                 <p>Cain tosses the flash drive in the air, lips tugging into a grin as it falls right back into his hand.</p>
             </div>
             </div>
 
-            <p className='big center alt-font'><b>“Do your best, yeah?”</b></p>
+            <p className='big center alt-font'><b>"Do your best, yeah?"</b></p>
 
             <img className='story-cg' src="https://i.ibb.co/xJC3Lvb/cain-flashdrive-2.png"></img>
             <div className="special-box"><div className="music"><a href="https://youtu.be/HgJ3VYyC2KI?si=ySYOLencLleg5cdD" target="_blank" rel="noopener noreferrer">♫</a>
@@ -501,13 +502,13 @@ function TwoRooksI() {
                 <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Not so fast.”</p>
+                <p>"Not so fast."</p>
             </div>
             </div>
 
             You blink.
 
-            War, you find yourself transported back to the school’s entrance.
+            War, you find yourself transported back to the school's entrance.
 
             Cain howls out a laugh. He cracks his neck once, twice, as he stretches his arms around.
 
@@ -535,14 +536,14 @@ function TwoRooksI() {
             </div>
 
             <p>Finally, you reach the end.</p>
-            <p>There’s no tricks this time. You reach the doors of the main building safely, and even as seconds pass by, you don’t find yourself transported elsewhere either.</p>
-            <p>This is it. You’ve done it.</p>
+            <p>There's no tricks this time. You reach the doors of the main building safely, and even as seconds pass by, you don't find yourself transported elsewhere either.</p>
+            <p>This is it. You've done it.</p>
 
             <div className='story-speech npc'>
                 <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Wow, you <i>finally</i> got here.”</p>
+                <p>"Wow, you <i>finally</i> got here."</p>
             </div>
             </div>
 
@@ -552,7 +553,7 @@ function TwoRooksI() {
                 <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Good job! You get to keep it now. Must feel awesome, huh?” He grins, leaning against the wall behind him.</p>
+                <p>"Good job! You get to keep it now. Must feel awesome, huh?" He grins, leaning against the wall behind him.</p>
             </div>
             </div>
 
@@ -581,8 +582,8 @@ function TwoRooksI() {
             </div>
             </div>
 
-            <p>Off in the distance, all the way at the school’s entrance, are two figures.</p>
-            <p>It’s easy to recognise one of them—Chou-chou. Except her feet aren’t touching the ground, parasol scattered somewhere nearby, body help up only by a hand at her neck as it chokes Chou-chou in the air.</p>
+            <p>Off in the distance, all the way at the school's entrance, are two figures.</p>
+            <p>It's easy to recognise one of them—Chou-chou. Except her feet aren't touching the ground, parasol scattered somewhere nearby, body help up only by a hand at her neck as it chokes Chou-chou in the air.</p>
 
             <div className='story-speech npc'>
                     <Link to={`/characters/Chou-chou`}><img src={cc} className='story-avatar'></img></Link>
@@ -594,7 +595,7 @@ function TwoRooksI() {
 
             <div className="special-box"><div className="music"><a href="https://youtu.be/5SzOfEF_h4A?si=IGshLD5yGzCcfpEG" target="_blank" rel="noopener noreferrer">♫</a></div>Chou-chou struggles for air, legs kicking as tears start to stream down her face.</div>
 
-            <p>Your eyes glance towards the owner of the hand: clothed in dark greys like a shadow, expression unfaltering as she watches the life start to slip away from Chou-chou’s eyes.</p>
+            <p>Your eyes glance towards the owner of the hand: clothed in dark greys like a shadow, expression unfaltering as she watches the life start to slip away from Chou-chou's eyes.</p>
             <p>Then, violently, she throws Chou-chou to the ground beside her.</p>
 
             <div className='story-speech npc'>
@@ -614,7 +615,7 @@ function TwoRooksI() {
             </div>
 
             <p>The bite lands. He grimaces.</p>
-            <p>But you both make eye contact with Cain, and his lips curve upwards into a smirk. You don’t need a bite to know what he’s going to do next.</p>
+            <p>But you both make eye contact with Cain, and his lips curve upwards into a smirk. You don't need a bite to know what he's going to do next.</p>
             <p>In a glimmer, Cain disappears.</p>
 
             <div className='story-speech'>
@@ -631,7 +632,7 @@ function TwoRooksI() {
 
             <p>A bullet flies.</p>
             <p>Then, the faint sound of metal hitting metal rings through the air.</p>
-            <p>It falls to the ground, next to the assailant’s feet. In one swift motion, they sheathe back their blade—a sword hidden in a cane.</p>
+            <p>It falls to the ground, next to the assailant's feet. In one swift motion, they sheathe back their blade—a sword hidden in a cane.</p>
 
             <div className='story-speech npc'>
             <img src={black} 
@@ -650,7 +651,7 @@ function TwoRooksI() {
                 className='story-avatar'/>
             <div className="story-speech-text">
                 <div className="story-speech-name">Viktoriya Yunge</div>
-                <p>“—Hand it over.”</p>
+                <p>"—Hand it over."</p>
             </div>
             </div>
             <br></br>

@@ -19,7 +19,7 @@ function CharacterRelationsPage() {
   const relationships = useSelector((state) => state.relationships.relationships) || {};
   const user = useSelector((state) => state.session.user);
 
-  const { setModalContent, openModal } = useModal();
+  const { setModalContent } = useModal();
   const [character, setCharacter] = useState(null);
 
   if (savedScrollPosition) {

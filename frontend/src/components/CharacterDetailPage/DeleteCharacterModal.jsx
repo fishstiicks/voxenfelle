@@ -1,6 +1,8 @@
-import React from 'react';
+import { useModal } from '../../context/Modal';
 
 const DeleteCharacterModal = ({ character, onDelete }) => {
+  const { closeModal } = useModal();
+  
   const handleDelete = () => {
     onDelete();
   };

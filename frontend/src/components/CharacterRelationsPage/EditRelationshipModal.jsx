@@ -31,9 +31,6 @@ const EditRelationshipModal = ({ characterName, otherCharacterName, currentRelat
         closeModal();
         refreshRelationships();
       })
-      .catch((err) => {
-        setError('An error occurred while updating the relationship.');
-      });
   };
 
   const handleClose = () => {

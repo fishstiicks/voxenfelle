@@ -12,6 +12,7 @@ module.exports = {
   plugins: ['react-refresh'],
   ignorePatterns: ['dist', 'node_modules'],
   rules: {
+    "react/no-unescaped-entities": "off",
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -24,7 +25,7 @@ module.exports = {
         "src/context/*.jsx"
       ],
       rules: {
-        'react-refresh/only-export-components': 'off'
+        'react-refresh/only-export-components': 'off',
       }
     }
    ],

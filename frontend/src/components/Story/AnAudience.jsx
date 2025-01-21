@@ -18,10 +18,11 @@ const beatrix = 'https://i.ibb.co/CQ5fKMm/BEATRIX.png';
 const pomme = 'https://i.ibb.co/v4m2QpF/vfx-pomme-picrew.png';
 const tomoya = 'https://i.ibb.co/6NhGwhp/TOMOYA.png';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';
 import { Link } from 'react-router-dom';
+import { csrfFetch } from '../../store/csrf';
 
 function AnAudience() {
 
@@ -79,7 +80,7 @@ function AnAudience() {
         </div>
         
         <div className="story-body">
-        <p>It’s the next weekend when Professor Vinca and Yuenris finally return from their visit.</p>
+        <p>It's the next weekend when Professor Vinca and Yuenris finally return from their visit.</p>
         <p>They share with you the results of their discussion: that despite negotiations, Yunge has no intention of taking back the bill, and that any effort to sway him has fallen on deaf ears.</p>
         <p>The two have retreated to the faculty room—presumably to discuss future plans of action with other members of the Voxenfelle faculty—leaving you behind in the lecture hall with the rest of your classmates.</p>
         <p>The clock ticks.</p>
@@ -87,14 +88,14 @@ function AnAudience() {
         <p>.</p>
         <p>.</p>
         <p>Your classmates decide to tail the teachers. You follow as well.</p>
-        <p>But it’s a bit too late, because once you get there, they’re already well inside the faculty room. You hear faint murmurs from behind the double doors—it sounds like they’re in the middle of a discussion.</p>
+        <p>But it's a bit too late, because once you get there, they're already well inside the faculty room. You hear faint murmurs from behind the double doors—it sounds like they're in the middle of a discussion.</p>
         <p>You hear a snippet of conversation from the teachers.</p>
         <div className="scene">
-            <p className="npc-text">“Did Nikola Yunge say nothing at all?”</p>
-            <p className="vinca-text">“He…”</p>
-            <p className="vinca-text">“He said he’d leave Yuenris alive—if I went to work for him and gave the kids up.”</p>
+            <p className="npc-text">"Did Nikola Yunge say nothing at all?"</p>
+            <p className="vinca-text">"He…"</p>
+            <p className="vinca-text">"He said he'd leave Yuenris alive—if I went to work for him and gave the kids up."</p>
             <p>A pause.</p>
-            <p className="vinca-text">“...I could never say yes.”</p>
+            <p className="vinca-text">"...I could never say yes."</p>
         </div>
         <p>Your classmates begin discussing what they overheard in a panic, some resorting to breaking down the door and...</p>
         <p>...the door was unlocked.</p>
@@ -121,9 +122,9 @@ function AnAudience() {
             <Link to={`/characters/Satella`}><img src={satella} className='story-avatar'></img></Link>
             <div className="story-speech-text">
                 <div className="story-speech-name">SATELLA</div>
-                <p>“…With all due respect, professors.”</p>
-                <p>“Anyone’s livelihood in our academy should also be the business of your students.” Speaks up as she faces them. A serious expression that felt like greeting an old friend.</p>
-                <p>“The fact that they are all here means they care.”</p>
+                <p>"…With all due respect, professors."</p>
+                <p>"Anyone's livelihood in our academy should also be the business of your students." Speaks up as she faces them. A serious expression that felt like greeting an old friend.</p>
+                <p>"The fact that they are all here means they care."</p>
             </div>
         </div>
 
@@ -165,7 +166,7 @@ function AnAudience() {
             </div>
         </div>
 
-        <p>You spend another few minutes at the teacher’s lounge, discussing possible plans for action. None of them seem quite promising just yet, but you decide to go back for the day and brainstorm elsewhere with your other peers.</p>
+        <p>You spend another few minutes at the teacher's lounge, discussing possible plans for action. None of them seem quite promising just yet, but you decide to go back for the day and brainstorm elsewhere with your other peers.</p>
         </div>
 
         <hr />
@@ -176,7 +177,7 @@ function AnAudience() {
 
         <div className='story-body'>
         <p>All of a sudden, you feel your phone vibrate.</p>
-        <p>You check your phone and notice a direct message request. It’s from someone named Halynn.</p>
+        <p>You check your phone and notice a direct message request. It's from someone named Halynn.</p>
 
         <div className='story-speech npc'>
         <div className='story-avatar'>💬</div>
@@ -263,7 +264,7 @@ function AnAudience() {
         </div>
 
         <p>You make your way inside the building.</p>
-        <p>Security guards lead you through winding corridors, up a passcode elevator, and—finally—to Yunge’s office.</p>
+        <p>Security guards lead you through winding corridors, up a passcode elevator, and—finally—to Yunge's office.</p>
 
         <div className='story-speech npc'>
         <img src={preston} className='story-avatar'></img>
@@ -303,15 +304,15 @@ function AnAudience() {
         <img src={yunge} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">NIKOLA YUNGE</div>
-                <p>“Like students like professors.” The tone in his voice is clear as he speaks—unamusement.</p>
-                <p>“Is that all you have to say?” Yunge asks, eyes narrowing. “For students of such an academy, I expected better. But I suppose that is my mistake. I should not have expected much from a school that allows voidpacts in the first place.”</p>
-                <p>“Perhaps an extended reevaluation of Voxenfelle is due.” A gloved finger taps the mahogany desk once, twice. “I am sure the board of education will be more than willing to work with us on a new curriculum. One that works in tandem with our new anti-voidpact law.”</p>
+                <p>"Like students like professors." The tone in his voice is clear as he speaks—unamusement.</p>
+                <p>"Is that all you have to say?" Yunge asks, eyes narrowing. "For students of such an academy, I expected better. But I suppose that is my mistake. I should not have expected much from a school that allows voidpacts in the first place."</p>
+                <p>"Perhaps an extended reevaluation of Voxenfelle is due." A gloved finger taps the mahogany desk once, twice. "I am sure the board of education will be more than willing to work with us on a new curriculum. One that works in tandem with our new anti-voidpact law."</p>
             </div>
         </div>
 
-        <p>Yunge tilts his chin towards the security guards by the door. Soon enough, they’re forcing you out of his office.</p>
+        <p>Yunge tilts his chin towards the security guards by the door. Soon enough, they're forcing you out of his office.</p>
 
-        <p>With heavy hearts, you start to make your way back to the building’s exit.</p>
+        <p>With heavy hearts, you start to make your way back to the building's exit.</p>
 
         <p>As your feet shuffle through the corridor, you notice a few people coming from the opposite direction. They seem to be escorting someone.</p>
 
@@ -323,7 +324,7 @@ function AnAudience() {
         <img src={rowan} className='story-avatar black'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">???</div>
-                <p>“Ah—”</p>
+                <p>"Ah—"</p>
             </div>
         </div>
 
@@ -333,9 +334,9 @@ function AnAudience() {
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“You’re—”</p>
-                <p>Rowan’s eyes go wide in shock.</p>
-                <p>“You’re students—f-from Voxenfelle!”</p>
+                <p>"You're—"</p>
+                <p>Rowan's eyes go wide in shock.</p>
+                <p>"You're students—f-from Voxenfelle!"</p>
             </div>
         </div>
 
@@ -345,12 +346,12 @@ function AnAudience() {
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“I’m—”</p>
-                <p>“My name is… Rowan… I’m the Aura Minister.”</p>
-                <p>“Can we… ah… talk? Um—”</p>
-                <p>“B-But not…”</p>
+                <p>"I'm—"</p>
+                <p>"My name is… Rowan… I'm the Aura Minister."</p>
+                <p>"Can we… ah… talk? Um—"</p>
+                <p>"B-But not…"</p>
                 <p>He warily glances at the police officers behind him.</p>
-                <p className="small">“Not here.”</p>
+                <p className="small">"Not here."</p>
             </div>
         </div>
 
@@ -376,8 +377,8 @@ function AnAudience() {
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“...No, I can't... I can't come with you." He takes the offered handkerchief with a nervous thanks, wiping his brow before continuing.</p>
-                <p className='small'>“Sorry. Come with me.”</p>
+                <p>"...No, I can't... I can't come with you." He takes the offered handkerchief with a nervous thanks, wiping his brow before continuing.</p>
+                <p className='small'>"Sorry. Come with me."</p>
             </div>
         </div>
 
@@ -386,17 +387,17 @@ function AnAudience() {
         <p>You find yourselves in what looks to be an old, unused conference room. No cameras in sight.</p>
         </div>
 
-        <p>Rowan locks the doors once you’re all inside, making sure nothing can leak out, and—most importantly—that nothing can peek in.</p>
+        <p>Rowan locks the doors once you're all inside, making sure nothing can leak out, and—most importantly—that nothing can peek in.</p>
 
         <div className='story-speech npc'>
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p><i>“...Sigh.”</i></p>
+                <p><i>"...Sigh."</i></p>
                 <p>After making sure everything was secure, he turns to face you.</p>
-                <p>“Um… thank you for coming with me.”</p>
-                <p>“I, ah…”</p>
-                <p>“O-Oh, I’m sorry, you must be confused. If you’d like to ask me anything…”</p>
+                <p>"Um… thank you for coming with me."</p>
+                <p>"I, ah…"</p>
+                <p>"O-Oh, I'm sorry, you must be confused. If you'd like to ask me anything…"</p>
             </div>
         </div>
 
@@ -506,16 +507,16 @@ function AnAudience() {
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“I have… e-evidence. About Yunge.”</p>
-                <p>“Nikola Yunge is…”</p>
-                <p>“Not… a good man.” Stating the obvious. “I know I’ve done—”</p>
-                <p>“I’ve done… terrible things, due to my… my incompetence.” Rowan takes a deep, shaky breath. “And I can never atone for that in my lifetime, ever.”</p>
-                <p>“But Yunge, he—”</p>
+                <p>"I have… e-evidence. About Yunge."</p>
+                <p>"Nikola Yunge is…"</p>
+                <p>"Not… a good man." Stating the obvious. "I know I've done—"</p>
+                <p>"I've done… terrible things, due to my… my incompetence." Rowan takes a deep, shaky breath. "And I can never atone for that in my lifetime, ever."</p>
+                <p>"But Yunge, he—"</p>
                 <p>Sullivan pauses, trying to pace himself.</p>
-                <p>“I’ve seen people go missing.”</p>
-                <p>“People who… went against him, o-or went against his plans.”</p>
-                <p>“I was… safe, because my family is well known. But…”</p>
-                <p>“Even that isn’t going to last.” He casts his gaze down, a helpless look settling over his face.</p>
+                <p>"I've seen people go missing."</p>
+                <p>"People who… went against him, o-or went against his plans."</p>
+                <p>"I was… safe, because my family is well known. But…"</p>
+                <p>"Even that isn't going to last." He casts his gaze down, a helpless look settling over his face.</p>
             </div>
         </div>
 
@@ -541,8 +542,8 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">SATELLA</div>
                 <p>She ponders more.</p>
-                <p>“…Do you have any ideas on where the missing people were taken to?”</p>
-                <p>“We can find them.” Offers a impromptu mission.</p>
+                <p>"…Do you have any ideas on where the missing people were taken to?"</p>
+                <p>"We can find them." Offers a impromptu mission.</p>
             </div>
         </div>
         
@@ -703,8 +704,8 @@ function AnAudience() {
                 <p>"I'm sorry," he speaks between breaths. "Thank you." He doesn't deserve this kindness, Rowan knows this well. Still, he thanks them.</p>
                 <p>"I do... have a plan, somewhat." Then, a glance to TK. "It's, um... a relative's aura." Rowan sighs. "My family has been in politics for a very long time. Most of my actions are... dictated, by them."</p>
                 <p>"I... I still have the evidence. It's at my office safe, on a flash drive."</p>
-                <p>“It’s not... a lot, really. But it’s enough to get even him arrested.” Rowan gulps. “...But like I said, Yunge would never let it see the light of day. I’ve tried it before. He has eyes and ears everywhere.”</p>
-                <p>“But,”</p>
+                <p>"It's not... a lot, really. But it's enough to get even him arrested." Rowan gulps. "...But like I said, Yunge would never let it see the light of day. I've tried it before. He has eyes and ears everywhere."</p>
+                <p>"But,"</p>
                 <p>Rowan takes a deep breath. He raises his head, looking at you all properly.</p>
             </div>
         </div>
@@ -713,7 +714,7 @@ function AnAudience() {
         <img src={rowan} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
-                <p>“—he doesn’t have anyone at Voxenfelle.”</p>
+                <p>"—he doesn't have anyone at Voxenfelle."</p>
             </div>
         </div>
 
@@ -722,11 +723,11 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
                 <p>He continues speaking, expression settling into something more serious.</p>
-                <p>“I’ve seen the… articles, from your school… Felle-Press? A lot of people read them, even the general public.”</p>
-                <p>“Your school is—you’re the only one who has voidpacted as students. And with the bill…” His eyes narrow. “Everyone has their attention on Voxenfelle right now.”</p>
-                <p>“I… I cannot ask for your forgiveness, I know that.”</p>
-                <p>“But I am asking for a bit of your trust.”</p>
-                <p>Rowan straightens his posture. He faces you all directly as something sincere paints over his tear-streaked face. “I don’t want to see people die.” <i>Not anymore.</i></p>
+                <p>"I've seen the… articles, from your school… Felle-Press? A lot of people read them, even the general public."</p>
+                <p>"Your school is—you're the only one who has voidpacted as students. And with the bill…" His eyes narrow. "Everyone has their attention on Voxenfelle right now."</p>
+                <p>"I… I cannot ask for your forgiveness, I know that."</p>
+                <p>"But I am asking for a bit of your trust."</p>
+                <p>Rowan straightens his posture. He faces you all directly as something sincere paints over his tear-streaked face. "I don't want to see people die." <i>Not anymore.</i></p>
                 <p>"I... I can get it for you within the week, safely, but." Realisation dawns in him. He drops his face into hands again, a miserable sigh leaving his lips.</p>
                 <p>"This will put a target on your backs. I can do... what I'm able, to delay information from reaching Yunge, for as long as possible. But."</p>
                 <p>Rowan glances up, haggard. "He might still come after you all."</p>
@@ -754,9 +755,9 @@ function AnAudience() {
             <Link to={`/characters/Satella`}><img src={satella} className='story-avatar'></img></Link>
             <div className="story-speech-text">
                 <div className="story-speech-name">SATELLA</div>
-                <p>“…We will do our best, Rowan. The evidence will be in safe hands, don’t worry.”</p>
-                <p>“Do you have people you can trust to protect you? If any signs that we negotiated with you goes out…Yunge might…” She can’t help but think about his well-being.</p>
-                <p>“Your family…do they care for you?”</p>
+                <p>"…We will do our best, Rowan. The evidence will be in safe hands, don't worry."</p>
+                <p>"Do you have people you can trust to protect you? If any signs that we negotiated with you goes out…Yunge might…" She can't help but think about his well-being.</p>
+                <p>"Your family…do they care for you?"</p>
             </div>
         </div>
 
@@ -774,9 +775,9 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">SATELLA</div>
                 <p></p>
-                <p className='small'>“…May I know who that is? To reach out to them to know that you are safe.” This is sincere. She is a medic afterall.</p>
-                <p>“It’s alright. Having a family that cares for you doesn’t need to be by blood.” I can be your family.</p>
-                <p>“I’ll let the professors know to be on high alert.” She makes note to report to Vinca later right away.</p>
+                <p className='small'>"…May I know who that is? To reach out to them to know that you are safe." This is sincere. She is a medic afterall.</p>
+                <p>"It's alright. Having a family that cares for you doesn't need to be by blood." I can be your family.</p>
+                <p>"I'll let the professors know to be on high alert." She makes note to report to Vinca later right away.</p>
             </div>
         </div>
 
@@ -793,8 +794,8 @@ function AnAudience() {
             <Link to={`/characters/Satella`}><img src={satella} className='story-avatar'></img></Link>
             <div className="story-speech-text">
                 <div className="story-speech-name">SATELLA</div>
-                <p>“Satella…Satella Curassavica. An aspiring doctor.” She gives a firm nod to show she is here to help. “I’ll be sure to reach out to him.”</p>
-                <p>“…Stay safe Rowan. Live on, okay?”</p>
+                <p>"Satella…Satella Curassavica. An aspiring doctor." She gives a firm nod to show she is here to help. "I'll be sure to reach out to him."</p>
+                <p>"…Stay safe Rowan. Live on, okay?"</p>
             </div>
         </div>
 
@@ -853,9 +854,9 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
                 <p>"Oh."</p>
-                <p>Rowan’s expression twists. Instead of fear, his face shows something akin to commiseration instead, turning to Pomme and TK.</p>
-                <p>“…He was probably referring to Viktoriya.” A nod, towards Pomme.</p>
-                <p>“She’s Yunge’s subordinate… and his daughter.”</p>
+                <p>Rowan's expression twists. Instead of fear, his face shows something akin to commiseration instead, turning to Pomme and TK.</p>
+                <p>"…He was probably referring to Viktoriya." A nod, towards Pomme.</p>
+                <p>"She's Yunge's subordinate… and his daughter."</p>
             </div>
         </div>
 
@@ -929,8 +930,8 @@ function AnAudience() {
             <Link to={`/characters/Beatrix`}><img src={beatrix} className='story-avatar'></img></Link>
             <div className="story-speech-text">
                 <div className="story-speech-name">BEATRIX</div>
-                <p>“How loyal would you say they are to him? To his vision?</p>
-                <p>If one day he…” she draws an index horizontal over her pale neck, smiling. “… do you think they’d continue his work? Or would they behave like headless chicken?” </p>
+                <p>"How loyal would you say they are to him? To his vision?</p>
+                <p>If one day he…" she draws an index horizontal over her pale neck, smiling. "… do you think they'd continue his work? Or would they behave like headless chicken?" </p>
             </div>
         </div>
 
@@ -959,12 +960,12 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">Rowan S. Sullivan</div>
                 <p>"Well... she might not be." Rowan sighs. "I don't--I don't think she <i>should</i>, knowing what he did to her."</p>
-                <p>“A lot of people know the story. It’s an open secret, almost.” He starts, voice growing sadder by the second. "Yunge..."</p>
-                <p>“A few years ago, Yunge forced his daughter to fight a voidwalker. It... it doesn't sound very bad just from that, what with him being a noble and all.”</p>
+                <p>"A lot of people know the story. It's an open secret, almost." He starts, voice growing sadder by the second. "Yunge..."</p>
+                <p>"A few years ago, Yunge forced his daughter to fight a voidwalker. It... it doesn't sound very bad just from that, what with him being a noble and all."</p>
                 <p>"But,"</p>
-                <p>“Viktoriya didn’t have her aura yet. She almost died. <i>She would've.</i>”</p>
-                <p>“She manifested an aura at the last second, which saved her. But...” Rowan sighs.</p>
-                <p>“I believe she’s been working for him ever since.”</p>
+                <p>"Viktoriya didn't have her aura yet. She almost died. <i>She would've.</i>"</p>
+                <p>"She manifested an aura at the last second, which saved her. But..." Rowan sighs.</p>
+                <p>"I believe she's been working for him ever since."</p>
             </div>
         </div>
 
@@ -1006,7 +1007,7 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">BEATRIX</div>
                 <p>She curls a strand of hair around her finger, thoughtful.</p>
-                <p>“Why is it that he has such a hatred of voidpacts, then?"</p>
+                <p>"Why is it that he has such a hatred of voidpacts, then?"</p>
             </div>
         </div>
 
@@ -1103,12 +1104,12 @@ function AnAudience() {
             <div className="story-speech-text">
                 <div className="story-speech-name">Eden</div>
                 <p>She blinks, surprised, taking it between both of her hands.</p>
-                <p>An orange had been second nature for her—it’s her aura, after all. Everyone can use a good fruit now and again, and it tastes extra sweet when you’re already feeling bad.</p>
-                <p>She hadn’t expected anything in return. No one ever really gives her anything in return, because they don’t have to. She’s already always happy to sweat or bleed for others, and making flowers or fruit is much easier than that.</p>
-                <p>So the tiny bear that’s placed in her hands is a surprise. It spikes discomfort, brief, again—less because of the bear, and more because….</p>
-                <p>(He had cried and sobbed and outright told them all his wish for death, and then turned around to give her something so tiny and soft. She wonders what he would be like, outside of politics. She wonders what he would be like without Yunge’s fist around his heart.)</p>
-                <p>(She thinks, guiltily, that maybe it’s a good thing to remember there will always be more people who need help. Not just voidpacts.)</p>
-                <p>“—Thanks,” is all she ends up saying out loud, closing her hands around it. “…It’s really cute. Uh, hey, if you ever need help with anything, feel free to send me a message, too. Even, uhhh…” It’s still a little awkward trying to comfort a grown man, but she rallies. “Even if you just need another orange, or something.</p>
+                <p>An orange had been second nature for her—it's her aura, after all. Everyone can use a good fruit now and again, and it tastes extra sweet when you're already feeling bad.</p>
+                <p>She hadn't expected anything in return. No one ever really gives her anything in return, because they don't have to. She's already always happy to sweat or bleed for others, and making flowers or fruit is much easier than that.</p>
+                <p>So the tiny bear that's placed in her hands is a surprise. It spikes discomfort, brief, again—less because of the bear, and more because….</p>
+                <p>(He had cried and sobbed and outright told them all his wish for death, and then turned around to give her something so tiny and soft. She wonders what he would be like, outside of politics. She wonders what he would be like without Yunge's fist around his heart.)</p>
+                <p>(She thinks, guiltily, that maybe it's a good thing to remember there will always be more people who need help. Not just voidpacts.)</p>
+                <p>"—Thanks," is all she ends up saying out loud, closing her hands around it. "…It's really cute. Uh, hey, if you ever need help with anything, feel free to send me a message, too. Even, uhhh…" It's still a little awkward trying to comfort a grown man, but she rallies. "Even if you just need another orange, or something.</p>
         </div></div>
 
         <p></p>
@@ -1121,8 +1122,8 @@ function AnAudience() {
         </div>
         <div className='story-body'>
             <p>After some more talks with Sullivan, you eventually make your way back from the ministry. A number of you leave with small souvenirs in hand, including Sullivan's number, while others leave with something heavy gnawing at their hearts.</p>
-            <p>Later in the week, a package will arrive at the academy’s doorstep, containing a small and inconspicuous flash drive. Despite its size, it may very well decide the future of voidpacts… and the future of Astralena itself.</p>
-            <p>With opportunity in hand, a chance seems to have opened up in your futures—but the fight isn’t over yet. Trouble brews on the horizon: Yunge is coming for you.</p>
+            <p>Later in the week, a package will arrive at the academy's doorstep, containing a small and inconspicuous flash drive. Despite its size, it may very well decide the future of voidpacts… and the future of Astralena itself.</p>
+            <p>With opportunity in hand, a chance seems to have opened up in your futures—but the fight isn't over yet. Trouble brews on the horizon: Yunge is coming for you.</p>
             <p>But although the air stays thick with fear, something akin to hope starts to bloom in Voxenfelle Academy.</p>
         </div>
  

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateArtData } from '../../store/arts';
 import { useModal } from '../../context/Modal';
@@ -9,7 +9,7 @@ const EditArtModal = ({ art, refreshArts }) => {
   const [url, setUrl] = useState(art.url);
   const [character, setCharacter] = useState(art.character);
   const [reference, setReference] = useState(art.reference);
-  const [error, setError] = useState('');
+  const [setError] = useState('');
 
   useEffect(() => {
     setUrl(art.url);

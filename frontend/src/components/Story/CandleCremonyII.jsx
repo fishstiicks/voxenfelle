@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';
 import { Link } from 'react-router-dom';
+import { csrfFetch } from '../../store/csrf';
 
 
 // ICONS
@@ -71,11 +72,11 @@ function CandleCeremonyII() {
     return (
     <div className="main-content">
         <div className="story-big">
-            <p>There’s barely any time for the words to register.</p>
+            <p>There's barely any time for the words to register.</p>
         </div>
 
         <div className="story-body">
-        <p>Something akin to hopelessness floods the air around you: guns pointed at your heads, your teacher injured on the ground, and a death sentence that looms hungrily—ready to devour and deliver unjust punishment at a moment’s notice.</p>
+        <p>Something akin to hopelessness floods the air around you: guns pointed at your heads, your teacher injured on the ground, and a death sentence that looms hungrily—ready to devour and deliver unjust punishment at a moment's notice.</p>
         <p>In unison, their fingers rest on the trigger—aimed and ready to shoot.</p>
         <p>You realise now, that humanity has long since left the people in front of you.</p>
         <p>It plays out as if in slow motion.</p>
@@ -97,11 +98,11 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“Wha—?!”</p>
+            <p>"Wha—?!"</p>
             </div>
         </div>
 
-        <p>Startled noises leave the policemen as they step back. You realise, then, that they’re now unarmed.</p>
+        <p>Startled noises leave the policemen as they step back. You realise, then, that they're now unarmed.</p>
         <p>As they look around in a panic, you find your line of sight drawn upwards, led by faint red particles in the air. Then, you see it:</p>
         <p>Assault rifles floating in the air, encased by a sphere of blood.</p>
 
@@ -112,7 +113,7 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p><b><i>“—Stop right there.”</i></b></p>
+            <p><b><i>"—Stop right there."</i></b></p>
         </div>
         </div>
 
@@ -133,11 +134,11 @@ function CandleCeremonyII() {
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
             <p></p>
-            <p className='small'>“Sorry I’m late.”</p>
+            <p className='small'>"Sorry I'm late."</p>
             <p>Vinca turns his attention back to the policemen in front of him.</p>
-            <p>“...You’re Nikola Yunge’s men, aren’t you?”</p>
-            <p>His voice takes on an uncharacteristically serious tone. It’s something you’ve never heard before.</p>
-            <p>“I’ve seen the news. The bill hasn’t passed senate yet, so why are you here?”</p>
+            <p>"...You're Nikola Yunge's men, aren't you?"</p>
+            <p>His voice takes on an uncharacteristically serious tone. It's something you've never heard before.</p>
+            <p>"I've seen the news. The bill hasn't passed senate yet, so why are you here?"</p>
         </div>
         </div>
 
@@ -145,8 +146,8 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“Urgh…”</p>
-            <p>They don’t reply, eyeing Vinca with caution.</p>
+            <p>"Urgh…"</p>
+            <p>They don't reply, eyeing Vinca with caution.</p>
             </div>
         </div>
 
@@ -157,20 +158,20 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p>“—Answer me.”</p>
+            <p>"—Answer me."</p>
         </div>
         </div>
 
-        <p>You’ve seen your professor—Eden Vinca—be serious.</p>
-        <p>Despite his softer personality, it’s clear that he takes his job seriously, and that he has the capacity to act on things when it matters most. For example:</p>
-        <p>He’s serious; when he stays back after class well after his working hours, helping a student catch up because he was too injured to go for a week.</p>
-        <p>He’s serious; when he helps a student rush a cake in the middle of the night, staying up until morning because her friend’s birthday was just the next day.</p>
-        <p>He's serious; when he visits a student in the infirmary, weakly wiping at his own tears as he tells them that there’s still things worth living for in the future.</p>
-        <p>And he’s serious; whenever he wishes you good morning, good afternoon, and good night—whenever he says take care, enjoy your meal, and I’ll see you tomorrow.</p>
-        <p>Because there’s nothing he takes more seriously than you, his precious students.</p>
-        <p>…But you’ve never quite seen him like this before.</p>
+        <p>You've seen your professor—Eden Vinca—be serious.</p>
+        <p>Despite his softer personality, it's clear that he takes his job seriously, and that he has the capacity to act on things when it matters most. For example:</p>
+        <p>He's serious; when he stays back after class well after his working hours, helping a student catch up because he was too injured to go for a week.</p>
+        <p>He's serious; when he helps a student rush a cake in the middle of the night, staying up until morning because her friend's birthday was just the next day.</p>
+        <p>He's serious; when he visits a student in the infirmary, weakly wiping at his own tears as he tells them that there's still things worth living for in the future.</p>
+        <p>And he's serious; whenever he wishes you good morning, good afternoon, and good night—whenever he says take care, enjoy your meal, and I'll see you tomorrow.</p>
+        <p>Because there's nothing he takes more seriously than you, his precious students.</p>
+        <p>…But you've never quite seen him like this before.</p>
         <p>The calm waters that were Eden Vinca shift—rising and crashing as they turn into a violent whirlpool of crimson tides, threatening to pull you under.</p>
-        <p>You feel the atmosphere getting heavier. Your eyes look around—and spot something moving above: a handful of blood, splitting off from the sphere encasing the policemen’s assault rifles.</p>
+        <p>You feel the atmosphere getting heavier. Your eyes look around—and spot something moving above: a handful of blood, splitting off from the sphere encasing the policemen's assault rifles.</p>
         <p>It starts to solidify, forming spikes overhead.</p>
 
         <div className='story-speech npc' style={{ backgroundColor:' #870923', color: '#F5F0F6'}}>
@@ -180,7 +181,7 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p><b><i>“Answer. My. Question.”</i></b></p>
+            <p><b><i>"Answer. My. Question."</i></b></p>
         </div>
         </div>
 
@@ -199,7 +200,7 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p>“...”</p>
+            <p>"..."</p>
             <p>Vinca pauses.</p>
         </div>
         </div>
@@ -208,9 +209,9 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“—!!!”</p>
+            <p>"—!!!"</p>
             <p>One of the policemen—supposedly the leader, as well as the one who striked Yuenris—picks up his phone.</p>
-            <p>“Yes, sir, I—”</p>
+            <p>"Yes, sir, I—"</p>
             </div>
         </div>
 
@@ -220,9 +221,9 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“…You, the professor.”</p>
-            <p>He addresses Vinca directly. Any displeasure on his face has been wiped away at a moment’s notice as he faces your professor.</p>
-            <p>“Minister Yunge wants to see you.”</p>
+            <p>"…You, the professor."</p>
+            <p>He addresses Vinca directly. Any displeasure on his face has been wiped away at a moment's notice as he faces your professor.</p>
+            <p>"Minister Yunge wants to see you."</p>
             </div>
         </div>
 
@@ -233,7 +234,7 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p>“Why?”</p>
+            <p>"Why?"</p>
             <p>Vinca tilts his head up. His face is visibly scrunched in irritation, but he waits for the police officer to continue.</p>
         </div>
         </div>
@@ -242,8 +243,8 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“Minister Yunge says he’ll let your students go, if you come with us.”</p>
-            <p>“...Her, too.” The officer makes a pointed glance towards Yuenris.</p>
+            <p>"Minister Yunge says he'll let your students go, if you come with us."</p>
+            <p>"...Her, too." The officer makes a pointed glance towards Yuenris.</p>
             </div>
         </div>
 
@@ -254,12 +255,12 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p>“...”</p>
-            <p>Vinca’s shoulders tense. He scans over the police officers, Yuenris, before settling on you all.</p>
-            <p className='small'>“...Let my students go, he says.”</p>
+            <p>"..."</p>
+            <p>Vinca's shoulders tense. He scans over the police officers, Yuenris, before settling on you all.</p>
+            <p className='small'>"...Let my students go, he says."</p>
             <p>He chuckles dryly, frowning.</p>
-            <p>“Fine,” he agrees. “But only if you take your men away.”</p>
-            <p>“I’ll return your weapons after.”</p>
+            <p>"Fine," he agrees. "But only if you take your men away."</p>
+            <p>"I'll return your weapons after."</p>
         </div>
         </div>
 
@@ -267,7 +268,7 @@ function CandleCeremonyII() {
             <img src={npc} className='story-avatar'></img>
             <div className="story-speech-text">
             <div className="story-speech-name">POLICE</div>
-            <p>“.....”</p>
+            <p>"....."</p>
             <p>At the wave of his hand, the police officers—albeit hesitant—start to retreat one by one.</p>
             </div>
         </div>
@@ -281,9 +282,9 @@ function CandleCeremonyII() {
         />
         <div className="story-speech-text">
             <div className="story-speech-name">Vinca</div>
-            <p>“...Hey,” he greets wearily. “How are you all holding up?”</p>
-            <p>His eyes glance over towards Yuenris again where Pomme is by her side, healing her. With his aura, he tries to quicken her healing process, a small boost to Pomme’s already impressive efforts.</p>
-            <p>“I’m sorry—I shouldn’t have left.” Regret colours his voice and expression as he looks at you all, one by one. “You must’ve been terrified.”</p>
+            <p>"...Hey," he greets wearily. "How are you all holding up?"</p>
+            <p>His eyes glance over towards Yuenris again where Pomme is by her side, healing her. With his aura, he tries to quicken her healing process, a small boost to Pomme's already impressive efforts.</p>
+            <p>"I'm sorry—I shouldn't have left." Regret colours his voice and expression as he looks at you all, one by one. "You must've been terrified."</p>
         </div>
         </div>
 
@@ -414,7 +415,7 @@ function CandleCeremonyII() {
 
         <p>After a few more exchanges, Vinca and Yuenris leave, following behind the police officer as they disappear into the crowd.</p>
         <p>With the hour being much too late into the night for you to go home, Professor van Hoff brings you all to a nearby hotel instead. The establishment seems to have a longstanding partnership with the school, allowing you all to stay the night despite recent events.</p>
-        <p>It’s midnight when you finally land yourselves on a bed. Generously, the hotel gave you all single rooms to sleep in, allowing you some peace and quiet after today’s events.</p>
+        <p>It's midnight when you finally land yourselves on a bed. Generously, the hotel gave you all single rooms to sleep in, allowing you some peace and quiet after today's events.</p>
         <p>After a moment, exhaustion crashes over you in your moment of reprieve. Thoughts of what transpired today race through your mind as the silence proves itself too loud to bear during moments like these.
         </p>
         <p>Still, the night goes on, and regardless of your fears and worries—you find that you should get ready to turn in for the night.
@@ -443,9 +444,9 @@ function CandleCeremonyII() {
     </div>
 
     <div className="story-body">
-        <p>Your morning at the hotel was brief; the hotel mandated you to check out early—not because of recent events, but purely because their policies were as such—but you managed to at least have a meal at their breakfast buffet, which proved to be surprisingly delicious. All in all, it was a welcome distraction for your mind, even if it didn’t last for too long.</p>
-        <p>Now, you find yourselves on the school’s bus. Professor van Hoff had called them over to pick you up, as it was the easiest way to bring you all back while still guaranteeing your safety.</p>
-        <p>It’ll be a while until you reach the academy again. What will you do to pass the time? Will you catch up on sleep? Check in on your classmates? Message your family and friends?</p>
+        <p>Your morning at the hotel was brief; the hotel mandated you to check out early—not because of recent events, but purely because their policies were as such—but you managed to at least have a meal at their breakfast buffet, which proved to be surprisingly delicious. All in all, it was a welcome distraction for your mind, even if it didn't last for too long.</p>
+        <p>Now, you find yourselves on the school's bus. Professor van Hoff had called them over to pick you up, as it was the easiest way to bring you all back while still guaranteeing your safety.</p>
+        <p>It'll be a while until you reach the academy again. What will you do to pass the time? Will you catch up on sleep? Check in on your classmates? Message your family and friends?</p>
         <p>Regardless, the bus rumbles as you make your way back to Voxenfelle.</p>
         <p>The low hum of the engine is comforting.</p>
         <p>Eventually, the familiar sight of the academy enters your peripheral vision. A sense of comfort washes over you.</p>
@@ -454,7 +455,7 @@ function CandleCeremonyII() {
         <img src={preston} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">PRESTON</div>
-                <p>“We’re almost there, guys!”</p>
+                <p>"We're almost there, guys!"</p>
             </div>
         </div>
 
@@ -471,7 +472,7 @@ function CandleCeremonyII() {
             </div>
         </div>
 
-        <p>The bus slowly comes to a halt. You’re just a stone’s throw away from reaching the school now.</p>
+        <p>The bus slowly comes to a halt. You're just a stone's throw away from reaching the school now.</p>
         <p>You see it from the corner of your eye: a man, standing in front of the gates.</p>
 
         <div className='story-speech npc'>
@@ -497,19 +498,19 @@ function CandleCeremonyII() {
 
         <p>Something buzzes. You feel warning alarms blaring in your head.</p>
 
-        <p>It’s well concealed, but you can feel just the faintest trace of it seeping through: mbloodlust.</p>
+        <p>It's well concealed, but you can feel just the faintest trace of it seeping through: mbloodlust.</p>
 
         <div className='story-speech npc'>
         <img src={cain} className='story-avatar'></img>
             <div className="story-speech-text">
                 <div className="story-speech-name">CAIN</div>
-                <p>“Name’s Cain! I’m just a… <i>hmmm</i>, what do you guys call it? Well, can’t really remember, so just think of me as some stranger passing by.”</p>
-                <p>“I’m just here to check the place out. Y’know, <i>like when you go to your fav restaurant one last time before it gets torn down?</i> Something like that.”</p>
-                <p>“I’d say <i>nice meeting you</i>, but…”</p>
+                <p>"Name's Cain! I'm just a… <i>hmmm</i>, what do you guys call it? Well, can't really remember, so just think of me as some stranger passing by."</p>
+                <p>"I'm just here to check the place out. Y'know, <i>like when you go to your fav restaurant one last time before it gets torn down?</i> Something like that."</p>
+                <p>"I'd say <i>nice meeting you</i>, but…"</p>
                 <p>He glances at some of your drawn weapons, and smirks.</p>
-                <p>“Looks like I’m not really welcome here. Too bad.” A sigh, though the smirk doesn’t quite leave his face.</p>
-                <p>“Guess I’m not supposed to be here either. Not <i>yet</i> anyway, but… hm."</p>
-                <p>"How about we do something fun? Something small, to celebrate our first meeting. Like a mini-party.”</p>
+                <p>"Looks like I'm not really welcome here. Too bad." A sigh, though the smirk doesn't quite leave his face.</p>
+                <p>"Guess I'm not supposed to be here either. Not <i>yet</i> anyway, but… hm."</p>
+                <p>"How about we do something fun? Something small, to celebrate our first meeting. Like a mini-party."</p>
                 <p>"This is a school for Hunters, right? Which means you guys are strong.</p>
                 <p>"So, let's do this: dodgeball. Except I'm the one attacking, and I'm not using a ball."</p>
                 <p>"You win, I leave. You lose..."</p>
@@ -546,11 +547,11 @@ function CandleCeremonyII() {
                 <div className="story-speech-name">CAIN</div>
                 <p>Cain taps at his neck, then points to Areve's.</p>
                 <p>"Not interested, girlie." <i>You're not one of them</i>.</p>
-                <p>“Now…”</p>
+                <p>"Now…"</p>
             </div>
         </div>
 
-        <p className='big center alt-font'><b>“Time to play ball.”</b></p>
+        <p className='big center alt-font'><b>"Time to play ball."</b></p>
 
         <img className='story-cg' src="https://i.ibb.co/jDyRHD3/mello-cg3.png"></img>
         <div className="special-box"><div className="music"><a href="https://youtu.be/8HL8snYICPI?si=ILlPdGMCUy0LYo0B" target="_blank" rel="noopener noreferrer">♫</a>
@@ -694,9 +695,9 @@ function CandleCeremonyII() {
             <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">CAIN</div>
-                    <p>“Tch…”</p>
+                    <p>"Tch…"</p>
                     <p>Cain sits on a leather sofa. An ice pack settled over his head.</p>
-                    <p>“Fucking—”</p>
+                    <p>"Fucking—"</p>
                 </div>
             </div>
 
@@ -705,7 +706,7 @@ function CandleCeremonyII() {
                 <div className="story-speech-text">
                     <div className="story-speech-name">???</div>
                     <p>The door swings wide. Heavy footsteps follow as a figure enters the room, a cane tapping along with each stride taken.</p>
-                    <p>“...Cain.”</p>
+                    <p>"...Cain."</p>
                 </div>
             </div>
 
@@ -713,9 +714,9 @@ function CandleCeremonyII() {
             <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">CAIN</div>
-                    <p>“`Sup. Checking in on me or what?”</p>
+                    <p>"`Sup. Checking in on me or what?"</p>
                     <p>Cain barks out a laugh. The sound echoes throughout the study.</p>
-                    <p>“I know what you’re gonna say. <i>Blahblahblah don’t act without permission. Blahblahblah you’re going against orders.</i>"</p>
+                    <p>"I know what you're gonna say. <i>Blahblahblah don't act without permission. Blahblahblah you're going against orders.</i>"</p>
                     <p>Cain rolls his eyes.</p>
                     <p>"Whatever."</p>
                 </div>
@@ -725,7 +726,7 @@ function CandleCeremonyII() {
             <img src={black} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">???</div>
-                    <p>“...”</p>
+                    <p>"..."</p>
                     <p>The figure stares at Cain. Quietly, they sit in the chair to his side.</p>
                 </div>
             </div>
@@ -734,7 +735,7 @@ function CandleCeremonyII() {
             <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">CAIN</div>
-                    <p>“So? Any news from Yunge?”</p>
+                    <p>"So? Any news from Yunge?"</p>
                 </div>
             </div>
 
@@ -742,7 +743,7 @@ function CandleCeremonyII() {
             <img src={black} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">???</div>
-                    <p>“No.”</p>
+                    <p>"No."</p>
                 </div>
             </div>
 
@@ -750,9 +751,9 @@ function CandleCeremonyII() {
             <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">CAIN</div>
-                    <p>“Seriously? Man. I don’t get paid enough for this.”</p>
+                    <p>"Seriously? Man. I don't get paid enough for this."</p>
                     <p>He sets his feet up on the coffee table in front of him, letting out a long sigh.</p>
-                    <p>“This bill is taking so damn long. He should just kill Sullivan already.”</p>
+                    <p>"This bill is taking so damn long. He should just kill Sullivan already."</p>
                 </div>
             </div>
 
@@ -760,7 +761,7 @@ function CandleCeremonyII() {
             <img src={black} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">???</div>
-                    <p>“...”</p>
+                    <p>"..."</p>
                 </div>
             </div>
 
@@ -768,8 +769,8 @@ function CandleCeremonyII() {
             <img src={cain} className='story-avatar'></img>
                 <div className="story-speech-text">
                     <div className="story-speech-name">CAIN</div>
-                    <p>“Oh, sorry—got it wrong there.”</p>
-                    <p>“He should get you to kill Sullivan already. His fav' and all.”</p>
+                    <p>"Oh, sorry—got it wrong there."</p>
+                    <p>"He should get you to kill Sullivan already. His fav' and all."</p>
                     <p><i>"Right, Vika?"</i></p>
                 </div>
             </div>

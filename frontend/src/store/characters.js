@@ -4,7 +4,6 @@ const SET_CHARACTERS = "characters/setCharacters";
 const ADD_CHARACTER = "characters/addCharacter";
 const UPDATE_CHARACTER = "characters/updateCharacter";
 const DELETE_CHARACTER = "characters/deleteCharacter";
-const SET_CHARACTERS_BY_MUN = 'characters/setCharactersByMun';
 const SET_ERRORS = "characters/setErrors";
 
 const createAction = (type, payload) => ({ type, payload });

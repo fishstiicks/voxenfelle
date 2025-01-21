@@ -78,9 +78,9 @@ lineage: 'Noble',
 hexcode: '#2f5ff2',
 weapon: `Reflective Glaive`,
 power: `Refractive illusions — The conjured image randomly generates a number of copies, rendering it difficult to tell which is the original. Primarily used for distractions and support. Illusions are capable of movement and speech, and copies must be dispelled individually by enemies. (Illusion height  MAX: 10ft, area of distance/length MAX: 20ft)`,
-reputation: `A person who seems to simply do what it wants. Expressive, capricious, and affectionate, it’s a social butterfly that can be spotted anywhere around the school, and is something of a risk-taker. She’s the type to go out of her way to approach others and flit between different social circles. Despite the lackadaisical attitude, she's a good student.  
+reputation: `A person who seems to simply do what it wants. Expressive, capricious, and affectionate, it's a social butterfly that can be spotted anywhere around the school, and is something of a risk-taker. She's the type to go out of her way to approach others and flit between different social circles. Despite the lackadaisical attitude, she's a good student.  
 
-It’s known for being from the Noble Zaal family, hunters that specialize in weaponsmithing, and the younger sister of Amari Zaal, a Voxenfelle alumna.`,
+It's known for being from the Noble Zaal family, hunters that specialize in weaponsmithing, and the younger sister of Amari Zaal, a Voxenfelle alumna.`,
 class: '2-B',
 dorm: '102',
 source: 'Aura',
@@ -132,7 +132,7 @@ lineage: 'Noble',
 hexcode: '',
 weapon: `hour hand, minute hand (knives) `,
 power: `Can ""go back in time"" to relive her memories but she can't affect the past/present/future with what she's doing. It's mostly used for investigative purposes. She can cause other people to relive their memories as well but it's much more limited in scope.`,
-reputation: `Is kind of offputting and unpleasant fsr :[ always looks like she doesn’t want to be talked to. Bcuz she doesn’t.`,
+reputation: `Is kind of offputting and unpleasant fsr :[ always looks like she doesn't want to be talked to. Bcuz she doesn't.`,
 class: '2-B',
 dorm: '104',
 source: 'Aura',
@@ -290,9 +290,9 @@ hexcode: '',
 weapon: `Herself. She can transform any of her limbs into a many-toothed monster. Evolution, she calls it – a natural step to help her feed.
 
 If not using her transformation, she will also use a buzzsaw.`,
-power: `She calls it “assimilation” – after she consumes the flesh or genetic material of an organism with consciousness, it is temporarily incorporate it into her own consciousness... before swapping bodies entirely. Her mind in your body, and your mind in hers. Your aura/ability comes with; she can only use your body in the physical. (And for fun, we can swap stats -- not necessary though!)
+power: `She calls it "assimilation" – after she consumes the flesh or genetic material of an organism with consciousness, it is temporarily incorporate it into her own consciousness... before swapping bodies entirely. Her mind in your body, and your mind in hers. Your aura/ability comes with; she can only use your body in the physical. (And for fun, we can swap stats -- not necessary though!)
 
-It turns off when she’s collar-shocked, or you can force her out through contesting willpower (1d20) rolls.`,
+It turns off when she's collar-shocked, or you can force her out through contesting willpower (1d20) rolls.`,
 reputation: `A strange, off-putting woman. When you look at her, you get the sense she has been watching you, and for quite some time. A small, dreamy smile on her face. Prone to daydreams and imagining scenarios. Takes delight in pulling pranks and causing general misery. When provoked or threatened, has the tendency to bite.`,
 class: '2-A',
 dorm: '105',
@@ -477,7 +477,7 @@ reputation: `Voidpact student tapping around the halls in custom-made leather sh
 
 Offers opinions and support in abundance. Tends to be involved in many things, both on and off campus.
 
-Moving around constantly. If he’s standing still, you will usually find him in a cloud of smoke produced from the enjoyment of a cigarette, cigar, or pipe. You’re likely welcome to smoke alongside.`,
+Moving around constantly. If he's standing still, you will usually find him in a cloud of smoke produced from the enjoyment of a cigarette, cigar, or pipe. You're likely welcome to smoke alongside.`,
 class: '2-A',
 dorm: '202',
 source: 'Void',
@@ -527,7 +527,7 @@ lineage: 'Civilian',
 hexcode: '',
 weapon: `Vambrace`,
 power: `THUNDERBOLT - can turn self into a bolt of lightning`,
-reputation: `New voidpact student who seemed to have very little exposure to aura prior to coming to Voxenfelle Academy. Orphan. Blunt and down-to-earth. Never wears the uniform properly. Does poor academically. Often seen asking for other student’s money/food/homework/phone numbers and making inappropriate remarks. Works part time at a warehouse doing repairs and deliveries.`,
+reputation: `New voidpact student who seemed to have very little exposure to aura prior to coming to Voxenfelle Academy. Orphan. Blunt and down-to-earth. Never wears the uniform properly. Does poor academically. Often seen asking for other student's money/food/homework/phone numbers and making inappropriate remarks. Works part time at a warehouse doing repairs and deliveries.`,
 class: '2-A',
 dorm: '301',
 source: 'Void',
@@ -932,7 +932,7 @@ lineage: 'Civilian',
 hexcode: '',
 weapon: `Gun (but fights close range)`,
 power: `On activation, he becomes aware of the way forward. This is the real life equivalent of pushing R3 and having your video game camera orient to the objective marker.`,
-reputation: `If someone is familiar with the Fontaine Valley then they may have heard of the Hughes family— much in the same way that you might be familiar with that one mechanic shop that’s been in your hometown for generations, you know, the one who sponsors a float in the 4th of July parade (#america) and had some weird business with under-the-table meat that one time.
+reputation: `If someone is familiar with the Fontaine Valley then they may have heard of the Hughes family— much in the same way that you might be familiar with that one mechanic shop that's been in your hometown for generations, you know, the one who sponsors a float in the 4th of July parade (#america) and had some weird business with under-the-table meat that one time.
 
 If not? Then maybe they heard about the guy who got a duck pond into the library.`,
 class: '2-B',
@@ -1414,7 +1414,7 @@ pronouns: 'He/Him',
 height: '176',
 lineage: 'Noble',
 hexcode: '#425d8c',
-weapon: `An old, large, oil lantern repurposed into a weapon. Attached to a long rope, it can be used as a restraining and long-range blunt weapon. The “bulb” acts as a beacon to direct Makoto’s aura at distance.`,
+weapon: `An old, large, oil lantern repurposed into a weapon. Attached to a long rope, it can be used as a restraining and long-range blunt weapon. The "bulb" acts as a beacon to direct Makoto's aura at distance.`,
 power: `Healing aura with side effects ranging from mildly uncomfortable to excruciatingly painful.`,
 reputation: `The Fukami family is not the most well known family, but they have been in the hunter business for a very long time, and have a reputation of being skilled hunters. The eldest daughter Maho graduated Voxenfelle last year with an impeccable record. While Makoto is not quite living up to the same expectations, he's known to be very studious and friendly. Some rumors say he has changed a lot since he entered the Academy.`,
 class: '2-A',
@@ -1441,7 +1441,7 @@ lineage: 'Civilian',
 hexcode: '#ffc600',
 weapon: `Baseball Bat`,
 power: `Sunlight/Nuclear powered instantaneous healing/regeneration. `,
-reputation: `Kinda showed up out of nowhere and acts like he owns the place. From a relatively secretive Aura development and training facility that is known for being a blackhole. Lot’s of things go in and not a lot comes out– but this guy did!`,
+reputation: `Kinda showed up out of nowhere and acts like he owns the place. From a relatively secretive Aura development and training facility that is known for being a blackhole. Lot's of things go in and not a lot comes out– but this guy did!`,
 class: '2-A',
 dorm: '401',
 source: 'Aura',
@@ -1466,9 +1466,9 @@ lineage: 'Civilian',
 hexcode: '#5694E1',
 weapon: `Modified Steam-Piston War Hammer`,
 power: `Water Manipulation - Water Serpent Leviathan`,
-reputation: `With her bubbly demeanor and penchant for mischief, Milky is a divisive figure. She’s either liked or not - no inbetween, typically. She’s friendly to most but never enough to get deep, confident when challenged, and revels in attention, no matter if good or bad. Milky is seldomly found on her own, but when spotted on her lonesome, seems uncharacteristically lost in thought or even melancholic.
+reputation: `With her bubbly demeanor and penchant for mischief, Milky is a divisive figure. She's either liked or not - no inbetween, typically. She's friendly to most but never enough to get deep, confident when challenged, and revels in attention, no matter if good or bad. Milky is seldomly found on her own, but when spotted on her lonesome, seems uncharacteristically lost in thought or even melancholic.
 
-Some would say that Milky has an embarrassing weakness for girls. Her clumsy attempts at flirtation are pathetic, and she’s quick to flee when energy gets reciprocal.
+Some would say that Milky has an embarrassing weakness for girls. Her clumsy attempts at flirtation are pathetic, and she's quick to flee when energy gets reciprocal.
 
 Also known for having a great singing voice.
 `,
@@ -1632,13 +1632,13 @@ height: '167',
 lineage: 'Civilian',
 hexcode: '',
 weapon: `pistol-knife-taser`,
-power: `[RUBEDO] His blood heals people when entering their body and temporarily links his mind with the person he’s healed, sharing thoughts and feelings. He can impress his will on the person he’s healed to control their actions, although they can resist if their willpower is stronger than his. How long this effect lasts depends on the amount of blood used. 
+power: `[RUBEDO] His blood heals people when entering their body and temporarily links his mind with the person he's healed, sharing thoughts and feelings. He can impress his will on the person he's healed to control their actions, although they can resist if their willpower is stronger than his. How long this effect lasts depends on the amount of blood used. 
 
 Normally his bullet only has enough blood for one demand/action. 
 
 [OPTIONAL: ROLLING CHA/INT TO SEE WHO WINS THE MENTAL ANIME BATTLE OF WILL] 
 
-When healing, gold webs out from the blood’s entry point and heals the person before dissipating.
+When healing, gold webs out from the blood's entry point and heals the person before dissipating.
 `,
 reputation: `Immediately noticeable for his flashy appearance and loud personality, Pomme's quickly creating a reputation for himself for being ambitious, surprisingly capable, and incredibly annoying. 
 
@@ -1889,7 +1889,7 @@ lineage: 'Civilian',
 hexcode: '',
 weapon: `Throwing knives`,
 power: `[Deconstruction] The breaking and decomposition of any known substance at their fingertips. Active upon physical form transformation, changing into an angelic glamour with wings and halo.`,
-reputation: `Originally born to be part of the clergy, they were spurned and cast out with their mother after developing an aura. They now have no home to return to and currently use their mother’s maiden name.
+reputation: `Originally born to be part of the clergy, they were spurned and cast out with their mother after developing an aura. They now have no home to return to and currently use their mother's maiden name.
 
 While they have a friendly smile and are eager to maintain good relationships with others, they seem frequently fearful and anxious.
 They work at a bakery near the academy and sometimes bring baked goods to school.`,
@@ -2061,7 +2061,7 @@ weapon: `Scepter-sword (default is a golden crowned scepter, but a sword can sli
 power: `Crystal generation, from hands or feet at will.`,
 reputation: `The younger daughter of Voxenfelle alumni, and the sister of another alumna. Her parents are well-known in noble circles, thanks to their frequent party attendance (and hosting).
 
-The type to talk back to teachers and sulk when she's reprimanded for it. In spite of a sweet and cutesy affectation, her reputation largely spotlights her short temper and sharp tongue, as she's quick to strike whenever she sees fit. Strives for high marks in both schoolwork and style. Enjoys partaking in gossip and seems sociable, but doesn’t appear to stick with a friend group for very long. Though she's always seemed more interested in her grades than her magic, recently she's taken to being a little more experimental with it, and is training to make her crystals stronger and shinier than ever before!`,
+The type to talk back to teachers and sulk when she's reprimanded for it. In spite of a sweet and cutesy affectation, her reputation largely spotlights her short temper and sharp tongue, as she's quick to strike whenever she sees fit. Strives for high marks in both schoolwork and style. Enjoys partaking in gossip and seems sociable, but doesn't appear to stick with a friend group for very long. Though she's always seemed more interested in her grades than her magic, recently she's taken to being a little more experimental with it, and is training to make her crystals stronger and shinier than ever before!`,
 class: '2-B',
 dorm: '205',
 source: 'Aura',
@@ -2085,7 +2085,7 @@ height: '175',
 lineage: 'Noble',
 hexcode: '',
 weapon: `Coffin-Hammer. The coffin opens up to reveal the spikes inside to gobble up targets like an iron maiden.`,
-power: `Takes the form of a purple ooze with ghoulish faces. Viduus' nightmares given physical form. Sticky, slimy and heavy. Has the effect of slowing down and/or preventing its targets’ movements. Think of glue that is alive and groans. Viduus can also manipulate where the pool of ooze move but it is slow.`,
+power: `Takes the form of a purple ooze with ghoulish faces. Viduus' nightmares given physical form. Sticky, slimy and heavy. Has the effect of slowing down and/or preventing its targets' movements. Think of glue that is alive and groans. Viduus can also manipulate where the pool of ooze move but it is slow.`,
 reputation: `As one may call it, a wallflower. Introverted and timid. Speech is spoken slowly, carefully and always sound uncertain. Confidence is clearly lacking in their voice and demeanor, and cowardice is a huge motivator for their actions. 
 
 Not at all well-liked or popular by any means in the academy. They tend to peek behind corners, and stick close to the wall until someone gives them a modicum of attention and they instantly parasitically latch on to them. 
@@ -2115,7 +2115,7 @@ lineage: 'Civilian',
 hexcode: '#628597',
 weapon: `Crossbow that collapses into a shield`,
 power: `Reflective barriers`,
-reputation: `Vince is known for their sharp criticism and tactless nature. By default, they’re something of an asshole. They seem to find joy from meddling in other people’s affairs and leaving commentary on things they know nothing about. They are innately a conversationalist who cares little about how they are perceived.
+reputation: `Vince is known for their sharp criticism and tactless nature. By default, they're something of an asshole. They seem to find joy from meddling in other people's affairs and leaving commentary on things they know nothing about. They are innately a conversationalist who cares little about how they are perceived.
 
 They preach that they never wanted to be a Hunter. Still, they're working hard to succeed despite claiming they don't actually care about any of this. At their core, they're a hypocrite.
 

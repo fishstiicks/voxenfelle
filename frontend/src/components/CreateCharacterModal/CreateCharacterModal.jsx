@@ -28,8 +28,6 @@ function CreateCharacterModal({refreshCharacters}) {
   const [cha, setCha] = useState(0);
   const [int, setInt] = useState(0);
   const [mag, setMag] = useState(0);
-  const [soulbond, setSoulbond] = useState(false);
-  const [souldrop, setSouldrop] = useState(false);
   const [errors, setErrors] = useState({});
 
   if (!sessionUser) {

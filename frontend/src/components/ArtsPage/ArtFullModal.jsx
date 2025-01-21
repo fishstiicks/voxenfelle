@@ -1,4 +1,3 @@
-import React from 'react';
 import '../ArtsPage/ArtFullModal.css';
 
 function ArtModal({ imageUrl, onClose }) {

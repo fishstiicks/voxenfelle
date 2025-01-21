@@ -5,7 +5,7 @@ import { csrfFetch } from '../../store/csrf';
 function MembershipsPage() {
   const { name } = useParams();
   const [memberships, setMemberships] = useState([]);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const [sessionUser, setSessionUser] = useState(null);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function MembershipsPage() {
       {memberships.length === 0 && <p>You currently have no memberships. <Link to={`/clubs`}><b>Check out our clubs?</b></Link></p>}
 
         {memberships.map((membership) => (
-          <div id="membership-item">
+          <div key={membership.id} id="membership-item">
             <p><b>{membership.character.name}</b> ▸ {membership.club}</p>
             {sessionUser && sessionUser.username === name && (
               <button

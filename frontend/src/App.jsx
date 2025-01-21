@@ -13,7 +13,6 @@ import UserCharactersPage from './components/UserPages/UserCharactersPage.jsx';
 import CharacterArtPage from './components/CharacterDetailPage/CharacterArtPage.jsx'
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage.jsx';
 import CharacterRelationsPage from './components/CharacterRelationsPage/CharacterRelationsPage.jsx';
-import HomePage from './components/HomePage/HomePage.jsx'
 import MembershipsPage from './components/ClubsPage/MembershipsPage.jsx';
 import Attendance from './components/Story/Attendance/Attendance.jsx';
 
