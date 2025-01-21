@@ -1,5 +1,5 @@
 'use strict';
-const { Attendance } = require('../../models');
+const { Attendance } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {

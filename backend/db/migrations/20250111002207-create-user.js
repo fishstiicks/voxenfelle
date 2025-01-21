@@ -16,7 +16,7 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING,
-        unqiue: true
+        unique: true
       },
       hashedPassword: {
         type: Sequelize.STRING
@@ -29,7 +29,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }, options);
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "Users";

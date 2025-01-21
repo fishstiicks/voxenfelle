@@ -1,6 +1,6 @@
 'use strict';
 
-const { Story } = require('../../models');
+const { Story } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
