@@ -75,6 +75,9 @@ function AnAudience() {
 
   return (
     <div className="main-content">
+      <a href="#start"><button id='scroll-to-start'>🠉</button></a>
+      <a id="start"></a>
+      
         <div className="story-big">
             <div className="time">11:00 A.M.</div>
             <div>Voxenfelle Academy</div>

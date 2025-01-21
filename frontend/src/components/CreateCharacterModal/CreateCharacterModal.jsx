@@ -89,7 +89,7 @@ function CreateCharacterModal({refreshCharacters}) {
       <h1>Create Character</h1>
       <form onSubmit={handleSubmit}>
       <label>
-      <span>Picrew URL (<a href="https://picrew.me/ja/image_maker/1669170" rel="noopener noreferrer">maker</a> / <a href="https://imgbb.com/" rel="noopener noreferrer">uploader</a>)</span>
+      <span>Picrew URL (<a href="https://picrew.me/ja/image_maker/1669170" rel="noopener noreferrer" target="_blank">maker</a> / <a href="https://imgbb.com/" target="_blank" rel="noopener noreferrer">uploader</a>)</span>
           <input
             type="text"
             value={picrew}

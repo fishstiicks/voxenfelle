@@ -1,3 +1,26 @@
+#start {
+    margin-top: -100px;
+    margin-bottom: 100px;
+    display: block;
+    height: 0;
+}
+
+#scroll-to-start {
+    background-color: rgba(102, 102, 102, 0.3);
+    position: fixed;
+    margin-left: 76%;
+    margin-top: 40%;
+    height: 65x;
+    border-radius: 100px;
+    font-size: 30px;
+    color:rgb(37, 37, 37);
+    transition: 0.2s;
+}
+
+#scroll-to-start:hover {
+    background-color: #F9CF57;
+}
+
 .story-body {
     width: 75%;
     margin-left: 5%;
@@ -107,7 +130,20 @@
 }
 
 .center {
+    justify-content: center;
     text-align: center;
+}
+
+.cg-box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(14, 14, 14);
+    color:#F5F0F6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-bottom: 30px;
+    margin-right: 10px;
 }
 
 .black {
@@ -148,7 +184,7 @@
 
 .music a {
     display: flex;
-    color: white;
+    color: #F5F0F6;
     background-color: rgb(80, 80, 80);
     border-radius: 6px;
     font-size: 20px;

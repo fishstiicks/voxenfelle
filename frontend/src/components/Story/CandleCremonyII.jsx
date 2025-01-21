@@ -72,6 +72,8 @@ function CandleCeremonyII() {
 
     return (
     <div className="main-content">
+        <a href="#start"><button id='scroll-to-start'>🠉</button></a>
+        <a id="start"></a>
         <div className="story-big">
             <p>There's barely any time for the words to register.</p>
         </div>
@@ -552,11 +554,11 @@ function CandleCeremonyII() {
             </div>
         </div>
 
-        <p className='big center alt-font'><b>"Time to play ball."</b></p>
-
+        <div className='cg-box'>
+        <div className="special-box center"><div className="music"><a href="https://youtu.be/8HL8snYICPI?si=ILlPdGMCUy0LYo0B" target="_blank" rel="noopener noreferrer">♫</a>
+        </div><p className='big alt-font'>"Time to play ball."</p>
+        </div>
         <img className='story-cg' src="https://i.ibb.co/jDyRHD3/mello-cg3.png"></img>
-        <div className="special-box"><div className="music"><a href="https://youtu.be/8HL8snYICPI?si=ILlPdGMCUy0LYo0B" target="_blank" rel="noopener noreferrer">♫</a>
-        </div><p>ENCOUNTER: CAIN</p>
         </div>
 
         <div className='minigame alt-font'><p>This is an enemy encounter. To fulfill the objective, you must dodge all of Cain's attacks within FIVE (5) rounds: getting hit three times will knock you out.</p>
@@ -683,8 +685,6 @@ function CandleCeremonyII() {
         <p>Later, Professor van Hoff informs you that Professor Vinca and Yuenris are on their way back. Perhaps then you'll find some clarity to the situation, as well as much needed answers.</p>
         <p>Tonight, the air runs thick with uncertainty in Voxenfelle Academy.</p>
     </div>
-
-    BUTTON HERE TO CHECK COMPLETION
 
     <hr />
 

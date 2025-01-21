@@ -23,6 +23,16 @@ function LoginFormModal() {
       });
   };
 
+  const loginAsDemo = async (e) => {
+    e.preventDefault();
+    const demoUser = {
+      credential: 'Demo-lition',
+      password: 'password'
+    };
+
+      await dispatch(sessionActions.login(demoUser));
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -45,10 +55,15 @@ function LoginFormModal() {
             required
           />
         </label>
+
         {errors.credential && (
           <p>{errors.credential}</p>
         )}
         <button type="submit">Log In</button>
+
+        <button onClick={loginAsDemo} className="demo-login-btn">
+            <u>Log in as Demo User</u>
+      </button>
       </form>
     </>
   );

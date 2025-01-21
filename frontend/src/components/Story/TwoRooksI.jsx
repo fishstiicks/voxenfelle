@@ -75,6 +75,8 @@ function TwoRooksI() {
 
   return (
     <div className="main-content">
+    <a href="#start"><button id='scroll-to-start'>🠉</button></a>
+    <a id="start"></a>
         <div className="story-big">
             <div className="time">09:00 P.M.</div>
             <div>Voxenfelle Academy</div>
@@ -287,11 +289,11 @@ function TwoRooksI() {
             </div>
             </div>
 
-            <p className='big center alt-font'><b>"Do your best, yeah?"</b></p>
-
+            <div className='cg-box'>
+            <div className="special-box center"><div className="music"><a href="https://youtu.be/HgJ3VYyC2KI?si=ySYOLencLleg5cdD" target="_blank" rel="noopener noreferrer">♫</a>
+            </div><p className='big alt-font'>"Do your best, yeah?"</p>
+            </div>
             <img className='story-cg' src="https://i.ibb.co/xJC3Lvb/cain-flashdrive-2.png"></img>
-            <div className="special-box"><div className="music"><a href="https://youtu.be/HgJ3VYyC2KI?si=ySYOLencLleg5cdD" target="_blank" rel="noopener noreferrer">♫</a>
-            </div><p>ENCOUNTER: CAIN</p>
             </div>
 
             <div className='minigame alt-font'>

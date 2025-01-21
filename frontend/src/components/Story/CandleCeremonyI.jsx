@@ -62,6 +62,8 @@ function CandleCeremonyI() {
 
   return (
     <div className="main-content">
+        <a href="#start"><button id='scroll-to-start'>🠉</button></a>
+        <a id="start"></a>
         <div className="story-big">
             <div className="time">07:45 P.M.</div>
             <div>Hysse City Center</div>
@@ -348,8 +350,7 @@ function CandleCeremonyI() {
             )}
             </div>
             <div className="story-footer">
-                <Link to={`/attendance`}>🠄 Previous</Link>
-                <Link to={`/story/Candle Ceremony II`}>Next 🠆</Link>
+                <Link to={`/story/Candle Ceremony II`} style={{marginLeft: '3%'}}>Next 🠆</Link>
             </div>
             </div>
         
