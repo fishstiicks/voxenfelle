@@ -67,7 +67,7 @@ function Attendance() {
           <p id="attendance-header">{sessionUser ? `${sessionUser.username}'s ATTENDANCE` : 'TABLE OF CONTENTS'}</p>
 
           {sessionUser ? 
-              stories.reverse().map((story) => (
+              stories.map((story) => (
                 <div className="attendance-listing" key={story}>
                   <div className="attendance-date"></div>
                   <div className="attendance-title">

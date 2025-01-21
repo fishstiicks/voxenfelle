@@ -48,7 +48,7 @@ router.post('/', requireAuth, validateArt, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const artPieces = await Art.findAll({
-      order: [['createdAt', 'DESC']],
+      order: [['id', 'DESC']],
     });
     return res.status(200).json({ arts: artPieces });
   } catch (error) {
