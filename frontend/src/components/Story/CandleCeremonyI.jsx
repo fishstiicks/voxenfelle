@@ -4,6 +4,8 @@ const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
 const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
 const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
 
+const npc = 'https://i.ibb.co/R02JGTr/f68d79e249fbc0369129d19e5d1b196c.webp';
+
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';

@@ -9,10 +9,6 @@ import { csrfFetch } from '../../store/csrf';
 const vinca = 'https://i.ibb.co/RYW2TGr/Z-VINCA.webp';
 const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
 const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
-const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
-const rowan = 'https://i.ibb.co/hZfwY4V/image.webp';
-const vika = 'https://i.ibb.co/KKdR9KM/image.png';
-const yunge = 'https://i.ibb.co/bPPmbmS/image.png';
 const cain = 'https://i.ibb.co/TbPWcmn/image.png';
 
 const black ='https://i.ibb.co/MSWT8Hw/vine-black-painted-swatch-300x300.jpg';
