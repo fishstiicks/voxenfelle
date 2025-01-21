@@ -1,6 +1,6 @@
 'use strict';
 
-const { Club } = require('../models');
+const { Membership } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
