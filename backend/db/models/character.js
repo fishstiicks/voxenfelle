@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     picrew: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     name: {
@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isIn: {
           args: [['Aura', 'Void', 'None']],
-          msg: 'Source must be either "Aura" or "Void"'
+          msg: 'Source must be either "Aura", "Void", or "None'
         }
       }
     },
@@ -69,15 +69,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     weapon: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     power: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     reputation: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     class: {

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     special: DataTypes.STRING,
-    description: DataTypes.STRING
+    description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Relationship',

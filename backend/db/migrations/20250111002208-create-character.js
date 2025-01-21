@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       picrew: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       name: {
         type: Sequelize.STRING
@@ -40,13 +40,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       weapon: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       power: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       reputation: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       class: {
         type: Sequelize.STRING
