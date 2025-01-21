@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await Club.bulkCreate([{
+    await Membership.bulkCreate([{
       club: 'Abstinence Club',
       character: 'Ione',
       createdAt: new Date(),
