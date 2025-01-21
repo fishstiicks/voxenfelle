@@ -1,7 +1,10 @@
 // ICONS
-const rin = 'https://file.garden/ZvdEiabDvGKGr36j/Illustration33.png';
+const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
+const vika = 'https://i.ibb.co/KKdR9KM/image.png';
+
+
+
 const tera = 'https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2Fe964770d-173f-44ad-b756-68a4cbcdce86%2FZ_TERA.png/size/w=2000?exp=1737483683&sig=ee66aNpDSsKvtNDobUwblj3iQlFIPKuVBNVkAi6sPu0';
-const vika = 'https://i.ibb.co/q9Zr763/image.webp';
 
 
 import { useEffect, useState } from 'react';

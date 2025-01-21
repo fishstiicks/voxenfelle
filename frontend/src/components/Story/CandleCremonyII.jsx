@@ -6,14 +6,19 @@ import { csrfFetch } from '../../store/csrf';
 
 
 // ICONS
+const vinca = 'https://i.ibb.co/RYW2TGr/Z-VINCA.webp';
+const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
+const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
+const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
+const rowan = 'https://i.ibb.co/hZfwY4V/image.webp';
+const vika = 'https://i.ibb.co/KKdR9KM/image.png';
+const yunge = 'https://i.ibb.co/bPPmbmS/image.png';
+const cain = 'https://i.ibb.co/TbPWcmn/image.png';
+
 const black ='https://i.ibb.co/MSWT8Hw/vine-black-painted-swatch-300x300.jpg';
-const vinca = 'https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F1388b2be-e6c6-43c1-8355-81e1c94a6250%2FZ_VINCA.png?table=block&id=71fa2989-49b8-4392-80ac-39aca74876dc&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2;';
 const citron = 'https://i.ibb.co/VYcZvRQ/Illustration80.png';
-const cain = 'https://file.notion.so/f/f/e99cfe6f-3fec-4c86-b805-3235000eb51a/316b4e71-17cb-4ec8-b9c2-2f5bcfe12bf6/image.png?table=block&id=16720355-38d1-4b01-938d-ce5f659ce642&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&expirationTimestamp=1737302400000&signature=Cdxk5xEl2dJu2z_5soPdScDOo7YlcHnhUD9vLoNmW9o&downloadName=image.png';
-const cc = 'https://i.ibb.co/vd6pdDd/CHOU-CHOU.png';
 const npc = 'https://i.ibb.co/R02JGTr/f68d79e249fbc0369129d19e5d1b196c.webp';
 const areve = 'https://i.ibb.co/G2bdT3K/areve-vfa.png'
-const yuenris = 'https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F352cd77e-fa73-4420-bc74-d187cfb7d242%2FZ_YUENRIS.png?table=block&id=ab495cb4-1e63-41fc-a595-c98ecbb56f53&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2';
 const preston = 'https://i.ibb.co/HxHWzWP/atlas-picrew-1.webp';
 const hong = 'https://i.ibb.co/1rDC4hx/HONG.png';
 const eris = 'https://i.ibb.co/RDD9VDK/ERIS.png';

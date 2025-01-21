@@ -1,9 +1,8 @@
 // ICONS
-const vinca = 'https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F1388b2be-e6c6-43c1-8355-81e1c94a6250%2FZ_VINCA.png?table=block&id=71fa2989-49b8-4392-80ac-39aca74876dc&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2;';
-const cc = 'https://i.ibb.co/vd6pdDd/CHOU-CHOU.png';
-const npc = 'https://i.ibb.co/R02JGTr/f68d79e249fbc0369129d19e5d1b196c.webp';
-const rin = 'https://file.garden/ZvdEiabDvGKGr36j/Illustration33.png'
-const yuenris = 'https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F352cd77e-fa73-4420-bc74-d187cfb7d242%2FZ_YUENRIS.png?table=block&id=ab495cb4-1e63-41fc-a595-c98ecbb56f53&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2';
+const vinca = 'https://i.ibb.co/RYW2TGr/Z-VINCA.webp';
+const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
+const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
+const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';

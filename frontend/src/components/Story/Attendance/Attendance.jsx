@@ -4,6 +4,17 @@ import { Link } from 'react-router-dom';
 import '../../Story/Attendance/Attendance.css';
 
 const stories = ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II']
+const vinca = 'https://i.ibb.co/RYW2TGr/Z-VINCA.webp';
+const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
+const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
+const rin = 'https://i.ibb.co/yFNT4Zy/Illustration33.webp';
+const rowan = 'https://i.ibb.co/hZfwY4V/image.webp';
+const vika = 'https://i.ibb.co/KKdR9KM/image.png';
+const yunge = 'https://i.ibb.co/bPPmbmS/image.png';
+const cain = 'https://i.ibb.co/TbPWcmn/image.png';
+const arias = 'https://i.ibb.co/DwPSFNL/ZZ-ARIAS.webp';
+const tera = 'https://i.ibb.co/2cz1hpM/Z-TERA.webp';
+
 
 function Attendance() {
   const [attendanceStatus, setAttendanceStatus] = useState({});
@@ -99,7 +110,7 @@ function Attendance() {
       <div className='npc-row'>
           <div className='npc-listing'>
           <div className='npc-info'>
-              <img className='npc-image' src="https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F1388b2be-e6c6-43c1-8355-81e1c94a6250%2FZ_VINCA.png?table=block&id=71fa2989-49b8-4392-80ac-39aca74876dc&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2"></img>
+              <img className='npc-image' src={vinca}></img>
                 <div className='npc-name'><p style={{ color: '#870923', fontSize: '15px'}}>✦</p>EDEN VINCA</div>
                 <div className='npc-identity'>He/Him - 32</div>
                 </div>
@@ -111,7 +122,7 @@ function Attendance() {
 
         <div className='npc-listing'>
         <div className='npc-info'>
-          <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F352cd77e-fa73-4420-bc74-d187cfb7d242%2FZ_YUENRIS.png/size/w=2000?exp=1737498317&sig=P3v6bReBJO3bnB3HW2s2-Sr3vg4te8eqOrKYhn5sknE"></img>
+        <img className='npc-image' src={yuenris}></img>
             <div className='npc-name'><p style={{ color: '#c21c1c', fontSize: '15px'}}>✖</p>YUENRIS LAFAYE</div>
             <div className='npc-identity'>She/Her - 32</div>
             </div>
@@ -125,7 +136,7 @@ function Attendance() {
         <div className='npc-row'>
         <div className='npc-listing'>
         <div className='npc-info'>
-          <Link to={`/characters/Chou-chou`}><img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2Fa5229e9f-b594-4815-abf6-e008fbe16b48%2FZ_CHOU-CHOU.png/size/w=2000?exp=1737498528&sig=3bLT9RINUVcnjXGtI1sShvfEY-GbiokTrumZyt4gKjs"></img></Link>
+          <Link to={`/characters/Chou-chou`}><img className='npc-image' src={cc}></img></Link>
             <div className='npc-name'><p style={{ color: '#c21c1c', fontSize: '15px'}}>✖</p>Chou-chou</div>
             <div className='npc-identity'>She/Her - 22</div>
             </div>
@@ -138,7 +149,7 @@ function Attendance() {
 
         <div className='npc-listing'>
         <div className='npc-info'>
-          <Link to={`/characters/Rin`}><img className='npc-image' src="https://img.notionusercontent.com/ext/https%3A%2F%2Ffile.garden%2FZvdEiabDvGKGr36j%2FIllustration33.png/size/w=2000?exp=1737413542&sig=QdjSaAkD6AM8QH5pWpj-qsbn138NXaF-n-Frkjfyo0o"></img></Link>
+          <Link to={`/characters/Rin`}><img className='npc-image' src={rin}></img></Link>
             <div className='npc-name'><p style={{ color: '#c21c1c', fontSize: '15px'}}>✖</p>Rin</div>
             <div className='npc-identity'>He/Him - 22</div>
             </div>
@@ -151,7 +162,7 @@ function Attendance() {
 
         <div className='npc-listing'>
           <div className='npc-info'>
-          <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2Fe964770d-173f-44ad-b756-68a4cbcdce86%2FZ_TERA.png/size/w=2000?exp=1737483683&sig=ee66aNpDSsKvtNDobUwblj3iQlFIPKuVBNVkAi6sPu0"></img>
+          <img className='npc-image' src={tera}></img>
             <div className='npc-name'><p style={{ color: '#c21c1c', fontSize: '15px'}}>✖</p>Tera</div>
             <div className='npc-identity'>He/Him - 28</div>
             </div>
@@ -166,7 +177,7 @@ function Attendance() {
           <div className='npc-row'>
             <div className='npc-listing'>
             <div className='npc-info'>
-              <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2Fe1421b1d-4478-4552-9f08-14de6465161a%2FZZ_ARIAS.png/size/w=2000?exp=1737500127&sig=M0ELi63RxHEamlkt0EF4jVX6ZYKvomORMssSnJJAEOg"></img>
+            <img className='npc-image' src={arias}></img>
                 <div className='npc-name'><p style={{ color: '#c21c1c', fontSize: '15px'}}>✖</p>Arias</div>
                 <div className='npc-identity'>He/Him - 42</div>
                 </div>
@@ -183,7 +194,7 @@ function Attendance() {
         <div className='npc-row'>
           <div className='npc-listing'>
             <div className='npc-info'>
-              <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F3cd778e1-150a-491f-b988-f59ec3d8d5c6%2Fimage.png/size/w=2000?exp=1737500276&sig=kF8YIt-ZbCAr3ZQDec_V9gyFMaPTcbpKLcD_CXejB2U"></img>
+            <img className='npc-image' src={rowan}></img>
                 <div className='npc-name'><p style={{ color: '#ff9214', fontSize: '15px'}}>✦</p>ROWAN S. SULLIVAN</div>
                 <div className='npc-identity'>He/Him - 40</div>
                 </div>
@@ -196,7 +207,7 @@ function Attendance() {
 
             <div className='npc-listing'>
             <div className='npc-info'>
-              <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F958ed487-bd04-49a4-82e2-55cc5e9d928d%2Fimage.png/size/w=2000?exp=1737500360&sig=siA0CqEQ7ab5tC5SgmyZ38IS8gRBTYzEZHGtY6xfV_U"></img>
+            <img className='npc-image' src={yunge}></img>
                 <div className='npc-name'><p style={{ color: '#4a2d6b', fontSize: '15px'}}>✦</p>Nikola Yunge</div>
                 <div className='npc-identity'>He/Him - 48</div>
                 </div>
@@ -208,7 +219,7 @@ function Attendance() {
         <div className='npc-row'>
           <div className='npc-listing'>
             <div className='npc-info'>
-              <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F316b4e71-17cb-4ec8-b9c2-2f5bcfe12bf6%2Fimage.png/size/w=2000?exp=1737500493&sig=bY_qWan9tVKljHvD1BUF85O5gJchfvKksq82Hyy6FvQ"></img>
+            <img className='npc-image' src={cain}></img>
                 <div className='npc-name'><p style={{ color: '#242424', fontSize: '15px'}}>✦</p>Cain</div>
                 <div className='npc-identity'>He/Him - ???</div>
                 </div>
@@ -219,7 +230,7 @@ function Attendance() {
 
             <div className='npc-listing'>
             <div className='npc-info'>
-              <img className='npc-image' src="https://img.notionusercontent.com/s3/prod-files-secure%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2Fe20ce5e1-07bb-4cf8-9210-854b9ff5cd8e%2Fimage.png/size/w=2000?exp=1737439694&sig=inWUdIyC2w1UeIyrBk6HHb9fNfS30G2bGjSbhhg-ACE"></img>
+            <img className='npc-image' src={vika}></img>
                 <div className='npc-name'><p style={{ color: '#5e21a3', fontSize: '15px'}}>✦</p>Viktoriya Yunge</div>
                 <div className='npc-identity'>She/Any - 22</div>
                 </div>

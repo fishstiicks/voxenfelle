@@ -1,19 +1,20 @@
 // ICONS
+const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
+const rowan = 'https://i.ibb.co/hZfwY4V/image.webp';
+const vika = 'https://i.ibb.co/KKdR9KM/image.png';
+const cain = 'https://i.ibb.co/TbPWcmn/image.png';
+
 const adam = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d84c154c-d6e8-4f39-8f13-a74ec2521773/dij0hzs-ce4b4ca4-1fad-47ac-bf86-e9fbdada299f.png/v1/fit/w_600,h_600,q_70,strp/untitled_by_twendigo_dij0hzs-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZDg0YzE1NGMtZDZlOC00ZjM5LThmMTMtYTc0ZWMyNTIxNzczXC9kaWowaHpzLWNlNGI0Y2E0LTFmYWQtNDdhYy1iZjg2LWU5ZmJkYWRhMjk5Zi5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.gxPkkYhOd_xA2eBGHGJydxTmf9R-g1UTjpbf2MIqfIo'
 const black ='https://i.ibb.co/MSWT8Hw/vine-black-painted-swatch-300x300.jpg';
 const war = 'https://i.ibb.co/12x2zgV/transwar.png'
-const cc = 'https://i.ibb.co/vd6pdDd/CHOU-CHOU.png';
 const makoto = 'https://i.ibb.co/fkHfncY/MAKOTO.png';
 const juniper = 'https://i.ibb.co/N9CfYZW/gin-picrew.png';
-const cain = 'https://file.notion.so/f/f/e99cfe6f-3fec-4c86-b805-3235000eb51a/316b4e71-17cb-4ec8-b9c2-2f5bcfe12bf6/image.png?table=block&id=16720355-38d1-4b01-938d-ce5f659ce642&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&expirationTimestamp=1737302400000&signature=Cdxk5xEl2dJu2z_5soPdScDOo7YlcHnhUD9vLoNmW9o&downloadName=image.png';
-const vika = 'https://i.ibb.co/q9Zr763/image.webp';
 const damir = 'https://i.ibb.co/qp6DjkF/Illustration2-2-1.png';
 const harvey = 'https://i.ibb.co/T08W2sj/harvey-base-colo.png';
 const milky = 'https://i.ibb.co/XYQpcT6/MILKY.png';
 const scottie = 'https://i.ibb.co/HqqFTZb/SCOTTIE.png';
 const hong = 'https://i.ibb.co/1rDC4hx/HONG.png';
 const oma = 'https://i.ibb.co/mCkGm10/OMA.png';
-const rowan = 'https://nyewwe.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe99cfe6f-3fec-4c86-b805-3235000eb51a%2F3cd778e1-150a-491f-b988-f59ec3d8d5c6%2Fimage.png?table=block&id=e0c443ea-1735-4d28-8743-7fc106ba3b4e&spaceId=e99cfe6f-3fec-4c86-b805-3235000eb51a&width=2000&userId=&cache=v2';
 const beatrix = 'https://i.ibb.co/CQ5fKMm/BEATRIX.png';
 const pomme = 'https://i.ibb.co/v4m2QpF/vfx-pomme-picrew.png';
 const tomoya = 'https://i.ibb.co/6NhGwhp/TOMOYA.png';
