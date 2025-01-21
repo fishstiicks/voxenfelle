@@ -76,7 +76,7 @@ const EditCharacterModal = ({ character, refreshCharacter, handleNameChange, con
         <h1>Edit Character</h1>
       <form onSubmit={handleSubmit}>
       <label>
-          <span>Picrew URL</span>
+      <span>Picrew URL (<a href="https://picrew.me/ja/image_maker/1669170" rel="noopener noreferrer">maker</a> / <a href="https://imgbb.com/" rel="noopener noreferrer">uploader</a>)</span>
           <input
             type="text"
             value={picrew}

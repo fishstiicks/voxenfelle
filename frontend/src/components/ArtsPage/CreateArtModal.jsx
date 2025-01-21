@@ -45,7 +45,7 @@ const CreateArtModal = ({ refreshArts }) => {
         <h2>Create Art</h2>
         <form onSubmit={handleSubmit}>
         <div className="form-group">
-            <label htmlFor="artUrl"><span>Art URL</span></label>
+            <label htmlFor="artUrl"><span>Art URL (<a href="https://imgbb.com/" rel="noopener noreferrer">uploader</a>)</span></label>
             <input
               type="text"
               id="artUrl"
