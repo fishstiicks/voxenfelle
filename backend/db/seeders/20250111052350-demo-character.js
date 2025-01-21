@@ -2235,7 +2235,10 @@ updatedAt: new Date()
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Characters', null, {});
+  async down (queryInterface, Sequelize) {
+    options.tableName = 'Characters';
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Characters', null, {});
   }
 };
+

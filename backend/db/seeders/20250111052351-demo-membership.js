@@ -695,7 +695,9 @@ module.exports = {
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Memberships', null, {});
+  async down (queryInterface, Sequelize) {
+    options.tableName = 'Memberships';
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Memberships', null, {});
   }
 };

@@ -23,7 +23,9 @@ module.exports = {
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Relationships', null, {});
+  async down (queryInterface, Sequelize) {
+    options.tableName = 'Relationships';
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Relationships', null, {});
   }
 };

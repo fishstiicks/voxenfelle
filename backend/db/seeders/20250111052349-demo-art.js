@@ -156,6 +156,8 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
+    options.tableName = 'Arts';
+    const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Arts', null, {});
   }
 };

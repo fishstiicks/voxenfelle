@@ -121,7 +121,9 @@ module.exports = {
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Clubs', null, {});
+  async down (queryInterface, Sequelize) {
+    options.tableName = 'Clubs';
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Clubs', null, {});
   }
 };
