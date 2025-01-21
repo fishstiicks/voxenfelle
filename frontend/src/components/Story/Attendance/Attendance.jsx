@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../Story/Attendance/Attendance.css';
 
-const stories = ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II']
+const stories = {
+  'DEFENSE MINISTRY': ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II'],
+};
+
+
 const vinca = 'https://i.ibb.co/RYW2TGr/Z-VINCA.webp';
 const yuenris = 'https://i.ibb.co/tKTB8n4/Z-YUENRIS.webp';
 const cc = 'https://i.ibb.co/XVxSt9F/Z-CHOU-CHOU.webp';
@@ -42,10 +46,12 @@ function Attendance() {
   useEffect(() => {
     if (sessionUser) {
       const fetchAttendance = async () => {
-
         const status = {};
-        for (let story of stories) {
-          status[story] = await checkAttendance(story);
+
+        for (let arc in stories) {
+          for (let story of stories[arc]) {
+            status[story] = await checkAttendance(story);
+          }
         }
 
         setAttendanceStatus(status);
@@ -58,70 +64,82 @@ function Attendance() {
   }, [sessionUser]);
 
   return (
-  <div className="main-content">
+    <div className="main-content">
+      <div id='storypage-body'>
+        <div id="attendance-body">
+          <div id="attendance-box">
+            <p id="attendance-header">{sessionUser ? `${sessionUser.username}'s ATTENDANCE` : 'TABLE OF CONTENTS'}</p>
 
-  <div id='storypage-body'>
-
-  <div id="attendance-body">
-        <div id="attendance-box">
-          <p id="attendance-header">{sessionUser ? `${sessionUser.username}'s ATTENDANCE` : 'TABLE OF CONTENTS'}</p>
-
-          {sessionUser ? 
-              stories.map((story) => (
-                <div className="attendance-listing" key={story}>
-                  <div className="attendance-title">
-                    <Link to={`/story/${story}`}>{story}</Link>
+            {sessionUser ? (
+              <>
+                {Object.keys(stories).map((arc) => (
+                  <div key={arc}>
+                    <div className='arc-title'><b>{arc}</b></div>
+                    {stories[arc].map((story) => (
+                      <div className="attendance-listing" key={story}>
+                        <div className="attendance-title">
+                          <Link to={`/story/${story}`}>{story}</Link>
+                        </div>
+                        <div className="attendance-status">
+                          {attendanceStatus[story] ? (
+                            <Link to={`/story/${story}`}>
+                              <p style={{ backgroundColor: '#39393A', borderRadius: '10px' }}>Completed</p>
+                            </Link>
+                          ) : (
+                            <Link to={`/story/${story}`}>
+                              <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="attendance-status">
-                    {attendanceStatus[story] ? (
-                      <Link to={`/story/${story}`}>
-                      <p style={{ backgroundColor: '#39393A', borderRadius: '10px' }}>Completed</p>
-                      </Link>
-                    ) : (
-                      <Link to={`/story/${story}`}>
-                        <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
-                      </Link>
-                    )}
+                ))}
+              </>
+            ) : (
+              <>
+                {Object.keys(stories).map((arc) => (
+                  <div key={arc}>
+                    <div className='arc-title'><b>{arc}</b></div>
+                    {stories[arc].map((story) => (
+                      <div className="attendance-listing" key={story}>
+                        <div className="attendance-title">
+                          <Link to={`/story/${story}`}>{story}</Link>
+                        </div>
+                        <div className="attendance-status">
+                          <Link to={`/story/${story}`}>
+                            <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </div>
-              ))
-            :
-            stories.map((story) => (
-              <div className="attendance-listing" key={story}>
-                <div className="attendance-title">
-                  <Link to={`/story/${story}`}>{story}</Link>
-                </div>
-                <div className="attendance-status">
-                    <Link to={`/story/${story}`}>
-                      <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
-                    </Link>
-                </div>
-              </div>
-            ))
-          }
+                ))}
+              </>
+            )}
+            <div className='arc-title'><b>SOLSTIA</b></div>
 
-          <div className='attendance-listing'>
-            <div className='attendance-title'>To Solstia</div>
-            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+            <div className='attendance-listing'>
+              <div className='attendance-title'>To Solstia</div>
+              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+            </div>
+
+            <div className='attendance-listing'>
+              <div className='attendance-title'>The Vessel</div>
+              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+            </div>
+
+            <div className='attendance-listing'>
+              <div className='attendance-title'>The Ordainment</div>
+              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+            </div>
+
+            <div className='attendance-listing'>
+              <div className='attendance-title'>???</div>
+              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
+            </div>
           </div>
-
-          <div className='attendance-listing'>
-            <div className='attendance-title'>The Vessel</div>
-            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-          </div>
-
-          <div className='attendance-listing'>
-            <div className='attendance-title'>The Ordainment</div>
-            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-          </div>
-
-          <div className='attendance-listing'>
-            <div className='attendance-title'>???</div>
-            <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-          </div>
-
         </div>
-      </div>
       
       <div id='npc-box'>
       <div className='npcs'>

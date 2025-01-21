@@ -1,4 +1,4 @@
-#start {
+.jumps {
     margin-top: -100px;
     margin-bottom: 100px;
     display: block;
@@ -76,7 +76,7 @@
 }
 
 .npc {
-    background-color: rgba(45, 45, 46, 0.35);
+    background-color: #3e3c3f59;
 }
 
 .story-avatar {
@@ -134,12 +134,19 @@
     text-align: center;
 }
 
+.huge {
+    font-size: 35px;
+    padding-top: 30px;
+    margin-left: 12px;
+}
+
 .cg-box {
     display: flex;
     flex-direction: column;
-    background-color: rgb(14, 14, 14);
+    background-color: #0e0e0e;
     color:#F5F0F6;
     justify-content: center;
+    text-align: center;
     align-items: center;
     border-radius: 10px;
     padding-bottom: 30px;
@@ -168,7 +175,7 @@
 }
 
 .bright {
-    filter: invert(100%);
+    filter: brightness(140%);
 }
 
 .blur {
@@ -238,11 +245,33 @@
     width: 99%;
 }
 
+.route-btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10%;
+    gap: 3%;
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.route-text {
+    font-weight: bold;
+    font-family: 'B612 Mono', monospace;
+}
+
+.route-btn {
+    background-color: #39393A;
+    color:#F5F0F6
+}
+
 .cutscene {
-    background-color: rgba(131, 123, 129, 0.3);
-    border-radius: 5px;
+    background-color: rgba(175, 171, 175, 0.4);
+    border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .story-footer {

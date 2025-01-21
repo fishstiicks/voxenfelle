@@ -344,7 +344,7 @@ function CandleCeremonyI() {
                 {hasAttended ? (
                     <p>You have already attended this story.</p>
                 ) : (
-                    <button onClick={attendStory}>Complete Attendance</button>
+                    <button className="attend-btn" onClick={attendStory}>Complete Attendance</button>
                 )}
                 </div>
             )}
