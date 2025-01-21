@@ -46,6 +46,9 @@ function ArtsPage() {
     setSelectedImage(null);
   };
 
+  const splitNames = (str) => {
+    return str.split(',').map(name => name.trim());
+  }
 
   return (
     <div>
@@ -71,7 +74,14 @@ function ArtsPage() {
                   onClick={() => openFullSizeModal(art.url)}
                 />
                 <div className="art-details">
-                  <span id="art-info"><Link to={`/characters/${art.character}/art`}>{art.character}</Link> by <Link to={`/users/${art.mun}/art`}>{art.mun}</Link></span>
+                  <span id="art-info">
+                    {splitNames(art.character).map((charName, name) => (
+                      <Link key={name} to={`/characters/${charName}/art`}>
+                        {charName}
+                      </Link>
+                    ))}
+                    {' '}</span><span>by <Link to={`/users/${art.mun}/art`}>{art.mun}</Link>
+                  </span>
                   {user && art.mun === user.username && (
                     <span id="art-buttons">
                       <button

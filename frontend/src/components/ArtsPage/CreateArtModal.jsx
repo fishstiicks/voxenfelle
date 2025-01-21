@@ -56,7 +56,8 @@ const CreateArtModal = ({ refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="character"><span>Character</span></label>
+            <label htmlFor="character"><span>Characters</span></label>
+            <p className='modal-text'>Separate names by comma.</p>
             <input
               type="text"
               id="character"

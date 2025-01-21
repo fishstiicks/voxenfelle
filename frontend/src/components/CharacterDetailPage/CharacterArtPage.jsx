@@ -49,7 +49,6 @@ function ArtsPage() {
 
   const openEditArtModal = (art) => {
     setModalContent(<EditArtModal art={art} refreshArts={refreshArts} />);
-    openModal();
   };
 
   const handleDeleteArt = (artId) => {

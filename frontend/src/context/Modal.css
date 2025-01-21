@@ -37,6 +37,13 @@
     resize: none;
 }
 
+.modal-text {
+  margin-top: -1%;
+  margin-bottom: -1%;
+  font-size: 14px;
+  font-style: italic;
+}
+
 #modal-content input,
 #modal-content textarea {
     width: 80%;

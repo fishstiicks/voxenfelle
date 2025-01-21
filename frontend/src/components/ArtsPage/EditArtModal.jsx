@@ -31,9 +31,6 @@ const EditArtModal = ({ art, refreshArts }) => {
         closeModal();
         refreshArts();
       })
-      .catch(() => {
-        setError('An error occurred while updating the art.');
-      });
   };
 
   const handleClose = () => {
@@ -58,7 +55,8 @@ const EditArtModal = ({ art, refreshArts }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="character"><span>Character</span></label>
+          <p className='modal-text'>Separate names by comma.</p>
+            <label htmlFor="character"><span>Characters</span></label>
             <input
               type="text"
               id="character"

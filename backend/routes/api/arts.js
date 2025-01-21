@@ -3,6 +3,7 @@ const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { Art } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation'); 
+const art = require('../../db/models/art');
 
 const validateArt = [
   check('url')
@@ -118,25 +119,26 @@ router.get('/mun/:mun', async (req, res) => {
 router.put('/:id', requireAuth, validateArt, async (req, res) => {
     try {
       const { id } = req.params;
-      const { mun, url, character, reference } = req.body;
+      const user = req.user;
+      const { url, character, reference } = req.body;
   
-      if (!mun) {
-        return res.status(400).json({ error: 'User information is missing.' });
+      const art = await Art.findByPk(id);
+  
+      if (!art) {
+        return res.status(404).json({ error: 'Club not found.' });
       }
+
+      if (art.mun !== user.username) {
+        return res.status(403).json({ error: 'You are not authorized to edit this club.' });
+        }
   
-      const artPiece = await Art.findOne({ where: { id, mun } });
+        if (url) art.url = url;
+        if (character) art.character = character;
+        if (reference) art.reference = reference;
+
+        await art.save();
   
-      if (!artPiece) {
-        return res.status(404).json({ error: 'Art not found or does not belong to you.' });
-      }
-  
-      const updatedArt = await artPiece.update({
-        url,
-        character,
-        reference,
-      });
-  
-      return res.status(200).json(updatedArt);
+      return res.status(200).json(art);
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Something went wrong while updating the art.' });

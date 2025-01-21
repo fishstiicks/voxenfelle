@@ -2,3 +2,12 @@
     margin-left: 13%;
     width: 75%;
 }
+
+#art-info {
+    display: flex;
+    gap: 7%;
+}
+
+#art-buttons {
+    margin-left: 2%;
+}
