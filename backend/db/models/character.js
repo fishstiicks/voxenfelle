@@ -5,10 +5,10 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Character extends Model {
     static associate(models) {
-      this.belongsTo(models.User, { foreignKey: 'mun', targetKey: 'username' });
-      this.hasMany(models.Art, { foreignKey: 'character', sourceKey: 'name' });
-      this.hasMany(models.Membership, { foreignKey: 'character', sourceKey: 'name' });
-      this.hasMany(models.Relationship, { foreignKey: 'you', sourceKey: 'name' });    }
+      Character.belongsTo(models.User, { foreignKey: 'mun', targetKey: 'username' });
+      Character.hasMany(models.Art, { foreignKey: 'character', sourceKey: 'name' });
+      Character.hasMany(models.Membership, { foreignKey: 'character', sourceKey: 'name' });
+      Character.hasMany(models.Relationship, { foreignKey: 'you', sourceKey: 'name' });    }
   }
   Character.init({
     mun: {

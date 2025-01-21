@@ -3,8 +3,8 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Club extends Model {
     static associate(models) {
-      this.belongsTo(models.User, { foreignKey: 'creator', targetKey: 'username' });
-      this.hasMany(models.Membership, { foreignKey: 'club', sourceKey: 'name' });
+      Club.belongsTo(models.User, { foreignKey: 'creator', targetKey: 'username' });
+      Club.hasMany(models.Membership, { foreignKey: 'club', sourceKey: 'name' });
     }
   }
   Club.init({

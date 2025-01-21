@@ -3,10 +3,10 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      this.hasMany(models.Attendance, { foreignKey: 'username', sourceKey: 'username' });
-      this.hasMany(models.Character, { foreignKey: 'mun', sourceKey: 'username' });
-      this.hasMany(models.Club, { foreignKey: 'creator', sourceKey: 'username' });
-      this.hasMany(models.Art, { foreignKey: 'mun', sourceKey: 'username' });
+      User.hasMany(models.Attendance, { foreignKey: 'username', sourceKey: 'username' });
+      User.hasMany(models.Character, { foreignKey: 'mun', sourceKey: 'username' });
+      User.hasMany(models.Club, { foreignKey: 'creator', sourceKey: 'username' });
+      User.hasMany(models.Art, { foreignKey: 'mun', sourceKey: 'username' });
     }
   }
   User.init({
