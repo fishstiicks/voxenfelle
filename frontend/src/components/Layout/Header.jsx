@@ -10,6 +10,11 @@ function Header() {
       <nav>
         <ul className="header-list">
           <li>
+            <NavLink to="/" className="header-link" activeClassName="active-link">
+              Story
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/characters" className="header-link" activeClassName="active-link">
               Characters
             </NavLink>
@@ -23,6 +28,9 @@ function Header() {
             <NavLink to="/art" className="header-link" activeClassName="active-link">
               Art
             </NavLink>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@VoxenfelleAcademy" target="_blank" rel="noopener noreferrer">Youtube</a>
           </li>
         </ul>
       </nav>

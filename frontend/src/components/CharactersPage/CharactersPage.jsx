@@ -131,7 +131,7 @@ function CharactersPage() {
         )}
       </div>
 
-      <div className="fixed-gradient"></div>
+      
     </div>
   );
 }

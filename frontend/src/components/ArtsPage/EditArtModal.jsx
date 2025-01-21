@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateArtData } from '../../store/arts'; // Import the updateArtData action
-import { useModal } from '../../context/Modal'; // Assuming you have a context to handle modal close
+import { updateArtData } from '../../store/arts';
+import { useModal } from '../../context/Modal';
 
 const EditArtModal = ({ art, refreshArts }) => {
   const dispatch = useDispatch();
-  const { closeModal } = useModal(); // To close the modal after success
+  const { closeModal } = useModal(); 
   const [url, setUrl] = useState(art.url);
   const [character, setCharacter] = useState(art.character);
   const [reference, setReference] = useState(art.reference);
-  const [error, setError] = useState(''); // Track any error during update
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Reinitialize form fields if art prop changes (e.g., if a different art is passed for editing)
     setUrl(art.url);
     setCharacter(art.character);
     setReference(art.reference);
   }, [art]);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation check to ensure url, character, and reference aren't empty
     if (!url.trim() || !character.trim()) {
       setError('URL and Character are required.');
       return;
@@ -39,10 +36,9 @@ const EditArtModal = ({ art, refreshArts }) => {
       });
   };
 
-  // Close the modal without making changes
   const handleClose = () => {
     closeModal();
-    setError(''); // Reset any existing error when closing
+    setError('');
   };
 
   return (

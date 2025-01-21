@@ -21,9 +21,6 @@ function HomePage() {
           allowFullScreen
         ></iframe>
       </div>
-
-
-      <div className="fixed-gradient"></div>
     </div>
   );
 }

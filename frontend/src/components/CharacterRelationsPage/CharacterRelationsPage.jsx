@@ -121,10 +121,10 @@ function CharacterRelationsPage() {
     <div className="main-content">
       <div className="character-links">
         <p id="char-link-name" className="character-name">{name}</p>
-        <a href={`/characters/${name}`}>Profile</a>
-        <a href={`/characters/${name}/relations`}>Relations</a>
-        <a href={`/characters/${name}/art`}>Art</a>
-        <a href={`/users/${character.mun}/characters`}>Mun</a>
+        <Link to={`/characters/${name}`}>Profile</Link>
+        <Link to={`/characters/${name}/relations`}>Relations</Link>
+        <Link to={`/characters/${name}/art`}>Art</Link>
+        <Link to={`/users/${character.mun}/characters`}>Mun</Link>
       </div>
 
       <div id="relations-list">
@@ -195,7 +195,7 @@ function CharacterRelationsPage() {
           )}
         </div>
       </div>
-      <div className="fixed-gradient"></div>
+      
     </div>
   );
 }

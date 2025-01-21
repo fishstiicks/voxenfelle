@@ -29,6 +29,9 @@ function ClubsPage() {
 
   const refreshClubs = () => {
     dispatch(fetchClubs());
+    clubs.forEach((club) => {
+        dispatch(fetchClubMembers(club.name));
+      })
   };
 
   const openCreateClubModal = () => {
@@ -73,7 +76,11 @@ function ClubsPage() {
   return (
 <div className="main-content">
   {user && (
-    <div id="create-header">
+    <div id="clubs-header">
+      <Link to={`/users/${user.username}/memberships`}>
+      <button className="create-club-btn">
+        Manage Memberships
+      </button></Link> 
       <button onClick={openCreateClubModal} className="create-club-btn">
         Create Club
       </button>
@@ -142,7 +149,7 @@ function ClubsPage() {
       <p>No clubs available.</p>
     )}
   </div>
-  <div className="fixed-gradient"></div>
+  
 </div>
 
   );

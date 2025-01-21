@@ -15,7 +15,8 @@
     position: relative;
     max-width: 95%;
     max-height: 95%;
-    overflow: hidden;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .art-modal-image {

@@ -48,8 +48,8 @@ function CharactersPage() {
     <div className="main-content" id="relations-list">
     <div className="character-links">
       <p id="char-link-name" className="character-name">{name}</p>
-      <a href={`/users/${name}/characters`}>Characters</a>
-      <a href={`/users/${name}/art`}>Art</a>
+      <Link to={`/users/${name}/characters`}>Characters</Link>
+      <Link to={`/users/${name}/art`}>Art</Link>
     </div>
       <div className="filter-box">
         <h3>FILTER</h3>
@@ -126,7 +126,7 @@ function CharactersPage() {
         )}
       </div>
 
-      <div className="fixed-gradient"></div>
+      
     </div>
   );
 }

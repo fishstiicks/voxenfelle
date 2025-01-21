@@ -11,7 +11,7 @@ import './CharacterDetailPage.css';
 function CharacterDetailPage() {
   const { name } = useParams();
   const [character, setCharacter] = useState(null);
-  const [clubs, setClubs] = useState([]); // Added state for clubs
+  const [clubs, setClubs] = useState([]);
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ function CharacterDetailPage() {
     fetchCharacter();
   }, [name]);
 
-  // Fetch clubs data when character is loaded
+  
   useEffect(() => {
     const fetchClubs = async () => {
       try {
@@ -129,10 +129,10 @@ function CharacterDetailPage() {
     <div className="main-content">
       <div className="character-links">
         <p id="char-link-name" className="character-name">{name}</p>
-        <a href={`/characters/${name}`}>Profile</a>
-        <a href={`/characters/${name}/relations`}>Relations</a>
-        <a href={`/characters/${name}/art`}>Art</a>
-        <a href={`/users/${character.mun}/characters`}>Mun</a>
+        <Link to={`/characters/${name}`}>Profile</Link>
+        <Link to={`/characters/${name}/relations`}>Relations</Link>
+        <Link to={`/characters/${name}/art`}>Art</Link>
+        <Link to={`/users/${character.mun}/characters`}>Mun</Link>
 
         {character.mun === sessionUser?.username && (
           <div>
@@ -231,7 +231,7 @@ function CharacterDetailPage() {
         </div>
       </div>
 
-      <div className="fixed-gradient"></div>
+      
     </div>
   );
 }

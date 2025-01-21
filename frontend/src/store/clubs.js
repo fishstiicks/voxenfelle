@@ -18,9 +18,7 @@ const addClub = (club) => createAction(ADD_CLUB, { club });
 const updateClub = (club) => createAction(UPDATE_CLUB, { club });
 const deleteClub = (clubId) => createAction(DELETE_CLUB, { clubId });
 
-const setMemberships = (memberships) => createAction(SET_MEMBERSHIPS, { memberships });
 const addMembership = (membership) => createAction(ADD_MEMBERSHIP, { membership });
-const deleteMembership = (membershipId) => createAction(DELETE_MEMBERSHIP, { membershipId });
 
 const setMembershipsByClub = (clubName, memberships) => createAction(SET_MEMBERSHIPS_BY_CLUB, { clubName, memberships });
 const setErrors = (errors) => createAction(SET_ERRORS, errors);

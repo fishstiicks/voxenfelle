@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useModal } from '../../context/Modal';  // Importing useModal hook
-import OpenModalButton from '../OpenModalButton/OpenModal.jsx';  // Import for modal buttons
-import LoginFormModal from '../LoginFormModal/LoginFormModal.jsx';  // Login modal
-import SignupFormModal from '../SignupFormModal/SignupFormModal.jsx';  // Signup modal
+import { useModal } from '../../../context/Modal.jsx';  // Importing useModal hook
+import OpenModalButton from '../../OpenModalButton/OpenModal.jsx';  // Import for modal buttons
+import LoginFormModal from '../../LoginFormModal/LoginFormModal.jsx';  // Login modal
+import SignupFormModal from '../../SignupFormModal/SignupFormModal.jsx';  // Signup modal
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch();

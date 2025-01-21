@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation.jsx';
-import Header from './components/Header/Header'; 
+import * as sessionActions from './store/session';
+import Navigation from './components/Layout/Navigation/Navigation.jsx';
+import Header from './components/Layout/Header.jsx'; 
+import Footer from './components/Layout/Footer.jsx';
 import CharactersPage from './components/CharactersPage/CharactersPage.jsx';
 import ClubsPage from './components/ClubsPage/ClubsPage.jsx';
 import ArtsPage from './components/ArtsPage/ArtsPage.jsx';
@@ -12,7 +14,16 @@ import CharacterArtPage from './components/CharacterDetailPage/CharacterArtPage.
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage.jsx';
 import CharacterRelationsPage from './components/CharacterRelationsPage/CharacterRelationsPage.jsx';
 import HomePage from './components/HomePage/HomePage.jsx'
-import * as sessionActions from './store/session';
+import MembershipsPage from './components/ClubsPage/MembershipsPage.jsx';
+import Attendance from './components/Story/Attendance/Attendance.jsx';
+
+import AnAudience from './components/Story/AnAudience.jsx';
+import CandleCeremonyI from './components/Story/CandleCeremonyI.jsx';
+import CandleCeremonyII from './components/Story/CandleCremonyII.jsx';
+import TwoRooksI from './components/Story/TwoRooksI.jsx';
+import TwoRooksII from './components/Story/TwoRooksII.jsx';
+
+import FellePress12 from './components/Story/News/FellePress12.jsx';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -29,6 +40,7 @@ function Layout() {
       <Header />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
+      <Footer />
     </>
   );
 }
@@ -39,7 +51,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage />,
+        element: <Attendance />,
       },
       {
         path: '/characters',
@@ -72,7 +84,39 @@ const router = createBrowserRouter([
       {
         path: '/users/:name/characters',
         element: <UserCharactersPage />
-      }
+      },
+      {
+        path: '/users/:name/memberships',
+        element: <MembershipsPage />
+      },
+      {
+        path: '/story',
+        element: <Attendance />
+      },
+      {
+        path: '/story/An Audience',
+        element: <AnAudience />
+      },
+      {
+        path: '/story/Candle Ceremony I',
+        element: <CandleCeremonyI />
+      },
+      {
+        path: 'story/Candle Ceremony II',
+        element: <CandleCeremonyII />
+      },
+      {
+        path: '/story/Two Rooks I',
+        element: <TwoRooksI />
+      },
+      {
+        path: '/story/Two Rooks II',
+        element: <TwoRooksII />
+      },
+      {
+        path: '/FellePress/12',
+        element: <FellePress12 />
+      },
     ],
   },
 ]);

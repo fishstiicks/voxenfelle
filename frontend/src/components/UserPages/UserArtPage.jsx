@@ -51,8 +51,8 @@ function ArtsPage() {
     <div>
     <div className="character-links">
             <p id="char-link-name" className="character-name">{name}</p>
-            <a href={`/users/${name}/characters`}>Characters</a>
-            <a href={`/users/${name}/art`}>Art</a>
+            <Link to={`/users/${name}/characters`}>Characters</Link>
+            <Link to={`/users/${name}/art`}>Art</Link>
     </div>
 
       {user && (
@@ -108,7 +108,7 @@ function ArtsPage() {
         <ArtModal imageUrl={selectedImage} onClose={closeModal} />
       )}
     </div>
-    <div className="fixed-gradient"></div>
+    
     </div>
   );
 }

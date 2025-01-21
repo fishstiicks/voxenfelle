@@ -1,6 +1,6 @@
 .club-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 0.5fr)); /* Grid with responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(270px, 0.5fr));
   gap: 60px;
   margin: 20px;
   padding: 10px;
@@ -44,7 +44,9 @@
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color:#cfcacf #edebee;
+  gap: 20px;
   padding: 10px 0;
   height: 300px;
   justify-content: center;
@@ -67,9 +69,10 @@
   font-family: 'B612 Mono', monospace;
 }
 
-#create-header {
+#clubs-header {
   display: flex;
   justify-content: right;
+  gap: 10px;
 }
 
 .create-club-btn {
@@ -85,13 +88,18 @@
   background-color: rgb(224, 168, 0);
 }
 
+#manage-club-btns {
+  display: flex;
+  gap: 10px;
+}
+
 .manage-club-btn {
   background-color: #beb9be;
-  margin-right: 10px;
   margin-top: 10px;
   font-size: 11px;
-  text-align: center;
+  height: 35px;
   font-family: 'B612 Mono', monospace;
+  width: 300px;
 }
 
 .manage-club-btn:hover {
@@ -116,4 +124,34 @@
 
 #club-desc {
   margin-top: -14px;
+}
+
+
+.memberships-page {
+  margin-left: 3%;
+}
+
+.memberships-page a {
+  color:rgb(224, 168, 0);
+}
+
+#membership-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#membership-delete-btn {
+  display: flex;
+  height: 22px;
+  width: 55px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  background-color: #6d6d6d;
+  color: #F5F0F6;
+}
+
+#membership-delete-btn:hover {
+  background-color: #39393A;
 }

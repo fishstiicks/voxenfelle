@@ -1,5 +1,5 @@
 const express = require('express');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { Club, Character, Membership } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation'); 
@@ -52,16 +52,18 @@ router.post('/', requireAuth, validateClub, async (req, res) => {
 // GET ALL CLUBS
 router.get('/', async (req, res) => {
     try {
-      const clubs = await Club.findAll();
-  
+      const clubs = await Club.findAll({
+        order: [['name', 'ASC']],
+      });
+
       return res.status(200).json({ clubs: clubs });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Unable to fetch clubs.' });
     }
   });
-
-  // GET CLUB BY ID
+ 
+// GET CLUB BY ID
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -182,6 +184,58 @@ router.get('/memberships', async (req, res) => {
     }
   });
 
+// GET ALL MEMBERSHIPS BY MUN NAME
+router.get('/users/:name/memberships', async (req, res) => {
+    try {
+      const { name } = req.params;
+      
+      const characters = await Character.findAll({
+        where: { mun: name },
+        attributes: ['name'],
+      });
+  
+      if (characters.length === 0) {
+        return res.status(404).json({ error: `No characters.` });
+      }
+  
+      const characterNames = characters.map(character => character.name);
+  
+      const memberships = await Membership.findAll({
+        where: {
+          character: characterNames
+        },
+        include: [
+          {
+            model: Character,
+            where: {
+              name: characterNames
+            },
+            attributes: ['picrew', 'name'],
+            required: true,
+          },
+        ],
+        order: [[Character, 'name', 'ASC']]
+      });
+  
+      if (memberships.length === 0) {
+        return res.status(404).json({ error: `No memberships found.` });
+      }
+  
+      const membershipsWithDetails = memberships.map(membership => ({
+        id: membership.id,
+        club: membership.club,
+        character: membership.Character
+      }));
+  
+      return res.status(200).json({ memberships: membershipsWithDetails });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Unable to fetch memberships.' });
+    }
+  });
+  
+  
+
 // GET ALL MEMBERS IN A CLUB
 router.get('/:clubName/members', async (req, res) => {
     try {
@@ -192,7 +246,7 @@ router.get('/:clubName/members', async (req, res) => {
         include: [{
             model: Character,
             attributes: ['name', 'picrew']
-        }]
+        }],
         });
 
         if (memberships.length === 0) {
@@ -231,29 +285,31 @@ router.get('/:name/clubs', async (req, res) => {
 });
 
 // DELETE A MEMBERSHIP
-router.delete('/:clubName/:characterName', requireAuth, async (req, res) => {
+router.delete('/memberships/:id', requireAuth, async (req, res) => {
     try {
-      const { clubName, characterName } = req.params;
+      const { id } = req.params;
       const { user } = req;
-  
-      const membership = await Membership.findOne({
-        where: { club: clubName, character: characterName }
+    
+      const membership = await Membership.findByPk(id, {
+        include: { model: Character, attributes: ['mun'] }
       });
   
       if (!membership) {
-        return res.status(404).json({ message: `Membership not found for club: ${clubName} and character: ${characterName}.` });
+        return res.status(404).json({ message: "Membership not found" });
       }
   
-      if (user.username !== membership.mun) {
-        return res.status(403).json({ message: 'You are not authorized to delete this membership.' });
+      if (user.username !== membership.Character.mun) {
+        return res.status(403).json({ message: "You are not authorized to delete this membership" });
       }
   
       await membership.destroy();
-      return res.status(200).json({ message: 'Successfully deleted' });
+  
+      return res.status(200).json({ message: "Successfully deleted membership" });
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: 'Something went wrong while deleting the membership.' });
+      return res.status(500).json({ error: "Something went wrong while deleting the membership" });
     }
   });
+  
 
 module.exports = router;

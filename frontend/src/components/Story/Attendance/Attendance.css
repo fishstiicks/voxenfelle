@@ -1,0 +1,139 @@
+#storypage-body {
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+#npc-box {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    gap: 4%;
+    align-items: flex-start;
+}
+
+.npc-header {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #ebb217;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: #F5F0F6;
+}
+
+.npc-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.npc-listing {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: center;
+    width: 50%;
+}
+
+.npc-image {
+    display: flex;
+    width: 240px;
+    height: 240px;
+    border-radius: 200px;
+    align-items: center;
+}
+
+.npc-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.npc-info a:hover {
+    filter: brightness(80%);
+}
+
+.npc-identity {
+    color: rgb(90, 90, 90);
+    margin-top: -3px;
+    margin-bottom: -5px;
+    font-style: italic;
+}
+
+.npc-name {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 25px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #39393A
+}
+
+
+#attendance-box {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px #89868a;
+    color: #363636;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding: 2%;
+    padding-bottom: 3%;
+    width: 23%;
+    position: fixed;
+}
+
+#attendance-header {
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.attendance-listing {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #424141;
+}
+
+.attendance-title {
+    width: 80%;
+    margin-left: 2%;
+}
+
+.attendance-title a {
+    text-decoration: none;
+    color: #646060;
+}
+
+.attendance-title a:hover {
+    color: #ebb217;
+}
+
+.attendance-status {
+    width: 40%;
+    text-align: center;
+    justify-content: center;
+    margin-right: 2%;
+    font-family: 'B612 Mono', monospace;
+    color: #edeaf1;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.attendance-status a {
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+.attendance-status a:hover {
+    text-decoration: none;
+    color: #9c9999;
+}

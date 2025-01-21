@@ -1,0 +1,41 @@
+.news-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-title {
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'B612 Mono', monospace;
+    margin-top: 1.5%;
+    width: 80%;
+    margin-bottom: 1%
+}
+
+.news-body {
+    width: 80%;
+}
+
+.news-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    margin-right: 20%;
+}
+
+.news-footer-big {
+    font-size: 30px;
+    color: rgb(177, 121, 0);
+}
+
+.news-footer-small {
+    color: grey;
+    font-size: 13px;
+}
+
+.power {
+    border: 4px blue;
+}

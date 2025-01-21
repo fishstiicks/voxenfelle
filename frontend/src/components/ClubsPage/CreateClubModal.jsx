@@ -45,8 +45,8 @@ const CreateClubModal = ({ refreshClubs }) => {
 
           <div className="form-group">
             <label htmlFor="description"><span>Description</span></label>
-            <textarea
-              id="description"
+            <input
+              id="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />

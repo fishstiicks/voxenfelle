@@ -101,7 +101,7 @@ function ArtsPage() {
         <ArtModal imageUrl={selectedImage} onClose={closeModal} />
       )}
 
-    <div className="fixed-gradient"></div>
+    
     </div>
   );
 }
