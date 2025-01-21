@@ -127,9 +127,11 @@ function ClubsPage() {
               )}
 
             <div id="club-btn-area">
+              { user &&
                 <button onClick={() => openCreateMembershipModal(club.name)} className="add-membership-btn">
                   Join Club
                 </button>
+                }
 
                 {user && club.creator === user.username && (
                   <div id="manage-club-btns">

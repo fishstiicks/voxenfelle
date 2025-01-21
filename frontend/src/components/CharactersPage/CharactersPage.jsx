@@ -9,6 +9,7 @@ import CreateCharacterModal from '../CreateCharacterModal/CreateCharacterModal.j
 function CharactersPage() {
   const dispatch = useDispatch();
   const { setModalContent } = useModal(); 
+  const user = useSelector((state) => state.session.user);
   const characters = useSelector((state) => state.characters.characters) || [];
 
   const [filterState, setFilterState] = useState({ PC: false, NPC: false });
@@ -93,7 +94,7 @@ function CharactersPage() {
           </label>
         </div>
 
-        <button className="create-btn" onClick={openCreateCharacterModal}>Create Character</button>
+        { user && <button className="create-btn" onClick={openCreateCharacterModal}>Create Character</button> }
         </div>
 
       <div className="character-list">
