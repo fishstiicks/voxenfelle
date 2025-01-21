@@ -1,13 +1,15 @@
 'use strict';
 
+const { Story } = require('../models');
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
 }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Stories', [{
+  async up (queryInterface, Sequelize) {
+    await Story.bulkCreate([{
       title: 'Candle Ceremony (I)',
       createdAt: new Date(),
       updatedAt: new Date()

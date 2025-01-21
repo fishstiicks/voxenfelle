@@ -1,4 +1,5 @@
 'use strict';
+const { Attendance } = require('../models');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -7,8 +8,8 @@ if (process.env.NODE_ENV === 'production') {
 
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Attendances', [{
+  async up (queryInterface, Sequelize) {
+    await Attendance.bulkCreate([{
       username: 'Lok',
       story: 'An Audience',
       createdAt: new Date(),

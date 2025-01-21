@@ -1,13 +1,15 @@
 'use strict';
 
+const { Relationship } = require('../models');
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
 }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Relationships', [{
+  async up (queryInterface, Sequelize) {
+    await Relationship.bulkCreate([{
       you: 'War',
       them: 'Chou-chou',
       special: 'Protective',

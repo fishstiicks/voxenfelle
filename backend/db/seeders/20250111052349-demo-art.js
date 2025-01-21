@@ -1,5 +1,7 @@
 'use strict';
 
+const { Art } = require('../models');
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
@@ -7,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Arts', [
+    await Art.bulkCreate([
       {
         mun: 'Lok',
         url: 'https://i.ibb.co/zHLtkB0/image.png',

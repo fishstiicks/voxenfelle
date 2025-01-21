@@ -1,5 +1,7 @@
 'use strict';
 
+const { Club } = require('../models');
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
@@ -7,8 +9,8 @@ if (process.env.NODE_ENV === 'production') {
 
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Clubs', [{
+  async up (queryInterface, Sequelize) {
+    await Club.bulkCreate([{
       name: 'Abstinence Club',
       creator: 'Lok',
       createdAt: new Date(),

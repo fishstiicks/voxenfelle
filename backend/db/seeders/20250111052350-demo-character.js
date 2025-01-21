@@ -1,5 +1,7 @@
 'use strict';
 
+const { Character } = require('../models');
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
@@ -7,8 +9,8 @@ if (process.env.NODE_ENV === 'production') {
 
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Characters', [{
+  async up (queryInterface, Sequelize) {
+    await Character.bulkCreate([{
       mun: 'Twen',
 state: 'PC',
 picrew: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d84c154c-d6e8-4f39-8f13-a74ec2521773/dij0hzs-ce4b4ca4-1fad-47ac-bf86-e9fbdada299f.png/v1/fit/w_600,h_600,q_70,strp/untitled_by_twendigo_dij0hzs-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZDg0YzE1NGMtZDZlOC00ZjM5LThmMTMtYTc0ZWMyNTIxNzczXC9kaWowaHpzLWNlNGI0Y2E0LTFmYWQtNDdhYy1iZjg2LWU5ZmJkYWRhMjk5Zi5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.gxPkkYhOd_xA2eBGHGJydxTmf9R-g1UTjpbf2MIqfIo',
