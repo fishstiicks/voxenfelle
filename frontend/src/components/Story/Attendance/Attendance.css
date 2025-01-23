@@ -170,3 +170,35 @@
     text-decoration: none;
     color: #9c9999;
 }
+
+@media (max-width: 800px) {
+    #storypage-body{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #attendance-box {
+        position: unset;
+        width: 60vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .npcs {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        align-items: center;
+    }
+
+    .npc-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .npc-listing {
+        width: 100%;
+    }
+
+}

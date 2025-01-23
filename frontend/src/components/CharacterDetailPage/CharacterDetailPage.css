@@ -174,3 +174,27 @@ hr {
     padding-left: 0;
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    #char-link-name {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .character-links, .char-link-btn {
+        background-color: transparent;
+        z-index: 2;
+        font-size: 13px;
+        margin-left: -5px;
+        padding-right: 10px;
+    }
+
+    .character-links a {
+        background-color: transparent;
+    }
+    
+    .character-links a:hover, .char-link-btn:hover {
+        background-color: transparent;
+        color:rgb(224, 168, 0)
+    }
+
+  }

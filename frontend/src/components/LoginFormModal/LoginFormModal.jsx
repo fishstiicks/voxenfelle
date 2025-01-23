@@ -23,17 +23,6 @@ function LoginFormModal() {
       });
   };
 
-  const loginAsDemo = async (e) => {
-    e.preventDefault();
-    const demoUser = {
-      credential: 'Demo-lition',
-      password: 'password'
-    };
-
-      await dispatch(sessionActions.login(demoUser))
-      .then(closeModal)
-  };
-
   return (
     <>
       <h1>Log In</h1>
@@ -62,9 +51,6 @@ function LoginFormModal() {
         )}
         <button type="submit">Log In</button>
 
-        <button onClick={loginAsDemo} className="demo-login-btn">
-            <u>Log in as Demo User</u>
-      </button>
       </form>
     </>
   );

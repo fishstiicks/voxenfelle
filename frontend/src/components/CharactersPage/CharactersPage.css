@@ -52,6 +52,7 @@
 
 .filter-box {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -94,6 +95,7 @@
 
 #char-page-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 

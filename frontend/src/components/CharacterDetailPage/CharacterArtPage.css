@@ -11,3 +11,10 @@
 #art-buttons {
     margin-left: 2%;
 }
+
+@media (max-width: 768px) {
+    #char-art-list {
+        margin-left: 3%;
+    }
+
+  }

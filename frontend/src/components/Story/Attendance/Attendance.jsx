@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../Story/Attendance/Attendance.css';
 
 const stories = {
+  'SEASON I': ['Season I Summary'],
   'DEFENSE MINISTRY': ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II'],
 };
 

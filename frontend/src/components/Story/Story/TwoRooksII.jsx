@@ -25,7 +25,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';
 import { Link } from 'react-router-dom';
-import { csrfFetch } from '../../store/csrf';
+import { csrfFetch } from '../../../store/csrf';
 
 function TwoRooksII() {
   const [hasAttended, setHasAttended] = useState(false);
@@ -155,7 +155,7 @@ function TwoRooksII() {
               </p>
               
               <button className='route-btn' onClick={chooseRoute}>
-              {fight ? 'Swith to Flash Drive' : 'Switch to Fight'}
+              {fight ? 'Switch to Flash Drive' : 'Switch to Fight'}
             </button></div>
             
 

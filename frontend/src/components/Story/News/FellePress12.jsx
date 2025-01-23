@@ -4,7 +4,8 @@ function FellePress12() {
   return (
     <div className="main-content news-page">
         <div className='news-title'>BREAKING: NIKOLA YUNGE INTRODUCES NEW BILL, ALL VOIDPACTS TO BE TERMINATED. SENATE VOTING SOON.</div>
-
+        <div className='news-author'>by Halynn</div>
+        
         <div className="news-body">
             <p>On October 21st, Minister of Defense Nikola Yunge introduced a private bill to the Astralena House of Parliament. Bill A-284 entails an immediate outlawing of voidpacted peoples and the termination of all active voidpacts across the country. The 3rd reading of the bill has since been passed with a majority assent vote in the House of Representatives and has been sent onto the senate for further voting and discussion.</p>
             <p>Despite a large amount of the public being for the existence of voidpacted people within Astralena, Yunge has consistently been a voice against the integration of voidpacted peoples. Voices of dissent against this bill claim there is a severe lack of diversity in representatives within the Parliament and Senate. There are claims that a high concentration of anti-voidpact politicians sitting in parliament is severely limiting social progress within Astralena and is preventing our potential growth and advancements as a country.</p>

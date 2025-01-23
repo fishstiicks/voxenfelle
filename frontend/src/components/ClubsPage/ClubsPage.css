@@ -72,7 +72,8 @@
 #clubs-header {
   display: flex;
   justify-content: right;
-  gap: 10px;
+  margin-right: 15px;
+  gap: 14px;
 }
 
 .create-club-btn {

@@ -51,7 +51,7 @@ function ArtsPage() {
   }
 
   return (
-    <div>
+    <div className='main-content'>
       {user && (
         <div className="create-art-btn-container">
             <button onClick={openCreateArtModal} className="create-art-btn">

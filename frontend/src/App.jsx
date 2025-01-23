@@ -16,11 +16,12 @@ import CharacterRelationsPage from './components/CharacterRelationsPage/Characte
 import MembershipsPage from './components/ClubsPage/MembershipsPage.jsx';
 import Attendance from './components/Story/Attendance/Attendance.jsx';
 
-import AnAudience from './components/Story/AnAudience.jsx';
-import CandleCeremonyI from './components/Story/CandleCeremonyI.jsx';
-import CandleCeremonyII from './components/Story/CandleCremonyII.jsx';
-import TwoRooksI from './components/Story/TwoRooksI.jsx';
-import TwoRooksII from './components/Story/TwoRooksII.jsx';
+import CandleCeremonyI from './components/Story/Story/CandleCeremonyI.jsx';
+import CandleCeremonyII from './components/Story/Story/CandleCremonyII.jsx';
+import AnAudience from './components/Story/Story/AnAudience.jsx';
+import TwoRooksI from './components/Story/Story/TwoRooksI.jsx'
+import TwoRooksII from './components/Story/Story/TwoRooksII.jsx';
+import SeasonI from './components/Story/Story/SeasonI.jsx';
 
 import FellePress12 from './components/Story/News/FellePress12.jsx';
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: '/story',
         element: <Attendance />
+      },
+      {
+        path: '/story/Season I Summary',
+        element: <SeasonI />
       },
       {
         path: '/story/An Audience',

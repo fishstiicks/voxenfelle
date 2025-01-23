@@ -23,7 +23,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../Story/Story.css';
 import { Link } from 'react-router-dom';
-import { csrfFetch } from '../../store/csrf';
+import { csrfFetch } from '../../../store/csrf';
 
 function TwoRooksI() {
 

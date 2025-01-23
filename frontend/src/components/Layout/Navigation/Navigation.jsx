@@ -109,6 +109,7 @@ function Navigation({ isLoaded }) {
           ) : null}
         </>
       )}
+          <p style={{color:'grey',fontSize:'10px', textAlign: 'right'}}>Icons credited to <a href="https://x.com/upapa_0302" target="_blank" rel="noopener noreferrer" style={{fontSize:'9px', color:'grey'}}>upapa0302</a>.</p>
     </ul>
   );
 }
