@@ -18,11 +18,11 @@ function SolstiaStreets() {
     const [acoh, setACOH] = useState(false);
     const [harbor, setHarbor] = useState(false);
     const [beach, setBeach] = useState(false);
-    const [cityGate, setCityGate] = useState(false);
+    const [city_gates, setcity_gates] = useState(false);
     const [outskirts, setOutskirts] = useState(false);
-    const [templePath, setTemplePath] = useState(false);
-    const [barPath, setBarPath] = useState(false);
-    const [harborPath, setHarborPath] = useState(false);
+    const [via_del_hylia, setvia_del_hylia] = useState(false);
+    const [vicolo_della_stella, setvicolo_della_stella] = useState(false);
+    const [lungomare_di_solstia, setlungomare_di_solstia] = useState(false);
 
     const [birdHell, setBirdHell] = useState(false);
     const [birdCount, setBirdCount] = useState(3);
@@ -34,8 +34,8 @@ function SolstiaStreets() {
     const [northIII, setNorthIII] = useState(false);
 
     const [northPlaza, setNorthPlaza] = useState(true);
-    const [northBarPath, setNorthBarPath] = useState(false);
-    const [northCityGates, setNorthCityGates] = useState(false);
+    const [northvicolo_della_stella, setNorthvicolo_della_stella] = useState(false);
+    const [northcity_gatess, setNorthcity_gatess] = useState(false);
     const [knowNorth, setKnowNorth] = useState(false);
 
     const [knowMille, setKnowMille] = useState(false);
@@ -65,6 +65,63 @@ function SolstiaStreets() {
         return Math.floor(Math.random() * 20) + 1;
       }
 
+      const resetStates = () => {
+        setStart(true);
+        setPlaza(false);
+        setPark(false);
+        setTemple(false);
+        setMuseum(false);
+        setLibrary(false);
+        setShopping(false);
+        setBusiness(false);
+        setPub(false);
+        setACOH(false);
+        setHarbor(false);
+        setBeach(false);
+        setcity_gates(false);
+        setOutskirts(false);
+        setvia_del_hylia(false);
+        setvicolo_della_stella(false);
+        setlungomare_di_solstia(false);
+
+        setBirdHell(false);
+        setBirdCount(3);
+        setBirdDeath(false);
+        setFatality(false);
+
+        setNorthI(false);
+        setNorthII(false);
+        setNorthIII(false);
+
+        setNorthPlaza(true);
+        setNorthvicolo_della_stella(false);
+        setNorthcity_gatess(false);
+        setKnowNorth(false);
+
+        setKnowMille(false);
+        setMilleACOH(true);
+        setMilleOutskirts(false);
+
+        setGreetMing(false);
+        setKnowMing(false);
+
+        setBarkeep(false);
+
+        setAnswer(false);
+        setAnswer2(false);
+
+        setChoice("");
+        setReplytext("");
+        setNormal("");
+        setAction("");
+
+        setElysiaCount(0);
+        setMilleCount(0);
+        setDianaCount(0);
+
+        setRoom(false);
+    };
+
     const changeRoom = (currentRoom, nextRoom) => {
         currentRoom(false);
         nextRoom(true);
@@ -73,6 +130,92 @@ function SolstiaStreets() {
         setReplytext("");
         setAction("");
         setRoom(!room);
+    };
+
+    const stateSetters = {
+        start: setStart,
+        plaza: setPlaza,
+        park: setPark,
+        temple: setTemple,
+        museum: setMuseum,
+        library: setLibrary,
+        shopping: setShopping,
+        business: setBusiness,
+        pub: setPub,
+        acoh: setACOH,
+        harbor: setHarbor,
+        beach: setBeach,
+        city_gates: setcity_gates,
+        outskirts: setOutskirts,
+        via_del_hylia: setvia_del_hylia,
+        vicolo_della_stella: setvicolo_della_stella,
+        lungomare_di_solstia: setlungomare_di_solstia,
+      };
+
+      const currentStates = {
+        start,
+        plaza,
+        park,
+        temple,
+        museum,
+        library,
+        shopping,
+        business,
+        pub,
+        acoh,
+        harbor,
+        beach,
+        city_gates,
+        outskirts,
+        via_del_hylia,
+        vicolo_della_stella,
+        lungomare_di_solstia,
+      };
+    
+      const currentLocation = () => {
+        for (const room in stateSetters) {
+          if (currentStates[room] === true) {
+            return room; 
+          }
+        }
+      };
+
+    const jumpRoom = (targetRoom) => {
+        stateSetters[currentLocation()](false);
+        stateSetters[targetRoom](true);
+    };
+
+    useEffect(() => {
+        const savedState = localStorage.getItem('savedState');
+        if (savedState) {
+          const parsedState = JSON.parse(savedState);
+          setNorthPlaza(parsedState.northPlaza);
+          setNorthvicolo_della_stella(parsedState.northvicolo_della_stella);
+          setNorthcity_gatess(parsedState.northcity_gatess);
+          setKnowNorth(parsedState.knowNorth);
+          setKnowMille(parsedState.knowMille);
+          setMilleACOH(parsedState.milleACOH);
+          setMilleOutskirts(parsedState.milleOutskirts);
+          setKnowMing(parsedState.knowMing);
+          setAnswer(parsedState.answer);
+          setAnswer2(parsedState.answer2);
+          setElysiaCount(parsedState.elysiaCount);
+          setMilleCount(parsedState.milleCount);
+          setDianaCount(parsedState.dianaCount);
+          stateSetters[parsedState.current](true);
+          setStart(false);
+        }
+      }, []);
+
+    const saveState = () => {
+        var current = currentLocation();
+
+        const stateToSave = {
+            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount
+        };
+    
+        localStorage.setItem('savedState', JSON.stringify(stateToSave));
+        setReplytext(`Game has been saved.`);
     };
 
     useEffect(() => {
@@ -186,13 +329,13 @@ const buyFlowers = [`"Thank you for the purchase!" A woman in her late twenties 
         if (northI && choiceLower === 'voxenfelle') {
             setAnswer(true);
             setNorthPlaza(false);
-            setNorthBarPath(true);
+            setNorthvicolo_della_stella(true);
             setKnowNorth(false);
             setChoice("");
         }
 
-        if (barPath && northBarPath && choiceLower === 'buy newspaper') {
-            setBarPath(false);
+        if (vicolo_della_stella && northvicolo_della_stella && choiceLower === 'buy newspaper') {
+            setvicolo_della_stella(false);
             setNorthII(true);
             setKnowNorth(true);
             setChoice("");
@@ -205,14 +348,14 @@ const buyFlowers = [`"Thank you for the purchase!" A woman in her late twenties 
 
         if (northII && answer && choiceLower === `orion's shield`) {
             setAnswer2(true);
-            setNorthBarPath(false);
-            setNorthCityGates(true);
+            setNorthvicolo_della_stella(false);
+            setNorthcity_gatess(true);
             setKnowNorth(false);
             setChoice("");
         }
 
-        if (cityGate && northCityGates && choiceLower === 'buy newspaper') {
-            setCityGate(false);
+        if (city_gates && northcity_gatess && choiceLower === 'buy newspaper') {
+            setcity_gates(false);
             setNorthIII(true);
             setKnowNorth(true);
             setChoice("");
@@ -544,7 +687,7 @@ setNormal(`The comfort of the bench almost tempts you into a nap and you're remi
 
 
 
-    if (harborPath) {
+    if (lungomare_di_solstia) {
         if (action === 'look') {
             setNormal(`In a corner, a musician can be heard strumming his guitar on a blanket. O Solstia. O Hylia. Where the Goddess meets the sea... The whales in my dream... It's blue, oh so blue. The loneliness in me...🎵`)
         }
@@ -638,7 +781,7 @@ setAction(`❌ ${rollResult} You couldn't find any interesting conversations to 
 }}
 
 // CITY GATE
-if (cityGate && action === 'search') {
+if (city_gates && action === 'search') {
 const rollResult = rollD20();
 
 if (rollResult > 10) {
@@ -666,7 +809,7 @@ setAction(`❌ ${rollResult} You spend time admiring the scenery of the park but
 }}
 
 // VIA DEL HYLIA
-if (templePath && action === 'search') {
+if (via_del_hylia && action === 'search') {
 const rollResult = rollD20();
 
 if (rollResult > 10) {
@@ -681,7 +824,7 @@ setAction(`❌ ${rollResult} The spot where Elysia had disappeared is sectioned 
 }
 }
 
-if (templePath && action === 'listen') {
+if (via_del_hylia && action === 'listen') {
 const rollResult = rollD20();
 if (rollResult > 10) {
 setAction(
@@ -769,7 +912,7 @@ You managed to finish a regiment and work up a good sweat! But... Aren't there o
 }}
 
 // BAR PATH
-if (barPath && action === 'search') {
+if (vicolo_della_stella && action === 'search') {
 const rollResult = rollD20();
 
 if (rollResult > 10) {
@@ -858,7 +1001,21 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
 
   return (
     <div className='solstia-bg'>
-    <div className="main-content">
+    <div className="main-content solstia-page">
+    <div className='side-menu'>
+    <b className='side-header'>LOAD MENU</b>
+        <button className='save-btn' onClick={() => saveState()}>SAVE</button>
+        <button className='save-btn' onClick={() => resetStates()}>START OVER</button>
+        <hr />
+        <div className='quick-jump'>
+            <b className='side-header'>QUICK JUMP</b>
+            {Object.keys(currentStates).map((room) => (
+            <button className='quick-jump-btn' onClick={() => jumpRoom(room)} key={room}>{room}</button>
+            ))}
+        </div>
+    </div>
+
+    <div className='location-content'>
         { start &&
         <div className='location-box'>
         <div className='location-title'>
@@ -894,7 +1051,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
                 </div></div>
             }
 
-            { northBarPath && !knowNorth && (<p>Looks like the newspaper boy has left this area!</p>) }
+            { northvicolo_della_stella && !knowNorth && (<p>Looks like the newspaper boy has left this area!</p>) }
 
             { normal && <pre>{normal}</pre> }
             { action && <pre>{action}</pre> }
@@ -919,7 +1076,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         
         <div className='buttons-box'>
             <button className='route-btn' onClick={() => changeRoom(setPlaza, setPark)}>⬉ City Park</button>
-            <button className='route-btn' onClick={() => changeRoom(setPlaza, setTemplePath)}>⬈ Path to Holy Temple</button>
+            <button className='route-btn' onClick={() => changeRoom(setPlaza, setvia_del_hylia)}>⬈ Path to Holy Temple</button>
             <button className='route-btn' onClick={() => changeRoom(setPlaza, setShopping)}>⬋ Shopping District</button>
             <button className='route-btn' onClick={() => changeRoom(setPlaza, setBusiness)}>⬊ Business District</button>
         </div>
@@ -953,7 +1110,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         }
 
 
-        {templePath &&
+        {via_del_hylia &&
         <div className='location-box'>
         <div className='location-title'>
             <p>🕊️ Via del Hylia</p>
@@ -982,8 +1139,8 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setTemplePath, setTemple)}>⬆ The Holy Temple</button>
-            <button className='route-btn' onClick={() => changeRoom(setTemplePath, setPlaza)}>⬋ Plaza</button>
+            <button className='route-btn' onClick={() => changeRoom(setvia_del_hylia, setTemple)}>⬆ The Holy Temple</button>
+            <button className='route-btn' onClick={() => changeRoom(setvia_del_hylia, setPlaza)}>⬋ Plaza</button>
         </div>
         </div>
         }
@@ -1020,7 +1177,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
         <div className='buttons-box'>
             <button className='route-btn' onClick={() => changeRoom(setTemple, setMuseum)}>⬉ Museum</button>
-            <button className='route-btn' onClick={() => changeRoom(setTemple, setTemplePath)}>⬇ Path to the Plaza</button>
+            <button className='route-btn' onClick={() => changeRoom(setTemple, setvia_del_hylia)}>⬇ Path to the Plaza</button>
         </div>
         </div>
         }
@@ -1099,14 +1256,14 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleAction('read')}>🎲 READ</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setLibrary, setHarborPath)}>⬆ Path to the Harbor</button>
+            <button className='route-btn' onClick={() => changeRoom(setLibrary, setlungomare_di_solstia)}>⬆ Path to the Harbor</button>
             <button className='route-btn' onClick={() => changeRoom(setLibrary, setMuseum)}>⬈ Museum</button>
             <button className='route-btn' onClick={() => changeRoom(setLibrary, setPark)}>⬇ City Park</button>
         </div>
         </div>
     }
 
-    { harborPath &&
+    { lungomare_di_solstia &&
         <div className='location-box'>
         <div className='location-title'>
             <p>🧱 Lungomare di Solstia</p>
@@ -1124,8 +1281,8 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleNormal('listen')}>LISTEN</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setHarborPath, setHarbor)}>⬆ Harbor</button>
-            <button className='route-btn' onClick={() => changeRoom(setHarborPath, setLibrary)}>⬇ Library</button>
+            <button className='route-btn' onClick={() => changeRoom(setlungomare_di_solstia, setHarbor)}>⬆ Harbor</button>
+            <button className='route-btn' onClick={() => changeRoom(setlungomare_di_solstia, setLibrary)}>⬇ Library</button>
         </div>
         </div>
     }
@@ -1161,7 +1318,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
         <div className='buttons-box'>
             <button className='route-btn' onClick={() => changeRoom(setHarbor, setBeach)}>⬆ Beach</button>
-            <button className='route-btn' onClick={() => changeRoom(setHarbor, setHarborPath)}>⬇ Path to the Library</button>
+            <button className='route-btn' onClick={() => changeRoom(setHarbor, setlungomare_di_solstia)}>⬇ Path to the Library</button>
         </div>
         </div>
     }
@@ -1191,19 +1348,19 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
         <div className='buttons-box'>
         <button className='choice-btn' onClick={() => handleNormal('look')}>LOOK</button>
-        { northCityGates && (
+        { northcity_gatess && (
             <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
         )}
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setBeach, setCityGate)}>⬆ City Gate</button>
+            <button className='route-btn' onClick={() => changeRoom(setBeach, setcity_gates)}>⬆ City Gate</button>
             <button className='route-btn' onClick={() => changeRoom(setBeach, setOutskirts)}>⬈ Outskirts</button>
             <button className='route-btn' onClick={() => changeRoom(setBeach, setHarbor)}>⬇ Harbor</button>
         </div>
         </div>
     }
 
-    { cityGate &&
+    { city_gates &&
         <div className='location-box'>
         <div className='location-title'>
             <p>🏰 City Gate</p>
@@ -1215,7 +1372,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             { action && <pre>{action}</pre> }
             { replytext && <pre>{replytext}</pre> }
 
-            { northCityGates && (
+            { northcity_gatess && (
             <form className='action-box' onSubmit={handleSubmit}>
             <input className='action-text'
                 type="text"
@@ -1232,7 +1389,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleAction('search')}>🎲 SEARCH</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setCityGate, setBeach)}>⬇ Beach</button>
+            <button className='route-btn' onClick={() => changeRoom(setcity_gates, setBeach)}>⬇ Beach</button>
         </div>
         </div>
     }
@@ -1345,12 +1502,12 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
         <div className='buttons-box'>
             <button className='route-btn' onClick={() => changeRoom(setPub, setShopping)}>⬆ Shopping District</button>
-            <button className='route-btn' onClick={() => changeRoom(setPub, setBarPath)}>➡ Path to the Business District</button>
+            <button className='route-btn' onClick={() => changeRoom(setPub, setvicolo_della_stella)}>➡ Path to the Business District</button>
         </div>
         </div>
     }
 
-    { barPath &&
+    { vicolo_della_stella &&
         <div className='location-box'>
         <div className='location-title'>
             <p>🧱 Vicolo della Stella</p>
@@ -1363,7 +1520,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             { replytext && <pre>{replytext}</pre> }
         </div>
 
-            { northBarPath && knowNorth &&
+            { northvicolo_della_stella && knowNorth &&
             <div className='story-speech npc'>
                 <img src={newsboy} className='story-avatar'></img>
                     <div className="story-speech-text">
@@ -1373,12 +1530,12 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
                 </div></div>
             }
 
-            { northCityGates && !knowNorth && (
+            { northcity_gatess && !knowNorth && (
                 <p>Looks like North has left this area!</p>
             )}
 
 
-            { northBarPath &&
+            { northvicolo_della_stella &&
             <div>
                 <form className='action-box' onSubmit={handleSubmit}>
                     <input className='action-text'
@@ -1392,15 +1549,15 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             </div>
             }
 
-            { northBarPath && !knowNorth && (
+            { northvicolo_della_stella && !knowNorth && (
                 <div className='buttons-box'>
                 <button className='choice-btn' onClick={() => handleAction('search')}>🎲 SEARCH</button>           
                 </div>
             )}
 
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setBarPath, setPub)}>⬅ Shopping District</button>
-            <button className='route-btn' onClick={() => changeRoom(setBarPath, setACOH)}>➡ ACOH</button>
+            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setPub)}>⬅ Shopping District</button>
+            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setACOH)}>➡ ACOH</button>
         </div>
         </div>
     }
@@ -1449,7 +1606,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleAction('train')}>🎲 TRAIN</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setACOH, setBarPath)}>⬅ Path to the Shopping District</button>
+            <button className='route-btn' onClick={() => changeRoom(setACOH, setvicolo_della_stella)}>⬅ Path to the Shopping District</button>
             <button className='route-btn' onClick={() => changeRoom(setACOH, setBusiness)}>⬆ Business District</button>
         </div>
         </div>
@@ -1622,7 +1779,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             </div></div>
             }
 
-            <button className='route-btn' onClick={() => {changeRoom(setNorthII, setBarPath); setAnswer(false); setAnswer2(false)}}>End Conversation</button>
+            <button className='route-btn' onClick={() => {changeRoom(setNorthII, setvicolo_della_stella); setAnswer(false); setAnswer2(false)}}>End Conversation</button>
             </div></div>
     }
 
@@ -1672,7 +1829,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             </div></div>
             }
 
-            <button className='route-btn' onClick={() => {changeRoom(setNorthIII, setCityGate); setAnswer(false)}}>End Conversation</button>
+            <button className='route-btn' onClick={() => {changeRoom(setNorthIII, setcity_gates); setAnswer(false)}}>End Conversation</button>
             </div></div>
     }
 
@@ -1779,7 +1936,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div></div>
     )}
 
-    </div></div>
+    </div></div></div>
   );
 }
 

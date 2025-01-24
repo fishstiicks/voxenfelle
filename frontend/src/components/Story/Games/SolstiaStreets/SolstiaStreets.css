@@ -1,3 +1,49 @@
+.solstia-page {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(245, 237, 222, 0.9);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 2.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-right: 15%;
+    position: fixed;
+    font-family: 'B612 Mono', monospace;
+}
+
+.side-header {
+    font-size: 25px;
+}
+
+.save-btn {
+    background-color: transparent;
+    font-family: 'B612 Mono', monospace;
+    height: 40px;
+    font-size: 15px;
+}
+
+.quick-jump {
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-jump-btn {
+    background-color: transparent;
+    height: 25px;
+    font-family: 'B612 Mono', monospace;
+}
+
+.quick-jump-btn:hover, .save-btn:hover {
+    color: rgb(233, 134, 76);
+    background-color: transparent;
+}
+
 .solstia-bg {
     background-image: url('https://i.ibb.co/RNDM0BX/streets.png');
     background-size: 100% 100%;
@@ -19,7 +65,7 @@
     padding-right: 5%;
     padding-bottom: 3%;
     border-radius: 10px;
-    width: 60%;
+    width: 50%;
     background-color: rgba(245, 237, 222, 0.9);
     box-shadow: 10px 10px 15px rgba(138, 115, 85, 0.3); 
     margin-top: 3%;
