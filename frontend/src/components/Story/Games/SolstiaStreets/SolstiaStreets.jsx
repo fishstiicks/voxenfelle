@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SolstiaStreets.css'
 
 const newsboy = 'https://i.ibb.co/gwVxBFt/Illustration47.png';
@@ -59,6 +59,8 @@ function SolstiaStreets() {
     const [milleCount, setMilleCount] = useState(0);
     const [dianaCount, setDianaCount] = useState(0);
 
+    const [room, setRoom] = useState(false);
+
     function rollD20() {
         return Math.floor(Math.random() * 20) + 1;
       }
@@ -70,7 +72,22 @@ function SolstiaStreets() {
         setChoice("");
         setReplytext("");
         setAction("");
+        setRoom(!room);
     };
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    }, [room]);
 
 
 // PROMPTS
@@ -388,18 +405,6 @@ Or at least, to not to do so during broad daylight. Maybe you should wait for a 
             setChoice("");
         }
 
-        if (museum && choiceLower === 'listen') {
-            const rollResult = rollD20();
-            if (rollResult > 17) {
-            setReplytext(`❗ ${rollResult} "Do you think Hylia ever falls in love?" A visitor of the museum asks you, staring at a painting of the goddess. They look old enough to be your grandparent.
-
-"Ah... perhaps a goddess doesn't have love to spare for herself, when she needs to love the entire world and its people. But there is an old tale that says the Void was actually in love with her, once upon a time. Interesting, isn't it?" They laugh to themselves, moving on to the next painting. You hear them mumbling about what's for lunch later.`)
-            } else {
-                setReplytext(`❌ ${rollResult} The museum is fairly quiet today so you don't get to hear much conversation.`)
-            }
-            setChoice("");
-        }
-
         // BEACH
         if (beach && choiceLower === 'buy ice cream') {
             const pickedIceCream = iceCream[Math.floor(Math.random() * iceCream.length)];
@@ -522,6 +527,23 @@ Unlock secret action: [████████]`)
         }
     }
 
+    if (library) {
+        if (action === 'look') {
+setNormal(`You spy some people in uniform hanging around the west side of the library. They're from the Marine Hunters Association! They seem to be discussing the updates on border lockdowns after the ordainment ceremony.
+
+A chat with them reveals that they have yet to see any suspicious figures flee out to sea.
+For a moment, you have an urge to look above you and check for mistletoe. Thankfully, there isn't any. Exams are over.`)
+        }
+    }
+
+    if (park) {
+        if (action === 'sit') {
+setNormal(`The comfort of the bench almost tempts you into a nap and you're reminded of a recent dream. The details eludes besides a familiar voice and the vision of a red sea... Or was that all your imagination?`)
+        }
+    }
+
+
+
     if (harborPath) {
         if (action === 'look') {
             setNormal(`In a corner, a musician can be heard strumming his guitar on a blanket. O Solstia. O Hylia. Where the Goddess meets the sea... The whales in my dream... It's blue, oh so blue. The loneliness in me...🎵`)
@@ -540,6 +562,18 @@ Unlock secret action: [████████]`)
 
 // ACTION ROLLS
 const handleAction = (action) => {
+
+if (museum && action === 'listen') {
+const rollResult = rollD20();
+if (rollResult > 17) {
+setReplytext(`❗ ${rollResult} "Do you think Hylia ever falls in love?" A visitor of the museum asks you, staring at a painting of the goddess. They look old enough to be your grandparent.
+
+"Ah... perhaps a goddess doesn't have love to spare for herself, when she needs to love the entire world and its people. But there is an old tale that says the Void was actually in love with her, once upon a time. Interesting, isn't it?" They laugh to themselves, moving on to the next painting. You hear them mumbling about what's for lunch later.`)
+} else {
+    setReplytext(`❌ ${rollResult} The museum is fairly quiet today so you don't get to hear much conversation.`)
+}
+setChoice("");
+}
 
 // TEMPLE
 if (temple && action === 'chat') {
@@ -572,7 +606,7 @@ setAction(`❌ ${rollResult} You take a moment to explore the temple, marvelling
     }}
 
 // LIBRARY
-if (library && action === 'listen') {
+if (library && action === 'read') {
 const rollResult = rollD20();
 
 if (rollResult > 10) {
@@ -1736,12 +1770,13 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
     }
 
     { fatality && (
-        <div>
+        <div className='location-box'>
+        <div className='location-text alt-font' style={{color: 'red'}}>
             <p>Defeated...</p>
-            <p>There was no end to the seagulls. Eventually, they kept flocking and flocking until your vision turns white...</p>
-            <p>GAME OVER.</p>
+            <p><b>There was no end to the seagulls. Eventually, they kept flocking and flocking until your vision turns white...</b></p>
+            <p className='big'><b>GAME OVER.</b></p>
             <button onClick={() => window.location.reload()}>Replay?</button>
-        </div>
+        </div></div>
     )}
 
     </div></div>

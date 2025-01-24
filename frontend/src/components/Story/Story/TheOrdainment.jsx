@@ -61,6 +61,39 @@ function TheOrdainment() {
     <div className="main-content">
         <a href="#start"><button id='scroll-to-start'>🠉</button></a>
         <a id="start"></a>
+        <div className='story-body'>
+        <div className='cg-box' style={{padding: '10px'}}>
+        <div className="acenter alt-font big">
+            <br></br>
+            <div>SOMEWHERE, SOMEPLACE</div>
+            <div>THE NIGHT BEFORE THE ORDAINMENT</div>
+            <br></br>
+        </div>
+        <div style={{backgroundImage: 'linear-gradient(to bottom, #970000, #76070d, #550e11, #340f10, #120808)', borderRadius: '10px', color:'#dde7ee'}}>
+        <div style={{padding: '25px'}}>
+            <p>You open your eyes to a familiar / unfamiliar / unfamiliar / familiar scene.</p>
+            <p>White sand crumbles as you sit up. Immediately, the smell of the ocean, and something else, assaults your senses. You’ve been here before, you think, but something feels different.</p>
+            <p>A whale cries out above you. You glance up at the sky. The sky is red.</p>
+
+            <p>...</p>
+
+            <p>Everything is red.</p>
+            <p>Vermillion roots spread over the horizon like webs, blocking out the once blue sky. They wrap around the whales and fish, trapping them in place as they struggle to break free. The ocean roars, violent waters dyed a bloody crimson as it rises and crashes in on itself, trying to swallow something that isn’t there. You manage to put a name to it now—the scent of iron, permeating the air.</p>
+            <p>“Y████ust████—”</p>
+            <p>A voice speaks from behind, distorted and full of static. You turn around.In front of you is a g̷̔͂i̸͛͠r̴̛͗l̸̽̌ dressed in ẅ̶̌h̷̏͠ī̶t̵̿͝e̸͗͐. Her face is distorted b̸͒̑e̸͑̎y̸̤̿o̷̍̑n̵̍͠d̷͑̾ r̵̆̓e̴͛cognition.</p>
+            <p>“Find███████.”</p>
+            <p>A hand reaches out towards you. Before it can reach, it starts to crumble away like dust. Slowly, her body starts to disintegrate into white sand.</p>
+            <p>“███Orion███s—”</p>
+            <p>You look around. Everything is crumbling. The space itself starts to fall apart into nothingness: a black void.</p>
+            <p>“███Fin█d████me████.”</p>
+            <br></br>
+            <p>And then, everything disappears.</p>
+
+            </div></div>
+        </div></div>
+        <br></br>
+        <hr />
+
         <div className="story-big">
             <div className="time">Saturday, 8:00 A.M.</div>
             <div>Main Road, outside the First Temple</div>
@@ -166,7 +199,7 @@ function TheOrdainment() {
         <div className='story-big'>⚠️ THE VESSEL HAS BEEN KIDNAPPED!</div>
         <div className='story-body'>
             <p>The city has been thrown into chaos as people search for the missing vessel and recuperate from the bomb's damages. But, not all hope is lost. As students of Voxenfelle Academy, as well as hunters-in-training, you have the power to aid the church and authorities in their search for Elysia. Thus, we'd like to introduce...</p>
-            <div className='big center alt-font'><b>☀️ ADVENTURE: SOLSTIA STREETS</b></div>
+            <Link to={`/story/Solstia Streets`}><div className='big center alt-font'><b><u>☀️ ADVENTURE: SOLSTIA STREETS</u></b></div></Link>
         </div>
 
         <div className="story-end">
