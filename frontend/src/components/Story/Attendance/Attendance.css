@@ -103,6 +103,29 @@
     color: #39393A
 }
 
+.events-header {
+    font-size: 40px;
+    font-weight: bold;
+    background-color:#363636;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: #F5F0F6;
+}
+
+.event-listing {
+    display: flex;
+    gap: 50px;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.event-date {
+    width: 30%;
+    font-weight: bold;
+    color: #363636;
+}
+
+
 
 #attendance-box {
     border-radius: 10px;
