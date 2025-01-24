@@ -95,7 +95,7 @@ function ClubsPage() {
 
         const clubMembers = membershipsByClub[club.name] || [];
         return (
-          <div key={club.id} className="club-card">
+          <div key={club.id} className="club-card" >
             <div id="club-info-box">
             <div id="club-info">
               <h3>{club.name}</h3>
@@ -105,7 +105,7 @@ function ClubsPage() {
             </div>
               {clubMembers.length > 0 ? (
                 <div className="club-members">
-                  <div className="member-images">
+                  <div className={`member-images ${user ? '' : 'logged-out'}`}>
                     {clubMembers.map((membership) => {
                       const character = membership.character;
                       const picrew = character ? character.picrew : null;
