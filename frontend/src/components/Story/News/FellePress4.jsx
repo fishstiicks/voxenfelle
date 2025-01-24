@@ -1,6 +1,6 @@
 import '../../Story/News/News.css'
 
-function FellePress12() {
+function FellePress4() {
   return (
     <div className="main-content news-page">
         <div className='news-title'>THE FELLE-FESTIVAL TOURNAMENT:  A BRIEF REVIEW</div>
@@ -23,4 +23,4 @@ function FellePress12() {
   );
 }
 
-export default FellePress12;
+export default FellePress4;

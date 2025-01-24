@@ -160,8 +160,9 @@ function SeasonI() {
 
             <p className='big alt-font'><b>It slices away at the falling debris, clearing a path for themselves.</b></p>
             <img className='story-cg' src="https://i.postimg.cc/Hsn9r8CM/hound-cg-3.png"></img>
-              
-            <p>"Huh? No way! I have the microphone now!" She huffs.</p>
+            
+            <p>Chou-Chou swipes something from the bleachers nearby: a microphone. She taps it once, twice, loud and clear through the arena's speakers.</p>
+            <p><i>"Ehem--testing, testing!"</i></p>
             <p>Then, she locks her gaze onto the cameras, raises an arm up, and waves.</p>
             <p>"Hi everyone!" She beams, cheerfully, with a smile. "We're-- erm, what was our speech again...?" Chou-Chou blinks to herself, confusion passing for a second, before a flash of remembrance hits her. "Oh, right."</p>
             <p>"We're the Void Army, and we're here to declare war!" She pauses, for dramatic effect.</p>
@@ -252,6 +253,7 @@ function SeasonI() {
             <p>The students are given information from Head Priest Arias that Hound has been spotted at an abandoned building and so go there to meet her. Once arriving, they fight Hound and break her mask, only to realize that Hound’s mask has been controlling her the whole time. </p>
 
             <div className='cg-box'>
+            <iframe width="854" height="480" src="https://www.youtube.com/embed/zOZPjAhJqXw?si=F-ErNyGGSqm8PkW4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <p className='big alt-font'><b>Hound—no.</b></p>
               <img className='story-cg' src='https://i.ibb.co/tbTSpsm/hound-cg-mask-1.webp'></img>
               <p className='big alt-font'><b>Yuenris Lafaye stares back at you, dazed.</b></p>

@@ -19,7 +19,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   padding-top: 80px;
-  background-color: #F5F0F6;
+  background-color: #f0f4f6;
   text-decoration: none;
   position: relative;
 }
@@ -205,7 +205,15 @@ button:hover {
 @media (max-width: 480px) {
   .header {
     align-items: flex-start;
+    justify-content: space-around;
     font-size: 12px;
+    width: 450px;
+  }
+
+  .header-list {
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 450px;
   }
 
   .navigation-list {
@@ -220,10 +228,17 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .header-list {
-    flex-direction: column;
+  .header {
     align-items: flex-start;
+    justify-content: space-between;
+    width: 500px;
+  }
+
+  .header-list {
+    align-items: flex-start;
+    justify-content: space-between;
     font-size: 13px;
+    width: 500;
   }
 
   .navigation-list {

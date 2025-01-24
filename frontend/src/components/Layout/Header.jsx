@@ -5,12 +5,12 @@ function Header() {
     <header className="header">
       <div className="logo-container">
         <NavLink to="/"><img src="https://i.ibb.co/rQSWfZc/logo-white.png" alt="Logo" className="logo" /></NavLink>
-        <NavLink to="/"><h2 id="headerText">VOXENFELLE</h2></NavLink>
+        <NavLink to="/"><h2 id="headerText">VOXENFELLE ACADEMY</h2></NavLink>
       </div>
       <nav>
         <ul className="header-list">
           <li>
-            <NavLink to="/" className="header-link" activeClassName="active-link">
+            <NavLink to="/story" className="header-link" activeClassName="active-link">
               Story
             </NavLink>
           </li>

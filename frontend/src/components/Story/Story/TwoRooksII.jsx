@@ -954,7 +954,6 @@ function TwoRooksII() {
                       <div className="story-speech-name">Crimson</div>
                       <p>AND SHE PUNCHES HIM AGAIN AND KICKS HIM AND KICKS HIM AGA</p>
                       <p>“THIS IS FOR WAR—“ KICK. “AND FOR SHOOTING VIKA IN OUR SHOUNEN MOMENT.” KICK. “AND THIS ONE FOR BEING A BITCH—“ KICK.</p>
-                      <p>“HE SHOULD DIE! NOBODY WOULD MISS HIM!” To TK.</p>
               </div></div>
 
               <div className='story-speech'>
@@ -1112,7 +1111,7 @@ function TwoRooksII() {
             </div>
             <div className="story-footer">
                 <Link to={`/story/Two Rooks I`}>🠄 Previous</Link>
-                <Link to={`/story`}>Home 🠆</Link>
+                <Link to={`/story/To Solstia`}>Next 🠆</Link>
             </div>
             </div>
 

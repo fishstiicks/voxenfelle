@@ -22,8 +22,14 @@ import AnAudience from './components/Story/Story/AnAudience.jsx';
 import TwoRooksI from './components/Story/Story/TwoRooksI.jsx'
 import TwoRooksII from './components/Story/Story/TwoRooksII.jsx';
 import SeasonI from './components/Story/Story/SeasonI.jsx';
+import ToSolstia from './components/Story/Story/ToSolstia.jsx';
+import TheVessel from './components/Story/Story/TheVessel.jsx';
+import TheOrdainment from './components/Story/Story/TheOrdainment.jsx';
 
 import FellePress12 from './components/Story/News/FellePress12.jsx';
+import FellePress4 from './components/Story/News/FellePress4.jsx';
+
+import SolstiaStreets from './components/Story/Games/SolstiaStreets/SolstiaStreets.jsx';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -118,9 +124,29 @@ const router = createBrowserRouter([
         element: <TwoRooksII />
       },
       {
+        path: '/story/To Solstia',
+        element: <ToSolstia />
+      },
+      {
+        path: '/story/The Vessel',
+        element: <TheVessel />
+      },
+      {
+        path: `/story/The Ordainment`,
+        element: <TheOrdainment />
+      },
+      {
+        path: '/FellePress/4',
+        element: <FellePress4 />
+      },
+      {
         path: '/FellePress/12',
         element: <FellePress12 />
       },
+      {
+        path: '/story/Solstia Streets',
+        element: <SolstiaStreets />
+      }
     ],
   },
 ]);

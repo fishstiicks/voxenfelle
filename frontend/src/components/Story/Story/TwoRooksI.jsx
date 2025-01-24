@@ -494,6 +494,8 @@ function TwoRooksI() {
                 </div>
             </div>
 
+            <img className='story-cg' src='https://i.ibb.co/CncszsZ/IMG-1966.jpg'></img>
+
             <p>Just a few more steps...</p>
             <p>Cain suddenly stops chasing and smiles.</p>
             <p>You hear your heartbeat pounding in your ears.</p>

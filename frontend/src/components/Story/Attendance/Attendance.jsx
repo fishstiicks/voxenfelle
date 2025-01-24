@@ -6,6 +6,7 @@ import '../../Story/Attendance/Attendance.css';
 const stories = {
   'SEASON I': ['Season I Summary'],
   'DEFENSE MINISTRY': ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II'],
+  'SOLSTIA': ['To Solstia', 'The Vessel', 'The Ordainment', 'Solstia Streets']
 };
 
 
@@ -118,23 +119,6 @@ function Attendance() {
                 ))}
               </>
             )}
-            <div className='arc-title'><b>SOLSTIA</b></div>
-
-            <div className='attendance-listing'>
-              <div className='attendance-title'>To Solstia</div>
-              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-            </div>
-
-            <div className='attendance-listing'>
-              <div className='attendance-title'>The Vessel</div>
-              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-            </div>
-
-            <div className='attendance-listing'>
-              <div className='attendance-title'>The Ordainment</div>
-              <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-            </div>
-
             <div className='attendance-listing'>
               <div className='attendance-title'>???</div>
               <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
@@ -144,6 +128,11 @@ function Attendance() {
       
       <div id='npc-box'>
       <div className='npcs'>
+
+      <div id='events-box'>
+        <div className='npc-header'>CURRENT EVENT (JAN 19-25): <Link to={`/story/Solstia Streets`}><p className='current-event'>☀️ Adventure: Solstia Streets</p></Link></div>
+
+      </div>
 
       <div id='events-box'>
       <div className='events-header'>UPCOMING EVENTS</div>

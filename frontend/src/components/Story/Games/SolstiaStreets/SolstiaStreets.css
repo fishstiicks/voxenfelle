@@ -1,0 +1,93 @@
+.solstia-bg {
+    background-image: url('https://i.ibb.co/RNDM0BX/streets.png');
+    background-size: 100% 100%;
+    margin-left: -20px;
+    padding-bottom: 100vh;
+    margin-bottom: -20px;
+    filter: grayscale(10%);
+    background-attachment: fixed;
+}
+
+.location-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3%;
+    padding: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 3%;
+    border-radius: 10px;
+    width: 60%;
+    background-color: rgba(245, 237, 222, 0.9);
+    box-shadow: 10px 10px 15px rgba(138, 115, 85, 0.3); 
+    margin-top: 3%;
+}
+
+.location-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: -20px;
+}
+
+.location-image {
+    width: 60%;
+    border-radius: 10px;
+}
+.location-text {
+    display: flex;
+    flex-direction: column;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.action-box {
+    display: flex;
+    width: 60%;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.action-text {
+    font-family: 'B612 Mono', monospace;
+    background-color: rgb(255, 245, 235, 0.7);
+}
+
+.submit-btn {
+    background-color: rgb(241, 175, 121);
+    color: rgb(255, 255, 255);
+    height: 20px;
+    margin-top: 10px;
+}
+
+.buttons-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.choice-btn {
+    background-color: rgb(132, 199, 173);
+}
+
+.route-btn {
+    background-color: rgb(136, 105, 96);
+}
+
+.choice-btn, .route-btn, .submit-btn {
+    display: flex;
+    width: 200px;
+    margin-bottom: 10px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-btn:hover, .choice-btn:hover, .route-btn:hover {
+    background-color: rgb(233, 134, 76);
+}

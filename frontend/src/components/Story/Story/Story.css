@@ -160,10 +160,13 @@
 .spoiler {
     filter: brightness(0%);
     transition: 0.6s;
+    background-color: black;
+    border-radius: 10px;
 }
 
 .spoiler:hover {
-    filter: brightness(100%)
+    filter: brightness(100%);
+    background-color: transparent
 }
 
 .dark {
@@ -175,7 +178,7 @@
 }
 
 .bright {
-    filter: brightness(140%);
+    filter: brightness(500%);
 }
 
 .blur {
