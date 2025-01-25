@@ -319,16 +319,16 @@ function SolstiaStreets() {
     //     }
     //   }, []);
 
-    const saveState = () => {
-        var current = currentLocation();
+    // const saveState = () => {
+    //     var current = currentLocation();
 
-        const stateToSave = {
-            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4
-        };
+    //     const stateToSave = {
+    //         current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4
+    //     };
     
-        localStorage.setItem('savedState', JSON.stringify(stateToSave));
-        setReplytext(`Game has been saved.`);
-    };
+    //     localStorage.setItem('savedState', JSON.stringify(stateToSave));
+    //     setReplytext(`Game has been saved.`);
+    // };
 
     useEffect(() => {
         window.scrollTo({
@@ -1925,36 +1925,57 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
     }
 
-    { vicolo_della_stella &&
+{ vicolo_della_stella &&
         <div className='location-box'>
         <div className='location-title'>
             <p>🧱 Vicolo della Stella</p>
         </div>
         <div className='location-text'>
-            <p>Tucked between the two districts is a narrow pedestrian street. There are fewer people around, as locals are more familiar with this route than the visiting tourists. </p>
+            <p>Tucked between the two districts is a narrow pedestrian street. There are fewer people around, as locals are more familiar with this route than the visiting tourists.</p>
 
             { normal && <pre>{normal}</pre> }
             { action && <pre>{action}</pre> }
             { replytext && <pre>{replytext}</pre> }
+        
 
-        <form className='action-box' onSubmit={handleSubmit}>
-            <input className='action-text'
-                type="text"
-                value={choice}
-                onChange={(e) => setChoice(e.target.value)}
-                required
-            />
-            <button type="submit" className='submit-btn'>Submit</button>
-        </form>
+            { northvicolo_della_stella && knowNorth &&
+            <div className='story-speech npc'>
+                <img src={newsboy} className='story-avatar'></img>
+                    <div className="story-speech-text">
+                        <div className="story-speech-name">North</div>
+                        <p>"Extra! Extra!"</p>
+                        <p>Buy a newspaper?</p>
+                </div></div>
+            }
 
-        </div>
+            { northcity_gatess && !knowNorth && (
+                <p>Looks like North has left this area!</p>
+            )}
+            </div>
+
+            { northvicolo_della_stella &&
+            <div>
+                <form className='action-box' onSubmit={handleSubmit}>
+                    <input className='action-text'
+                        type="text"
+                        value={choice}
+                        onChange={(e) => setChoice(e.target.value)}
+                        required
+                    />
+                    <button type="submit" className='submit-btn'>Submit</button>
+                </form>
+            </div>
+            }
+
+            { northvicolo_della_stella && !knowNorth && (
+                <div className='buttons-box'>
+                <button className='choice-btn' onClick={() => handleAction('search')}>🎲 SEARCH</button>           
+                </div>
+            )}
+
         <div className='buttons-box'>
-            <button className='choice-btn' onClick={() => handleAction('drink')}>🎲 DRINK</button>
-            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
-        </div>
-        <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setPub, setShopping)}>⬆ Shopping District</button>
-            <button className='route-btn' onClick={() => changeRoom(setPub, setvicolo_della_stella)}>➡ Path to the Business District</button>
+            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setPub)}>⬅ Shopping District</button>
+            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setACOH)}>➡ ACOH</button>
         </div>
         </div>
     }
