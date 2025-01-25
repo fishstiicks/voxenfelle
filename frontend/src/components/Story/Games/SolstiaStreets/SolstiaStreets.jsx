@@ -14,6 +14,7 @@ function SolstiaStreets() {
     const [sing3, setSing3] = useState(false);
     const [sing4, setSing4] = useState(false);
     const [hasMap, setHasMap] = useState(false);
+    const [stars, setStars] = useState(false);
 
     const [start, setStart] = useState(true);
     const [plaza, setPlaza] = useState(false);
@@ -38,6 +39,7 @@ function SolstiaStreets() {
     const [east_solstia, seteast_solstia] = useState(false);
     const [lookout_point, setlookout_point] = useState(false);
     const [train_station, settrain_station] = useState(false);
+    const [clocktower, setclocktower] = useState(false);
 
     const [birdHell, setBirdHell] = useState(false);
     const [birdCount, setBirdCount] = useState(3);
@@ -90,6 +92,8 @@ function SolstiaStreets() {
         setSing2(false);
         setSing3(false);
         setSing4(false);
+        setHasMap(false);
+        setStars(false);
 
         setStart(true);
         setPlaza(false);
@@ -114,6 +118,7 @@ function SolstiaStreets() {
         seteast_solstia(false);
         setlookout_point(false);
         settrain_station(false);
+        setclocktower(false);
 
         setBirdHell(false);
         setBirdCount(3);
@@ -156,7 +161,7 @@ function SolstiaStreets() {
         var current = 'start';
 
         const stateToSave = {
-            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4
+            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4, hasMap, stars
         };
     
         localStorage.setItem('savedState', JSON.stringify(stateToSave));
@@ -204,6 +209,7 @@ function SolstiaStreets() {
         northIII: setNorthIII,
         northIV: setNorthIV,
         barkeep: setBarkeep,
+        clocktower: setclocktower,
       };
 
       const currentStates = {
@@ -237,7 +243,8 @@ function SolstiaStreets() {
         northII,
         northIII,
         northIV,
-        barkeep
+        barkeep,
+        clocktower
       };
 
       const locations = {
@@ -386,6 +393,53 @@ const fortuneLuck = [`awful`, `great`, `poor`, `favorable`, `good`];
         
         e.preventDefault();
 
+        // CLOCKTOWER
+        if (clocktower && choiceLower.includes("greet north") && replytext.includes("clock tower") && normal.includes('explain') && action.includes('voice')) {
+            setNorthIV(true)
+            setclocktower(false)
+            setChoice("");
+            setNormal("");
+            setReplytext("");
+            setAction("");
+        }
+
+        if (clocktower && choiceLower.includes("leave") && replytext.includes("clock tower") && normal.includes('explain')) {
+            setChoice("");
+            setAction(`...
+As you turn to leave, a voice suddenly calls out to you.
+
+"Psst! Psst...! Over here!"
+
+A hand waves from a nearby alleyway.
+
+Actions: [GREET ???]`)
+        }
+
+        if (clocktower && choiceLower.includes("persuade") && replytext.includes("clock tower")) {
+            setNormal(`Despite your efforts to explain, the guards only look at you with raised eyebrows and a dismissive look. "Listen, kid. We've gotten plenty of reports from people thinking they know where the vessel is. All of them were the same—just a buncha hot air."
+
+"Let the professionals handle this, alright? The ACOH is hot on the case. You kids can just wait until they're all done. Trust me, they'll find her in no time."
+
+With that, he sends you off with a wave. Any other attempts to argue with him are met with a similarly dismissive response. Was this really the end..?
+
+Actions: [LEAVE]`)
+            setChoice("");
+        }
+
+        if (clocktower && (choiceLower.includes("clocktower") || choiceLower.includes("clock tower"))) {
+            setReplytext(`Of course! You make your way over, letting Orion guide your way.
+
+The grand clock tower stands proudly before you. It's a few minutes past the turn of the hour, and the chiming of bells has all but ceased now.
+
+There's conviction in your heart. You're all but certain of it now—this is Orion's Shield.
+
+...But guards are posted at every corner of the clock tower entrance. It doesn't look like you can get inside on your own.
+
+Actions: [PERSUADE]`)
+            setChoice("");
+        }
+
+
         // TRAIN STATION
         if (train_station && choiceLower.includes("look at solstia map")) {
             setReplytext(`An old map of the city is displayed on the station walls, along with a short blurb of Solstia's history. Its main architects were a group of civilians who had been unable to fight during the Great War.
@@ -503,7 +557,13 @@ Although that might look strange to the residents walking by. So it's probably b
 
 "You're on the wrong side buddy." A small storefront owner stops his work to point across the street and over at the alley.
 
-"It's over where that Hunter office's at."`);
+"It's over where that Hunter office's at."
+
+---
+
+AFTER A WEEK OF SEARCHING, YOU DECIDE TO REST. TOMORROW, THE EXHIBITION ENDS.
+
+[Hint: A lot of stufff unlocked.]`);
             setFinalDay(true);}
 
         if (shopping && choiceLower === "buy flowers") {
@@ -1079,12 +1139,13 @@ You flip through the yellowed pages. The book details the small island's history
 }
 else {
 setAction(`❌ ${rollResult} All the reading has made you quite sleepy. The temptation to nap in the library is calling you...`)
-}}
+}
 
-if (finalDay && library && action === 'read') {
+if (finalDay) {
     const rollResult = rollD20();
     
     if (rollResult > 10) {
+        setStars(true);
     setAction(
     `❗ ${rollResult} You find that someone has left a book on the table titled Stars and Signs.
 
@@ -1094,7 +1155,7 @@ It is notably left open to a page of constellations notably found around January
     setAction(`❌ ${rollResult} You find a newly returned book in the returns bin, titled The Rise and Fall of Teide.
     
         You flip through the yellowed pages. The book details the small island's history and ultimate end during the second Great War. Other than that, it also documents its culture, people, and cuisine, among other things. Notably, it seems the citizens of Teide had a close relation to the sea, and much of their diet consisted of fish, primarily sea bass, and tropical fruits such as mangoes and papayas.`)
-    }}
+    }}}
 
 // BEACH
 if (beach && action === 'listen') {
@@ -1593,6 +1654,10 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             { action && <pre>{action}</pre> }
             { replytext && <pre>{replytext}</pre> }
 
+            { stars && (
+                <img src="https://www.cloudynights.com/uploads/monthly_01_2021/post-111843-0-29503300-1610844394.jpg?quality=lossless"></img>
+            )}
+
         <form className='action-box' onSubmit={handleSubmit}>
             <input className='action-text'
                 type="text"
@@ -1609,9 +1674,9 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='choice-btn' onClick={() => handleAction('read')}>🎲 READ</button>
         </div>
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setLibrary, setlungomare_di_solstia)}>⬆ Path to the Harbor</button>
-            <button className='route-btn' onClick={() => changeRoom(setLibrary, setMuseum)}>⬈ Museum</button>
-            <button className='route-btn' onClick={() => changeRoom(setLibrary, setPark)}>⬇ City Park</button>
+            <button className='route-btn' onClick={() => {changeRoom(setLibrary, setlungomare_di_solstia)}}>⬆ Path to the Harbor</button>
+            <button className='route-btn' onClick={() => {changeRoom(setLibrary, setMuseum)}}>⬈ Museum</button>
+            <button className='route-btn' onClick={() => {changeRoom(setLibrary, setPark)}}>⬇ City Park</button>
         </div>
         </div>
     }
@@ -2313,6 +2378,9 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button className='route-btn' onClick={() => jumpRoom('via_bellatrix')}>⬅ Path to the Holy Temple</button>
             <button className='route-btn' onClick={() => jumpRoom('viale_degli_amanti')}>⬆ Lover's Boulevard</button>
             <button className='route-btn' onClick={() => jumpRoom('via_della_cometa')}>⬇ Path to Train Station</button>
+            { hasMap && stars && (
+            <button className='route-btn' onClick={() => jumpRoom('clocktower')}>You have all the hints. Find Elysia?</button>
+            )}
         </div>
         </div>
     }
@@ -2528,6 +2596,75 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         </div>
     }
 
+    { clocktower &&
+        <div className='location-box'>
+        <div className='location-text'>
+            <p>You have all the hints now. It's time to come to a conclusion. Think back along your journey.</p>
+            <p>Where is Elysia?</p>
+
+            { replytext && <pre>{replytext}</pre> }
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+
+
+            <form className='action-box' onSubmit={handleSubmit}>
+            <input className='action-text'
+                type="text"
+                value={choice}
+                onChange={(e) => setChoice(e.target.value)}
+                required
+            />
+            <button type="submit" className='submit-btn'>Submit</button>
+            </form>
+
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('east_solstia')}>Go Back</button>
+        </div>
+        </div>
+    }
+
+    { northIV &&
+        <div className='location-box'>
+        <div className='location-text'>
+            <p>You follow the voice into a narrow alleyway, careful to not be seen by the guards as you do so. Once you get there, a familiar face greets you.</p>
+            <div className='story-speech npc'>
+                <img src={newsboy} className='story-avatar'></img>
+                    <div className="story-speech-text">
+                        <div className="story-speech-name">North</div>
+                        <p>"Hey, folks." It's North!</p>
+            <p>"Saw youse were tryin' to get into the ol' clock tower." He says, glancing over you one by one. He adjusts his hat, eyes shifting around nervously as his voice drops to a low whisper.</p>
+            <p className='small'><i>"'s it true...? Is Lady Elysia really there?"</i></p>
+                </div></div>
+            <p>You nod your head.</p>
+            <div className='story-speech npc'>
+                <img src={newsboy} className='story-avatar'></img>
+                    <div className="story-speech-text">
+                        <div className="story-speech-name">North</div>
+                        <p>"Well I'll be darned..." He mutters something under his breath. You see the gears visibly turning in his little head.</p>
+                        <p>"Tell you what. I trust you Voxenfelle students, so I'll let youse in on a little secret." He motions for you to lean in and listen.</p>
+                        <p>"There's this secret entrance to the clock tower that the guards don't know about. Reckon it ain't in the blueprints either, so most folk wouldn't know about it either."</p>
+                        <p>"I can show youse all the way, but it'd have to be on Sunday night. That's when the guards slack off and head o'er to the pub, y'see."</p>
+                </div></div>
+            <p>You ask North how he knows this?</p>
+            <div className='story-speech npc'>
+                <img src={newsboy} className='story-avatar'></img>
+                    <div className="story-speech-text">
+                        <div className="story-speech-name">North</div>
+                        <p>"Well, this is embarrassin' to admit," North scratches his cheek, a blush slowly creeping onto his face. "But I like goin' up there from time to time. Just me an' my lonesome."</p>
+                        <p>"I don't got a lot of friends, y'see. Don't really know what to do with myself when I don't got news to sell..."</p>
+                        <p>"But I like the view up there. Reminds me the world ain't just Solstia, yannoe?" North adjusts his garter straps shyly. "Anyway..."</p>
+                        <p>"I gotta get back to sellin' papers." He tips his cap up. "But I'll wait for youse on Sunday, yeah?"</p>
+                        <p>"Let's meet up at midnight behind the clock tower. Don't be late, ya hear? And make sure those guards ain't see youse faces either."</p>
+                        <p>North looks past your heads and out onto the busy streets. He gives you a thumbs up. Coast's clear. Just before he turns to leave...</p>
+                        <p>"Let's go an' save Lady Elysia, yeah?" He beams your way. And with that, North leaves.</p>
+                </div></div>
+
+                <p className='big'>CONGRATULATIONS ON FINISHING SOLSTIA STREETS!</p>
+
+        </div>
+        </div>
+    }
     </div></div></div>
   );
 }
