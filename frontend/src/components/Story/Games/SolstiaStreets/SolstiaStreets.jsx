@@ -6,6 +6,15 @@ const mille = 'https://i.ibb.co/XtWNzzT/Illustration3.png';
 const ming = 'https://i.ibb.co/kDHFC9G/Illustration3.webp';
 
 function SolstiaStreets() {
+    const [finalDay, setFinalDay] = useState(false);
+    const [sing, setSing] = useState(false);
+    const [sing0, setSing0] = useState(false);
+    const [sing1, setSing1] = useState(false);
+    const [sing2, setSing2] = useState(false);
+    const [sing3, setSing3] = useState(false);
+    const [sing4, setSing4] = useState(false);
+    const [hasMap, setHasMap] = useState(false);
+
     const [start, setStart] = useState(true);
     const [plaza, setPlaza] = useState(false);
     const [park, setPark] = useState(false);
@@ -23,6 +32,12 @@ function SolstiaStreets() {
     const [via_del_hylia, setvia_del_hylia] = useState(false);
     const [vicolo_della_stella, setvicolo_della_stella] = useState(false);
     const [lungomare_di_solstia, setlungomare_di_solstia] = useState(false);
+    const [viale_degli_amanti, setviale_degli_amanti] = useState(false);
+    const [via_della_cometa, setvia_della_cometa] = useState(false);
+    const [via_bellatrix, setvia_bellatrix] = useState(false);
+    const [east_solstia, seteast_solstia] = useState(false);
+    const [lookout_point, setlookout_point] = useState(false);
+    const [train_station, settrain_station] = useState(false);
 
     const [birdHell, setBirdHell] = useState(false);
     const [birdCount, setBirdCount] = useState(3);
@@ -32,6 +47,7 @@ function SolstiaStreets() {
     const [northI, setNorthI] = useState(false);
     const [northII, setNorthII] = useState(false);
     const [northIII, setNorthIII] = useState(false);
+    const [northIV, setNorthIV] = useState(false);
 
     const [northPlaza, setNorthPlaza] = useState(true);
     const [northvicolo_della_stella, setNorthvicolo_della_stella] = useState(false);
@@ -46,6 +62,7 @@ function SolstiaStreets() {
     const [knowMing, setKnowMing] = useState(false);
 
     const [barkeep, setBarkeep] = useState(false);
+    const [saif, setSaif] = useState(false);
 
     const [answer, setAnswer] = useState(false);
     const [answer2, setAnswer2] = useState(false);
@@ -66,6 +83,14 @@ function SolstiaStreets() {
       }
 
       const resetStates = () => {
+        setFinalDay(false);
+        setSing(false);
+        setSing0(false);
+        setSing1(false);
+        setSing2(false);
+        setSing3(false);
+        setSing4(false);
+
         setStart(true);
         setPlaza(false);
         setPark(false);
@@ -83,6 +108,12 @@ function SolstiaStreets() {
         setvia_del_hylia(false);
         setvicolo_della_stella(false);
         setlungomare_di_solstia(false);
+        setviale_degli_amanti(false);
+        setvia_della_cometa(false);
+        setvia_bellatrix(false);
+        seteast_solstia(false);
+        setlookout_point(false);
+        settrain_station(false);
 
         setBirdHell(false);
         setBirdCount(3);
@@ -92,6 +123,7 @@ function SolstiaStreets() {
         setNorthI(false);
         setNorthII(false);
         setNorthIII(false);
+        setNorthIV(false);
 
         setNorthPlaza(true);
         setNorthvicolo_della_stella(false);
@@ -120,6 +152,14 @@ function SolstiaStreets() {
         setDianaCount(0);
 
         setRoom(false);
+
+        var current = 'start';
+
+        const stateToSave = {
+            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4
+        };
+    
+        localStorage.setItem('savedState', JSON.stringify(stateToSave));
     };
 
     const changeRoom = (currentRoom, nextRoom) => {
@@ -150,6 +190,20 @@ function SolstiaStreets() {
         via_del_hylia: setvia_del_hylia,
         vicolo_della_stella: setvicolo_della_stella,
         lungomare_di_solstia: setlungomare_di_solstia,
+        viale_degli_amanti: setviale_degli_amanti,
+        via_della_cometa: setvia_della_cometa,
+        via_bellatrix: setvia_bellatrix,
+        east_solstia: seteast_solstia,
+        lookout_point: setlookout_point,
+        train_station: settrain_station,
+        sing: setSing,
+        birdHell: setBirdHell,
+        fatality: setFatality,
+        northI: setNorthI,
+        northII: setNorthII,
+        northIII: setNorthIII,
+        northIV: setNorthIV,
+        barkeep: setBarkeep,
       };
 
       const currentStates = {
@@ -170,6 +224,46 @@ function SolstiaStreets() {
         via_del_hylia,
         vicolo_della_stella,
         lungomare_di_solstia,
+        viale_degli_amanti,
+        via_della_cometa,
+        via_bellatrix,
+        east_solstia,
+        lookout_point,
+        train_station,
+        sing,
+        birdHell,
+        fatality,
+        northI,
+        northII,
+        northIII,
+        northIV,
+        barkeep
+      };
+
+      const locations = {
+        start,
+        plaza,
+        park,
+        temple,
+        museum,
+        library,
+        shopping,
+        business,
+        pub,
+        acoh,
+        harbor,
+        beach,
+        east_solstia,
+        lookout_point,
+        train_station,
+        city_gates,
+        outskirts,
+        via_del_hylia,
+        vicolo_della_stella,
+        lungomare_di_solstia,
+        via_bellatrix,
+        viale_degli_amanti,
+        via_della_cometa,
       };
     
       const currentLocation = () => {
@@ -183,35 +277,46 @@ function SolstiaStreets() {
     const jumpRoom = (targetRoom) => {
         stateSetters[currentLocation()](false);
         stateSetters[targetRoom](true);
+        setNormal("");
+        setChoice("");
+        setReplytext("");
+        setAction("");
+        setRoom(!room);
     };
 
-    useEffect(() => {
-        const savedState = localStorage.getItem('savedState');
-        if (savedState) {
-          const parsedState = JSON.parse(savedState);
-          setNorthPlaza(parsedState.northPlaza);
-          setNorthvicolo_della_stella(parsedState.northvicolo_della_stella);
-          setNorthcity_gatess(parsedState.northcity_gatess);
-          setKnowNorth(parsedState.knowNorth);
-          setKnowMille(parsedState.knowMille);
-          setMilleACOH(parsedState.milleACOH);
-          setMilleOutskirts(parsedState.milleOutskirts);
-          setKnowMing(parsedState.knowMing);
-          setAnswer(parsedState.answer);
-          setAnswer2(parsedState.answer2);
-          setElysiaCount(parsedState.elysiaCount);
-          setMilleCount(parsedState.milleCount);
-          setDianaCount(parsedState.dianaCount);
-          stateSetters[parsedState.current](true);
-          setStart(false);
-        }
-      }, []);
+    // useEffect(() => {
+    //     const savedState = localStorage.getItem('savedState');
+    //     if (savedState) {
+    //       const parsedState = JSON.parse(savedState);
+    //       setNorthPlaza(parsedState.northPlaza);
+    //       setNorthvicolo_della_stella(parsedState.northvicolo_della_stella);
+    //       setNorthcity_gatess(parsedState.northcity_gatess);
+    //       setKnowNorth(parsedState.knowNorth);
+    //       setKnowMille(parsedState.knowMille);
+    //       setMilleACOH(parsedState.milleACOH);
+    //       setMilleOutskirts(parsedState.milleOutskirts);
+    //       setKnowMing(parsedState.knowMing);
+    //       setAnswer(parsedState.answer);
+    //       setAnswer2(parsedState.answer2);
+    //       setElysiaCount(parsedState.elysiaCount);
+    //       setMilleCount(parsedState.milleCount);
+    //       setDianaCount(parsedState.dianaCount);
+    //       setFinalDay(parsedState.finalDay);
+    //       setStart(false);
+    //       stateSetters[parsedState.current](true);
+    //       setSing0(parsedState.sing0);
+    //       setSing1(parsedState.sing1);
+    //       setSing2(parsedState.sing2);
+    //       setSing3(parsedState.sing3);
+    //       setSing4(parsedState.sing4);
+    //     }
+    //   }, []);
 
     const saveState = () => {
         var current = currentLocation();
 
         const stateToSave = {
-            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount
+            current, northPlaza, northvicolo_della_stella, northcity_gatess, knowNorth, knowMille, milleACOH, milleOutskirts, knowMing, answer, answer2, elysiaCount, milleCount, dianaCount, finalDay, sing0, sing1, sing2, sing3, sing4
         };
     
         localStorage.setItem('savedState', JSON.stringify(stateToSave));
@@ -239,7 +344,7 @@ let choiceLower = choice.toLowerCase()
 
 const iceCream = [`Chocolate.`, `Vanilla.`, `Mint Chocolate Chip.`, `Rocky Road.`, `Strawberry.`, `Cookies and Cream.`, `Butter Pecan.`, `Coffee.`, `Pistachio.`, `Hot Pepper Cinnamon...? It's spicy!`, `Chocolate Bourbon...
 
-You know someone who would like this flavor.`]
+You know someone who would like this flavor.`];
 
 const askAboutElysia = [`"You wanted to learn about Lady Elysia?" You manage to find a priest with some time for a quick chat of questions.
 
@@ -251,7 +356,7 @@ A pause. "I'm a bit preoccupied due to the incident. Come back later if you want
 
 "She's said to be a virgin. They had her declarin' oaths to Hylia and church allll month before the ordination. But now that she's missing? Hah! Even soulbonds are up in da air!"`, `"She was an orphan. We found her in a smaller village past the outskirts of the city, about three hours away. She had lived alone and a made a living out of selling flowers after she lost her parents to a Voidwalker attack over a decade ago." The priest adjusts his glasses and shares a sigh heavy with sympathy.
 
-"A common tale but no less tragic. ...When she first came to the temple, I saw the smile on her face. Warm and bright like the Goddess as if she had found her home- no... was returning home."`, `The temple seems to be especially busy at this time, and members of the church shake their head at your continuous questions of Lady Elysia. Perhaps this is all the information you would be able to get.`]
+"A common tale but no less tragic. ...When she first came to the temple, I saw the smile on her face. Warm and bright like the Goddess as if she had found her home- no... was returning home."`, `The temple seems to be especially busy at this time, and members of the church shake their head at your continuous questions of Lady Elysia. Perhaps this is all the information you would be able to get.`];
 
 const greetMilleACOH = [`"Oh it's the Voxenfelle juniors." You managed to catch the squad leader for the ACOH Border Patrol team finishing up a call on her phone. She waves at you if she catches seeing any familiar faces.
 
@@ -265,15 +370,104 @@ const greetMilleACOH = [`"Oh it's the Voxenfelle juniors." You managed to catch 
 
 "...How's Erin doing? I haven't had time to check my texts." She brushes her bangs out of her face and lets out a sigh.
 
-"I'm sure we all appreciate your help with the search but stay safe first, alright? Whether or not, I'm around to be responsible for it." She tries for a smile before heading out to patrol with her partner.`]
+"I'm sure we all appreciate your help with the search but stay safe first, alright? Whether or not, I'm around to be responsible for it." She tries for a smile before heading out to patrol with her partner.`];
 
 const buyFlowers = [`"Thank you for the purchase!" A woman in her late twenties hands you a bouquet of edelweiss flowers.
 
 "These are our most popular flowers! They're always popular around Hylia's Grace, but after Lady Elysia mentioned it as one of her favorite flowers, orders have been coming nonstop! Everyone's been buying them now to pray for her safety. I hope you feel the same." She smiles.`, `"Thank you for the purchase!" A woman in her late twenties hands you a bouquet of gladiolus flowers.
 
-"I see that you're students training to be Hunter. I recognize that uniform from a friend." She smiles. "Have you done any training yet at the ACOH office? It might help you kids."`]
+"I see that you're students training to be Hunter. I recognize that uniform from a friend." She smiles. "Have you done any training yet at the ACOH office? It might help you kids."`];
+
+const Souvenirs= [`stuffed animal`, `a hat`, `a keychain`, `a postcard`, `some fish snacks`, `a photo card of Elysia`, `sticker set`, `decorated shot glass`];
+
+const fortuneCategory = [`pursuing your goals`, `friendship`, `health`, `love`];
+
+const fortuneLuck = [`awful`, `great`, `poor`, `favorable`, `good`];
         
         e.preventDefault();
+
+        // TRAIN STATION
+        if (train_station && choiceLower.includes("look at solstia map")) {
+            setReplytext(`An old map of the city is displayed on the station walls, along with a short blurb of Solstia's history. Its main architects were a group of civilians who had been unable to fight during the Great War.
+
+...The Goddess had chosen her warriors but our hands remain able. We cannot become Hunters so we shall build one instead. For Her and for Her people.
+
+Our people. May Solstia meet with all from land, sea, and sky. May the city remain a guiding light for centuries to come...`)
+            setChoice("");
+            setHasMap(true);
+        }
+
+        // VIA DELLA COMETA
+        if (lookout_point && (choiceLower === "pet cat" || choiceLower === "pet the cat")) {
+            const rollResult = rollD20();
+            setChoice("")
+    
+            if (rollResult > 10) {
+            setReplytext(
+        `❗ ${rollResult} The cat suddenly looks at your with beady eyes and meows, and you're tempted to meow back, maybe even break into a song. Ohhh look how cute you are!
+
+Although that might look strange to the residents walking by. So it's probably best to do this elsewhere.
+`);
+        }
+        else {
+        setReplytext(`❌ ${rollResult} The cat jumps away and goes back to hide under the bushes... Darn.`)
+            }}
+
+        // SING
+        if (sing4 && choiceLower.includes("temple")) {
+            setChoice("");
+            setSing3(true);
+        }
+
+        if (sing3 && choiceLower.includes("museum")) {
+            setChoice("");
+            setSing4(true);
+        }
+
+        if (sing2 && choiceLower.includes("library")) {
+            setChoice("");
+            setSing3(true);
+        }
+
+        if (sing1 && choiceLower.includes("plaza")) {
+            setChoice("");
+            setSing2(true);
+        }
+
+        if (sing0 && choiceLower.includes("pub")) {
+            setChoice("");
+            setSing1(true);
+        }
+
+        if (sing && choiceLower === "acoh") {
+            setChoice("");
+            setSing0(true);
+        }
+        
+        if (lookout_point && choiceLower === "sing") {
+            setSing(true);
+            setlookout_point(false);
+            setChoice("");
+        }
+
+        // VIALE DEGLI AMANTI
+        if (viale_degli_amanti && choiceLower === 'greet fortune teller') {
+            const pickedFortuneCategory = fortuneCategory[Math.floor(Math.random() * Souvenirs.length)];
+            const pickedFortuneLuck = fortuneLuck[Math.floor(Math.random() * Souvenirs.length)];
+            setReplytext(`"Welcome, dear. Care to hear a fortune?"" A fortune teller calls for your attention down the street and peers into her crystal ball.
+
+"Your luck in ${pickedFortuneCategory} will be ${pickedFortuneLuck} today!" She smiles confidently.
+
+"Orion shines bright in the sky tonight. Rigel, Betelgeuse, Bellatrix..."`)
+            setChoice("");
+        }
+
+        // EAST SOLSTIA
+        if (east_solstia && choiceLower === "buy souvenirs") {
+            const pickedSouvenir = Souvenirs[Math.floor(Math.random() * Souvenirs.length)];
+            setReplytext(`You find and buy ${pickedSouvenir} to share with people back home!`)
+            setChoice("");
+        }
 
         // HARBOR
         if (harbor && choiceLower === "feed the birds") {
@@ -298,7 +492,7 @@ const buyFlowers = [`"Thank you for the purchase!" A woman in her late twenties 
         }
 
         if (birdHell && choiceLower === "pray") {
-            setReplytext("You jump really high.");
+            setReplytext("Hylia can't save you now.");
             setChoice("");
         }
 
@@ -309,7 +503,8 @@ const buyFlowers = [`"Thank you for the purchase!" A woman in her late twenties 
 
 "You're on the wrong side buddy." A small storefront owner stops his work to point across the street and over at the alley.
 
-"It's over where that Hunter office's at."`);}
+"It's over where that Hunter office's at."`);
+            setFinalDay(true);}
 
         if (shopping && choiceLower === "buy flowers") {
             setReplytext(buyFlowers[dianaCount]);
@@ -452,6 +647,7 @@ Unlock secret action: [GREET MING]`)
             setBarkeep(true);
             setPub(false);
             setReplytext("");
+            setChoice("");
         }
 
         if (pub && choiceLower === 'give sea bass') {
@@ -529,7 +725,38 @@ The barkeeper, still stone faced, silently points to one of the green bears unti
             
         if (barkeep && choiceLower.includes(`orion`)) {
             setChoice("");
-            setReplytext(`"Orion's got many things." The barkeeper looks unimpressed.`);}
+            if (finalDay) {
+                setChoice("");
+                setSaif(true);
+setReplytext(`"I remember." He motions you to follow around the counter through the back door and down to the wine cellar...
+
+A room lies at the very end and he guides you inside...
+
+Perhaps to your surprise, the room is filled... with Starbearer bears! At least ten of each color, all sitting cozy on a velvet cushions and couches. Each Starbearer has a designated shrine and posters of these same bears are framed on the wall and decorated in fanatic fashion. And the plushie line was released less than a month ago!
+
+A man in his thirties is waiting inside, sitting comfortably with a red Starbearer bear in his arms. "Ah! You all must be the students asking around about Orion!"
+
+"Orion's my brother working over at the ACOH Hysse branch. I didn't think he would have fans looking for him out here. You wanted an autograph or something?"`)
+            }
+            else {setReplytext(`"Orion's got many things." The barkeeper looks unimpressed. Can't be sold, but I know a guy. Works the museum. Come back later.`);}}
+
+        if (saif && choiceLower === 'yes') {
+            setNormal(`You nod your head.
+"No problem. I'll have him sign a shield and send it over to your school!"
+
+"I recognize that uniform. Voxenfelle Academy right?" He whistles. "Fancy schmancy. Too bad I never got an aura to become a Hunter..."
+
+Whether or not this is what you wanted, the barkeeper will walk you out of the room when you're done.`)
+        }
+
+        if (saif && choiceLower === 'no') {
+            setNormal(`You shake your head.
+The man pauses, then points to himself. "Then... Did you want an autograph from me? The name's Saiph! Funny I share the same name as this street."
+
+He hands you one of the toy shield replicas lying around the room, now with a fancy signature and an emoji ☆(・ω<)
+
+Whether or not this is what you wanted, the barkeeper will walk you out of the room when you're done.`)
+        }
 
         if (barkeep && choiceLower === `shield of the huntsman`) {
             setChoice("");
@@ -547,7 +774,17 @@ Or at least, to not to do so during broad daylight. Maybe you should wait for a 
             }
             setChoice("");
         }
+        if (museum && finalDay && choiceLower === 'steal') {
+            const rollResult = rollD20();
+            if (rollResult > 17) {
+            setReplytext(`❗ ${rollResult} With enough common sense, you realize it would not be wise to steal priceless artifacts from the museum.
 
+And the artifact you perhaps were searching for is no longer on display.`)
+            } else {
+                setReplytext(`❌ ${rollResult} Who told you to steal from a museum? It is not advised to follow drunken whims.`)
+            }
+            setChoice("");
+        }
         // BEACH
         if (beach && choiceLower === 'buy ice cream') {
             const pickedIceCream = iceCream[Math.floor(Math.random() * iceCream.length)];
@@ -602,6 +839,21 @@ Consumed with life that bears no soul
 What vibrance
 
 The poem had been translated from an old tongue and is missing a lot of words and context, but it sounds to be a tragic love song.`, `You head into the arts section and discover old paintings, pottery, and statues with different portrayals of Hylia depending on the country of origin and culture. Several dating back many centuries.`, `You head into the science section and find old prototypes of magitech cores and various demonstations of how they were created back in the day. While the process to create the cores remains the same, distinct to the noble aura families, the refinement process is a lot efficient now!`]
+    const eastSolstiaLooks = [`There's less foot traffic here compared to the plaza, but tourists crowd the area all the same. A bunch of them seem to be taking pictures with disposable cameras, snapping photos along the streets and in front of the clock tower.
+
+...The endless shutter noises start to annoy you at some point, and you almost want to ask—what gives?!—but someone passes you a flyer, and, oh, there's a photography competition going on! You nod your head sagely in understanding.`, `A gaggle of young tourists catch your eye, crowding a souvenir shop just ahead where you stand. You see one of them trying on a garish yellow t-shirt with "I ❤️ SOLSTIA" written on it. Another tourist laughs, taking multiple pictures with their phone.
+
+They seem to be around your age... oh, and it looks like they're all wearing a green uniform, too. Fellow students, perhaps?`]
+
+    if (lookout_point) {
+        if (action === 'take a photo') {
+        setNormal(`It would be a good time to take a group photo together with other students, for the memories. Once the border opens again, it would be time to say goodbye to this city.`)
+        }
+
+        if (action === 'look') {
+        setNormal(`A musician is found fiddling with his guitar nearby humming to an unusual song while the passing people continue to rest their eyes on the scenery.`)
+        }
+    }
 
     if (temple) {
         if (action === 'pray') {
@@ -627,6 +879,13 @@ For a brief moment, you thought you could hear someone crying. A memory? It's ha
     if (museum) {
         if (action === 'explore') {
             setNormal(museumExplores[Math.floor(Math.random() * museumExplores.length)])
+            if (finalDay) {
+                setNormal(`"You find the new advertised exhibition.
+
+Old World Tapestries
+
+A tapestry weaved with gold threads is set in a display depicting what seems to be Hylia, a large tree, and humanity below with their hands raised as if to receive their auras. The plaque explains that the artist claimed they saw the vision in a dream."`)
+            }
         }}
 
     if (birdHell) {
@@ -700,11 +959,71 @@ setNormal(`The comfort of the bench almost tempts you into a nap and you're remi
 "I reckon! It was almost half his size, and that boy's huge. What I'd give to bring that fish home with me..." He sighs wistfully.`)
         }}
 
+    if (via_bellatrix && action === 'look') {
+        setNormal(`An outdoor old marble statue is found by the entrance to the temple posed with a club and shield.
+
+In honor of Hunter Orion.
+1 - 59 AH
+
+The Holy Temple stands on your shoulders.`)}
+
+if (east_solstia && action === 'look') {
+    setNormal(eastSolstiaLooks[Math.floor(Math.random() * eastSolstiaLooks.length)])}
+
 }
 
 
 // ACTION ROLLS
 const handleAction = (action) => {
+
+if (via_della_cometa && action === 'listen') {
+const rollResult = rollD20();
+if (rollResult > 10) {
+setReplytext(`❗ ${rollResult} "You overhear two girls chatting while they wait at a bus stop. "Well? Did you try asking him out yet?"
+
+She shakes her head. "No... My fortune teller says I shouldn't. I met with her earlier today."
+
+"Is she actually good? I thought all her sayings are random..."
+
+Unlock secret action: [GREET FORTUNE TELLER]`)
+} else {
+    setReplytext(`❌ ${rollResult} Most of the people here are mumbling to themselves about wanting to get off work sooner and wishing that the trains will start working again.`)
+}
+setChoice("");
+}
+
+if (lookout_point && action === 'listen') {
+    const rollResult = rollD20();
+    if (rollResult > 10) {
+    setReplytext(`❗ ${rollResult} "Should we buy matching souvenirs later, sweetie?" An obnoxiously affectionate couple is strolling down the street, arms linked, blocking half of the sidewalk.
+    
+    "Anything for you, darling~" The response gets a giggle out of the girl and a gag from the person reading this.
+    
+    Unlock secret action: [BUY SOUVENIRS]`)
+    } else {
+        setReplytext(`❌ ${rollResult} "Dude. Where were you yesterday? There was a huge guy fighting a bunch of seagulls at the harbor. I swear, there must've been 2000 of them... You can watch them all the way from here!" One person is whispering out loud to his friend standing besides the binoculars.
+
+"Put some respect on that name, man. That's Anna, the fishing champion! Guy's a legend!"`)
+    }
+    setChoice("");
+    }
+
+if (viale_degli_amanti && action === 'listen') {
+const rollResult = rollD20();
+if (rollResult > 10) {
+setReplytext(`❗ ${rollResult} "Should we buy matching souvenirs later, sweetie?" An obnoxiously affectionate couple is strolling down the street, arms linked, blocking half of the sidewalk.
+
+"Anything for you, darling~" The response gets a giggle out of the girl and a gag from the person reading this.
+
+Unlock secret action: [BUY SOUVENIRS]`)
+} else {
+    setReplytext(`❌ ${rollResult} "Heyyyy babe, alone on a Friday night?" A stranger suddenly approaches you regardless if you are a babe or not. "Wanna have some fun together?"
+
+If you follow: Oh come on, you know what happens. So have someone step in and pretend to be your partner like in the shoujos so we don't break the group's rating.
+If you ignore: You manage to avoid the weirdo but your pockets feel 10 linne lighter.`)
+}
+setChoice("");
+}
 
 if (museum && action === 'listen') {
 const rollResult = rollD20();
@@ -761,6 +1080,21 @@ You flip through the yellowed pages. The book details the small island's history
 else {
 setAction(`❌ ${rollResult} All the reading has made you quite sleepy. The temptation to nap in the library is calling you...`)
 }}
+
+if (finalDay && library && action === 'read') {
+    const rollResult = rollD20();
+    
+    if (rollResult > 10) {
+    setAction(
+    `❗ ${rollResult} You find that someone has left a book on the table titled Stars and Signs.
+
+It is notably left open to a page of constellations notably found around January.`);
+    }
+    else {
+    setAction(`❌ ${rollResult} You find a newly returned book in the returns bin, titled The Rise and Fall of Teide.
+    
+        You flip through the yellowed pages. The book details the small island's history and ultimate end during the second Great War. Other than that, it also documents its culture, people, and cuisine, among other things. Notably, it seems the citizens of Teide had a close relation to the sea, and much of their diet consisted of fish, primarily sea bass, and tropical fruits such as mangoes and papayas.`)
+    }}
 
 // BEACH
 if (beach && action === 'listen') {
@@ -911,6 +1245,22 @@ setAction(`❌ ${rollResult} The Hunter's office has a training room available f
 You managed to finish a regiment and work up a good sweat! But... Aren't there other things you should be attending to?`)
 }}
 
+// TRAIN STATION
+if (train_station && action === 'listen') {
+const rollResult = rollD20();
+
+if (rollResult > 10) {
+setAction(`❗ ${rollResult} Two station workers are chatting during their lunch break.
+
+"Y'know they say the kidnapping is cuz they knew about Elysia's pro-Voidpact stance in advance. Got all the plans ready to ambush once she dropped the ball. They realllly hated Voidpacts that much, huh?"
+
+"Well? Would you want to work with a Voidpact?"
+
+"Yeesh... That's a curveball. Let me eat my sandwich in peace."`)
+} else {
+setAction(`❌ ${rollResult} You fail to hear any conversation. Instead, you're stuck at the station gate. The ticket isn't scanning and no workers are around to help.`)
+}}
+
 // BAR PATH
 if (vicolo_della_stella && action === 'search') {
 const rollResult = rollD20();
@@ -1004,12 +1354,12 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
     <div className="main-content solstia-page">
     <div className='side-menu'>
     <b className='side-header'>LOAD MENU</b>
-        <button className='save-btn' onClick={() => saveState()}>SAVE</button>
+        {/* <button className='save-btn' onClick={() => saveState()}>SAVE</button> */}
         <button className='save-btn' onClick={() => resetStates()}>START OVER</button>
         <hr />
         <div className='quick-jump'>
             <b className='side-header'>QUICK JUMP</b>
-            {Object.keys(currentStates).map((room) => (
+            {Object.keys(locations).map((room) => (
             <button className='quick-jump-btn' onClick={() => jumpRoom(room)} key={room}>{room}</button>
             ))}
         </div>
@@ -1024,6 +1374,8 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         <div className='location-text'>
             <p>Hylia's Vessel, Elysia, has been kidnapped and some students had heard a cry for help in a dream. Surely searching around the city will provide the answers you and the others need to save the situation.</p>
             <p>Just be careful not to stand out too much...</p>
+            <br></br>
+            <p><b>INSTRUCTIONS:</b> As you play, you will discover [KEY PHRASES] that can be entered in certain locations. Be sure to visit locations frequently, as moving along may unlock new things.</p>
         </div>
 
         <div className='buttons-box'>
@@ -1178,6 +1530,7 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
         <div className='buttons-box'>
             <button className='route-btn' onClick={() => changeRoom(setTemple, setMuseum)}>⬉ Museum</button>
             <button className='route-btn' onClick={() => changeRoom(setTemple, setvia_del_hylia)}>⬇ Path to the Plaza</button>
+            <button className='route-btn' onClick={() => changeRoom(setTemple, setvia_bellatrix)}>➡ Temple Side Entrance</button>
         </div>
         </div>
         }
@@ -1513,51 +1866,30 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <p>🧱 Vicolo della Stella</p>
         </div>
         <div className='location-text'>
-            <p>Tucked between the two districts is a narrow pedestrian street. There are fewer people around, as locals are more familiar with this route than the visiting tourists.</p>
+            <p>Tucked between the two districts is a narrow pedestrian street. There are fewer people around, as locals are more familiar with this route than the visiting tourists. </p>
 
             { normal && <pre>{normal}</pre> }
             { action && <pre>{action}</pre> }
             { replytext && <pre>{replytext}</pre> }
+
+        <form className='action-box' onSubmit={handleSubmit}>
+            <input className='action-text'
+                type="text"
+                value={choice}
+                onChange={(e) => setChoice(e.target.value)}
+                required
+            />
+            <button type="submit" className='submit-btn'>Submit</button>
+        </form>
+
         </div>
-
-            { northvicolo_della_stella && knowNorth &&
-            <div className='story-speech npc'>
-                <img src={newsboy} className='story-avatar'></img>
-                    <div className="story-speech-text">
-                        <div className="story-speech-name">North</div>
-                        <p>"Extra! Extra!"</p>
-                        <p>Buy a newspaper?</p>
-                </div></div>
-            }
-
-            { northcity_gatess && !knowNorth && (
-                <p>Looks like North has left this area!</p>
-            )}
-
-
-            { northvicolo_della_stella &&
-            <div>
-                <form className='action-box' onSubmit={handleSubmit}>
-                    <input className='action-text'
-                        type="text"
-                        value={choice}
-                        onChange={(e) => setChoice(e.target.value)}
-                        required
-                    />
-                    <button type="submit" className='submit-btn'>Submit</button>
-                </form>
-            </div>
-            }
-
-            { northvicolo_della_stella && !knowNorth && (
-                <div className='buttons-box'>
-                <button className='choice-btn' onClick={() => handleAction('search')}>🎲 SEARCH</button>           
-                </div>
-            )}
-
         <div className='buttons-box'>
-            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setPub)}>⬅ Shopping District</button>
-            <button className='route-btn' onClick={() => changeRoom(setvicolo_della_stella, setACOH)}>➡ ACOH</button>
+            <button className='choice-btn' onClick={() => handleAction('drink')}>🎲 DRINK</button>
+            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => changeRoom(setPub, setShopping)}>⬆ Shopping District</button>
+            <button className='route-btn' onClick={() => changeRoom(setPub, setvicolo_della_stella)}>➡ Path to the Business District</button>
         </div>
         </div>
     }
@@ -1873,7 +2205,9 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <p>The stone faced barkeeper calmly finishes your sentence but doesn't look up until he is done polishing the glass cup, eventually setting it down on the counter with a gentle clink.</p>
             <p>"So someone gave you a tip. What are you looking for?"</p>
 
+            { action && <pre>{action}</pre> }
             { replytext && <pre>{replytext}</pre> }
+            { normal && <pre>{normal}</pre> }
 
                 <form className='action-box' onSubmit={handleSubmit}>
                 <input className='action-text'
@@ -1935,6 +2269,264 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
             <button onClick={() => window.location.reload()}>Replay?</button>
         </div></div>
     )}
+
+    { via_bellatrix &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🕊️ Via Bellatrix - West Side</p>
+        </div>
+        <div className='location-text'>
+            <p>East of the Holy Temple is a long strip of road curving up to the other side of the city. You spy some private residential buildings along the walk, gated behind tall fences and hedges, exclusive to the extremely wealthy.</p>
+
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleNormal('look')}>LOOK</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('temple')}>⬅ Side entrance to Temple</button>
+            <button className='route-btn' onClick={() => jumpRoom('east_solstia')}>➡ East Solstia</button>
+        </div>
+        </div>
+    }
+    
+    { east_solstia &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🕰️ East Solstia</p>
+        </div>
+        <div className='location-text'>
+            <p>Finally, the road opens up to a T-section, and there are more souvenir shops and malls lined up around besides the street. Up ahead is a clock tower, chiming off at every hour with a tune that is said to be Solstia's anthem.</p>
+
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleNormal('look')}>LOOK</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('via_bellatrix')}>⬅ Path to the Holy Temple</button>
+            <button className='route-btn' onClick={() => jumpRoom('viale_degli_amanti')}>⬆ Lover's Boulevard</button>
+            <button className='route-btn' onClick={() => jumpRoom('via_della_cometa')}>⬇ Path to Train Station</button>
+        </div>
+        </div>
+    }
+
+    { viale_degli_amanti &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🌹 Viale degli Amanti</p>
+        </div>
+        <div className='location-text'>
+            <p>The street is also known as "Lover's Boulevard". Tree-lined and bustling, it stretches through East Solstia, offering intimate cafes, street performers, fortune tellers, and flower stalls in its path. Couples are found strolling hand in hand as they make their way up to end of the road to be rewarded with a beautiful view of the ocean around sunset time.</p>
+
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+            <form className='action-box' onSubmit={handleSubmit}>
+            <input className='action-text'
+                type="text"
+                value={choice}
+                onChange={(e) => setChoice(e.target.value)}
+                required
+            />
+            <button type="submit" className='submit-btn'>Submit</button>
+            </form>
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('lookout_point')}>⬉ Lookout Point</button>
+            <button className='route-btn' onClick={() => jumpRoom('east_solstia')}>⬇ East Solstia</button>
+        </div>
+        </div>
+    }
+
+    { lookout_point &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🔭 Lookout Point</p>
+        </div>
+        <div className='location-text'>
+            <p>An observation deck juts out from a rocky clifftop, offering an expansive view of the ocean stretching to the horizon. Iron railings frame the lookout point, providing safety away from the steep rocky cliffs and crashing waves below. Several binoculars are positioned on the platform so families and couples alike can visit the area and enjoy the view.</p>
+
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+            { finalDay && (
+                <form className='action-box' onSubmit={handleSubmit}>
+                <input className='action-text'
+                    type="text"
+                    value={choice}
+                    onChange={(e) => setChoice(e.target.value)}
+                    required
+                />
+                <button type="submit" className='submit-btn'>Submit</button>
+                </form>
+            )}
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleNormal('look')}>LOOK</button>
+            <button className='choice-btn' onClick={() => handleNormal('take a photo')}>TAKE A PHOTO</button>
+            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('viale_degli_amanti')}>⬊ Lover's Boulevard</button>
+        </div>
+        </div>
+    }
+
+    { sing &&
+        <div className='location-box'>
+        <div className='location-text'>
+            <p>"Nice chords there dog." A musician looks up from his guitar to point at you.</p>
+            <p>"I'mma keep playin' if you wanna join. Catch my drift?"</p>
+            <p>He starts strumming on his guitar again. "Rigel marks the place to start... Ohhh would you connect the dots..."</p>
+            <p>A pause on the strings. "Where is that now."</p>
+
+        { sing0 && (
+            <div>
+            <p>You mention the ACOH...</p>
+            <p>It doesn't really make sense, but the musician seems satisfied with your response and continues singing along.</p>
+            <p><i>"West I find... Saiph in mind... Hmm hmm..."</i></p>
+            <p>He pauses again to wait for your response.</p>
+            </div>
+        )}
+
+            { sing1 && (
+                <div>
+                <p>You mention the Supergiant Pub...</p>
+                <p>Getting into the groove now...</p>
+                <p><i>"Head up to see, the Belt in three..."</i></p>
+                </div>
+            )}
+
+            { sing2 && (
+                <div>
+                <p>You mention the Plaza...</p>
+                <p>Getting into the groove now...</p>
+                <p><i>"Betelgeuse please, be northwest of me..."</i></p>
+                </div>
+            )}
+
+            { sing3 && (
+                <div>
+                <p>You mention the Library...</p>
+                <p><i>"At the head of the giant, Meissa my one and..."</i></p>
+                </div>
+            )}
+
+            { sing4 && (
+                <div>
+                <p>You mention the Holy Temple...</p>
+                <p>With a velvety voice, he sings another chorus before finishing his song.</p>
+                <p>"...Not bad, not bad. You know your way around the city." The musician holds out a hand to shake.</p>
+                <p>"Thanks for jammin'. Go check out the map at the station sometime if you travelers wanna learn a lil piece of here."</p>
+                <p>Unlock secret action: [LOOK AT SOLSTIA MAP]</p>
+                </div>
+            )}
+
+            { !sing4 && (
+                <form className='action-box' onSubmit={handleSubmit}>
+                <input className='action-text'
+                    type="text"
+                    value={choice}
+                    onChange={(e) => setChoice(e.target.value)}
+                    required
+                />
+                <button type="submit" className='submit-btn'>Submit</button>
+                </form>
+            )}
+
+        </div>
+        <div className='buttons-box'>
+            { !sing4 ? (
+            <button className='route-btn' onClick={() => {jumpRoom('lookout_point'); sing0(false); sing1(false); sing2(false); sing3(false); sing4(false)}}>CONCEDE</button>
+            ) : (
+                <button className='route-btn' onClick={() => {jumpRoom('lookout_point'); sing0(false); sing1(false); sing2(false); sing3(false); sing4(false)}}>CONTINUE</button>
+            )}
+        </div>
+        </div>
+    }
+
+    { via_della_cometa &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🧱 Via della Cometa</p>
+        </div>
+        <div className='location-text'>
+            <p>On the path towards the train station are weathered brick buildings with small shops and cafes leaning close to the street's edge. Along the way, a stray black cat is spotted resting on a brick fence.</p>
+            
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+            { finalDay && (
+            <form className='action-box' onSubmit={handleSubmit}>
+            <input className='action-text'
+                type="text"
+                value={choice}
+                onChange={(e) => setChoice(e.target.value)}
+                required
+            />
+            <button type="submit" className='submit-btn'>Submit</button>
+            </form>)}
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('east_solstia')}>⬆ East Solstia</button>
+            <button className='route-btn' onClick={() => jumpRoom('train_station')}>⬋ Train Station</button>
+        </div>
+        </div>
+    }
+
+    { train_station &&
+        <div className='location-box'>
+        <div className='location-title'>
+            <p>🚂 Train Station</p>
+        </div>
+        <div className='location-text'>
+            <p>The Solstia Central Station is half the size of the Grand Hysse Station, but the statue of the goddess Hylia at its center is just as majestic, and perhaps even more well-loved than the one in the capital. People would line up in front of Her, following an age-old tradition: touch Her hand to feel Her warm welcome, when they arrive in Solstia, the Holy City.</p>
+            <p>Unfortunately, trains are stopped at the moment due to the kidnapping incident, and there are few people out at the train station. It looks almost abandoned.</p>
+
+            { normal && <pre>{normal}</pre> }
+            { action && <pre>{action}</pre> }
+            { replytext && <pre>{replytext}</pre> }
+
+            { hasMap && (<img src="https://i.ibb.co/58dG9YQ/Illustration49.png"></img>)}
+            
+            <form className='action-box' onSubmit={handleSubmit}>
+            <input className='action-text'
+                type="text"
+                value={choice}
+                onChange={(e) => setChoice(e.target.value)}
+                required
+            />
+            <button type="submit" className='submit-btn'>Submit</button>
+            </form>
+
+        </div>
+        <div className='buttons-box'>
+            <button className='choice-btn' onClick={() => handleAction('listen')}>🎲 LISTEN</button>
+        </div>
+        <div className='buttons-box'>
+            <button className='route-btn' onClick={() => jumpRoom('train_station')}>⬈ Back out Train Station</button>
+        </div>
+        </div>
+    }
 
     </div></div></div>
   );
