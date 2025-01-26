@@ -85,7 +85,7 @@ function ArtsPage() {
                 
                 </div>
                 <div className="art-event"><p><i>{art.event}</i></p>
-                {(art.mun === user.username || user.username === 'Lok') && (
+                {user && (art.mun === user.username || user.username === 'Admin') && (
                     <span id="art-buttons">
                       <button
                         onClick={() => openEditArtModal(art)}
