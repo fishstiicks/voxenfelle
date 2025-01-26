@@ -17,9 +17,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn(
-      { schema: options.schema, tableName: 'Arts' },
-      'event'
-    );
+    await queryInterface.removeColumn('Arts', 'event');
   }
 };
