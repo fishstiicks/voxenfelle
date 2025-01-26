@@ -298,7 +298,7 @@ router.delete('/memberships/:id', requireAuth, async (req, res) => {
         return res.status(404).json({ message: "Membership not found" });
       }
   
-      if (user.username !== membership.Character.mun) {
+      if (user.username !== membership.Character.mun && username !== 'Admin') {
         return res.status(403).json({ message: "You are not authorized to delete this membership" });
       }
   

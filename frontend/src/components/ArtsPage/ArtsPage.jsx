@@ -82,7 +82,10 @@ function ArtsPage() {
                     ))}
                     {' '}</span><span>by <Link to={`/users/${art.mun}/art`}>{art.mun}</Link>
                   </span>
-                  {user && art.mun === user.username && (
+                
+                </div>
+                <div className="art-event"><p><i>{art.event}</i></p>
+                {(art.mun === user.username || user.username === 'Lok') && (
                     <span id="art-buttons">
                       <button
                         onClick={() => openEditArtModal(art)}
@@ -97,8 +100,7 @@ function ArtsPage() {
                         Delete
                       </button>
                     </span>
-                  )}
-                </div>
+                  )}</div>
               </div>
             );
           })

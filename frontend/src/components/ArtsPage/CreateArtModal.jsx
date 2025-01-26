@@ -12,7 +12,10 @@ const CreateArtModal = ({ refreshArts }) => {
 
   const [url, setUrl] = useState('');
   const [character, setCharacter] = useState('');
+  const [event, setEvent] = useState('');
   const [reference, setReference] = useState(false);
+
+  const eventList = [`Void's Eve`, `Defense Ministry`, `Hylia's Grace`, `Secret Santa`, `Solstia`]
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const CreateArtModal = ({ refreshArts }) => {
       return;
     }
 
-    const artData = { url, character, reference, mun: userUsername };
+    const artData = { url, character, reference, event, mun: userUsername };
 
     dispatch(createArt(artData))
       .then(() => {
@@ -36,6 +39,7 @@ const CreateArtModal = ({ refreshArts }) => {
     closeModal();
     setUrl('');
     setCharacter('');
+    setEvent('');
     setReference(false);
   };
 
@@ -66,6 +70,26 @@ const CreateArtModal = ({ refreshArts }) => {
               required
             />
           </div>
+
+          <div className="form-group">
+            <label>
+            <span>Event</span>
+              <select 
+              value={event} 
+              onChange={(e) => 
+              setEvent(e.target.value)} 
+              >
+             <option value="">None</option>
+            {eventList.length > 0 && (
+            eventList.map((eventName) => (
+              <option key={eventName} value={eventName}>
+                {eventName}
+              </option>
+            ))
+          )}
+            </select>
+        </label>
+        </div>
 
           <div className="form-group">
             <div className="checkbox">

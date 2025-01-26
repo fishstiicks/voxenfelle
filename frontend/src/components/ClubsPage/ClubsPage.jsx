@@ -133,7 +133,7 @@ function ClubsPage() {
                 </button>
                 }
 
-                {user && club.creator === user.username && (
+                {user && (club.creator === user.username || user.username === 'Admin') && (
                   <div id="manage-club-btns">
                     <button onClick={() => openEditClubModal(club)} className="manage-club-btn">
                       Edit Club

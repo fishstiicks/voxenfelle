@@ -8,12 +8,14 @@ const EditArtModal = ({ art, refreshArts }) => {
   const { closeModal } = useModal(); 
   const [url, setUrl] = useState(art.url);
   const [character, setCharacter] = useState(art.character);
+  const [event, setEvent] = useState(art.event);
   const [reference, setReference] = useState(art.reference);
   const [setError] = useState('');
 
   useEffect(() => {
     setUrl(art.url);
     setCharacter(art.character);
+    setEvent(art.event);
     setReference(art.reference);
   }, [art]);
 
@@ -25,7 +27,7 @@ const EditArtModal = ({ art, refreshArts }) => {
       return;
     }
 
-    const updatedArtData = { url, character, reference };
+    const updatedArtData = { url, character, event, reference };
     dispatch(updateArtData(art.id, updatedArtData))
       .then(() => {
         closeModal();
@@ -37,6 +39,8 @@ const EditArtModal = ({ art, refreshArts }) => {
     closeModal();
     setError('');
   };
+
+  const eventList = [`Void's Eve`, `Defense Ministry`, `Hylia's Grace`, `Secret Santa`, `Solstia`]
 
   return (
     <div className="modal-overlay">
@@ -55,8 +59,8 @@ const EditArtModal = ({ art, refreshArts }) => {
           </div>
 
           <div className="form-group">
-          <p className='modal-text'>Separate names by comma.</p>
             <label htmlFor="character"><span>Characters</span></label>
+            <p className='modal-text'>Separate names by comma.</p>
             <input
               type="text"
               id="character"
@@ -65,6 +69,26 @@ const EditArtModal = ({ art, refreshArts }) => {
               required
             />
           </div>
+
+          <div className="form-group">
+            <label>
+            <span>Event</span>
+              <select 
+              value={event} 
+              onChange={(e) => 
+              setEvent(e.target.value)} 
+              >
+             <option value="">None</option>
+            {eventList.length > 0 && (
+            eventList.map((eventName) => (
+              <option key={eventName} value={eventName}>
+                {eventName}
+              </option>
+            ))
+          )}
+            </select>
+        </label>
+        </div>
 
           <div className="form-group">
             <div className="checkbox">

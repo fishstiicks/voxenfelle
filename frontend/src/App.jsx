@@ -10,6 +10,7 @@ import ClubsPage from './components/ClubsPage/ClubsPage.jsx';
 import ArtsPage from './components/ArtsPage/ArtsPage.jsx';
 import UserArtPage from './components/UserPages/UserArtPage.jsx';
 import UserCharactersPage from './components/UserPages/UserCharactersPage.jsx';
+import BadgesPage from './components/UserPages/UserBadgesPage.jsx';
 import CharacterArtPage from './components/CharacterDetailPage/CharacterArtPage.jsx'
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage.jsx';
 import CharacterRelationsPage from './components/CharacterRelationsPage/CharacterRelationsPage.jsx';
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: '/users/:name/memberships',
         element: <MembershipsPage />
+      },
+      {
+        path: '/users/:name/badges',
+        element: <BadgesPage />
       },
       {
         path: '/story',

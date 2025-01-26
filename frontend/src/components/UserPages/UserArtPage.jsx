@@ -53,6 +53,7 @@ function ArtsPage() {
             <p id="char-link-name" className="character-name">{name}</p>
             <Link to={`/users/${name}/characters`}>Characters</Link>
             <Link to={`/users/${name}/art`}>Art</Link>
+            <Link to={`/users/${name}/badges`}>Badges</Link>
     </div>
 
       {user && (

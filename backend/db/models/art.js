@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    event: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     reference: {
       type: DataTypes.BOOLEAN,
       allowNull: false

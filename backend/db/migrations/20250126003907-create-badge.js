@@ -5,27 +5,24 @@ if (process.env.NODE_ENV === 'production') {
 }
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Arts', {
+    await queryInterface.createTable('Badges', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      mun: {
+      username: {
         type: Sequelize.STRING
       },
-      url: {
+      name: {
         type: Sequelize.STRING
       },
-      character: {
-        type: Sequelize.STRING
+      description: {
+        type: Sequelize.TEXT
       },
-      event: {
-        type: Sequelize.STRING
-      },
-      reference: {
-        type: Sequelize.BOOLEAN
+      badgeUrl: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -35,10 +32,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    }, options);
+    });
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Arts";
+    options.tableName = "Badges";
     await queryInterface.dropTable(options);
   }
 };

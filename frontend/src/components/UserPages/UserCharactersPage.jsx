@@ -46,9 +46,10 @@ function CharactersPage() {
   return (
     <div className="main-content" id="relations-list">
     <div className="character-links">
-      <p id="char-link-name" className="character-name">{name}</p>
-      <Link to={`/users/${name}/characters`}>Characters</Link>
-      <Link to={`/users/${name}/art`}>Art</Link>
+            <p id="char-link-name" className="character-name">{name}</p>
+            <Link to={`/users/${name}/characters`}>Characters</Link>
+            <Link to={`/users/${name}/art`}>Art</Link>
+            <Link to={`/users/${name}/badges`}>Badges</Link>
     </div>
       <div className="filter-box">
         <h3>FILTER</h3>

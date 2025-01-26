@@ -3,7 +3,6 @@ const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { Art } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation'); 
-const art = require('../../db/models/art');
 
 const validateArt = [
   check('url')
@@ -18,13 +17,14 @@ const validateArt = [
   handleValidationErrors
 ];
 
+
 const router = express.Router();
 
 // CREATE ART
 router.post('/', requireAuth, validateArt, async (req, res) => {
     try {
       const { username } = req.user;
-      const { url, character, reference } = req.body;
+      const { url, character, event, reference } = req.body;
   
       if (!username) {
         return res.status(400).json({ error: 'Username is required' });
@@ -34,7 +34,8 @@ router.post('/', requireAuth, validateArt, async (req, res) => {
         mun: username,
         url,
         character,
-        reference
+        event,
+        reference,
       });
   
       return res.status(201).json(newArt);
@@ -81,7 +82,8 @@ router.get('/character/:character', async (req, res) => {
     const { character } = req.params;
 
     const artPieces = await Art.findAll({
-      where: { character }
+      where: { character },
+      order: [['id', 'DESC']]
     });
 
     if (artPieces.length === 0) {
@@ -101,7 +103,8 @@ router.get('/mun/:mun', async (req, res) => {
     const { mun } = req.params;
 
     const artPieces = await Art.findAll({
-      where: { mun }
+      where: { mun },
+      order: [['id', 'DESC']]
     });
 
     if (artPieces.length === 0) {
@@ -119,8 +122,8 @@ router.get('/mun/:mun', async (req, res) => {
 router.put('/:id', requireAuth, validateArt, async (req, res) => {
     try {
       const { id } = req.params;
-      const user = req.user;
-      const { url, character, reference } = req.body;
+      const { url, character, event, reference } = req.body;
+      const { username } = req.user;
   
       const art = await Art.findByPk(id);
   
@@ -128,12 +131,13 @@ router.put('/:id', requireAuth, validateArt, async (req, res) => {
         return res.status(404).json({ error: 'Club not found.' });
       }
 
-      if (art.mun !== user.username) {
-        return res.status(403).json({ error: 'You are not authorized to edit this club.' });
-        }
+      if (art.mun !== username && username !== 'Admin') {
+        return res.status(403).json({ error: 'You are not authorized to edit this art.' });
+      }
   
         if (url) art.url = url;
         if (character) art.character = character;
+        if (event) art.event = event;
         if (reference) art.reference = reference;
 
         await art.save();
@@ -158,7 +162,7 @@ router.delete('/:id', requireAuth, async (req, res) => {
         return res.status(404).json({ error: 'Art not found.' });
       }
   
-      if (artPiece.mun !== user.username) {
+      if (artPiece.mun !== user.username && username !== 'Admin') {
         return res.status(403).json({ error: 'You are not authorized to delete this art.' });
       }
 

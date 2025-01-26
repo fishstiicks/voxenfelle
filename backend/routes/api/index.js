@@ -6,6 +6,7 @@ const charactersRouter = require('./characters');
 const clubsRouter = require('./clubs.js')
 const artsRouter = require('./arts.js')
 const storiesRouter = require ('./story.js')
+const badgesRouter = require ('./badges.js')
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -22,6 +23,7 @@ router.use('/characters', charactersRouter);
 router.use('/clubs', clubsRouter);
 router.use('/arts', artsRouter);
 router.use('/story', storiesRouter);
+router.use('/badges', badgesRouter);
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });

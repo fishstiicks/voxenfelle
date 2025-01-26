@@ -13,3 +13,47 @@
 #user-chars a {
     text-decoration: none;
 }
+
+.badges-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    margin-left: 15%;
+    margin-top: 3%;
+}
+
+.badge-item {
+    position: relative;
+}
+
+.badge-icon {
+    opacity: 1;
+    display: block;
+    width: 200px;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.badge-info {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+    padding-left: 25px;
+    margin-top: -170px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.badge-name {
+    font-weight: bold;
+}
+
+.badge-item:hover .badge-icon {
+    opacity: 0.1;
+  }
+
+.badge-item:hover .badge-info {
+    opacity: 1;
+}
