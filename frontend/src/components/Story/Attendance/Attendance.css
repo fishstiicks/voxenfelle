@@ -141,6 +141,25 @@
     position: fixed;
 }
 
+#attendance-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+
+#attendance-box-unfix {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px #89868a;
+    color: #363636;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding: 2%;
+    padding-bottom: 3%;
+    width: 400px;
+}
+
 #attendance-header {
     font-size: 30px;
 
@@ -192,6 +211,17 @@
 .attendance-status a:hover {
     text-decoration: none;
     color: #9c9999;
+}
+
+@media(max-width: 400px) {
+    .main-contet {
+        width: 40%;
+    }
+
+    .attendance-box-unfix {
+        width: 100px;
+        margin-right: 20px;
+    }
 }
 
 @media (max-width: 800px) {

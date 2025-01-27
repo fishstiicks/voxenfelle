@@ -13,7 +13,7 @@ const validateAttendance = [
 
 const router = express.Router();
 
-// CREATE ATTENDANCE
+// CREATE ATTENDANCE BY SESSION USER
 router.post('/attend', requireAuth, validateAttendance, async (req, res) => {
     try {
       const { username } = req.user;
@@ -46,7 +46,39 @@ router.post('/attend', requireAuth, validateAttendance, async (req, res) => {
     }
   });
 
-// CHECK ATTENDANCE
+// CREATE ATTENDANCE BY NAME + STORY
+router.post('/attend/new', requireAuth, validateAttendance, async (req, res) => {
+  try {
+    const { story, username } = req.body;
+
+    if (!story) {
+      return res.status(400).json({ error: 'Story is required' });
+    }
+
+    const existingAttendance = await Attendance.findOne({
+      where: {
+          username: username,
+          story: story
+      }
+      });
+
+      if (existingAttendance) {
+          return res.status(400).json({ error: 'Attendance already exists.' });
+      }
+
+    const newAttendance = await Attendance.create({
+      username: username,
+      story: story
+    });
+
+    return res.status(201).json(newAttendance);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Something went wrong while creating the attendance.' });
+  }
+});
+
+// CHECK ATTENDANCE BY CURRENT USER
 router.get('/:story/check', requireAuth, async (req, res) => {
     try {
       const { username } = req.user;
@@ -69,6 +101,29 @@ router.get('/:story/check', requireAuth, async (req, res) => {
       return res.status(500).json({ error: 'Something went wrong while checking attendance.' });
     }
   });
+
+// CHECK ATTENDANCE BY ANY USERNAME
+router.get('/:story/check/:username', requireAuth, async (req, res) => {
+  try {
+    const { story, username } = req.params;
+
+    const existingAttendance = await Attendance.findOne({
+      where: {
+        username: username,
+        story: story
+      }
+    });
+
+    if (existingAttendance) {
+      return res.json({ hasAttended: true });
+    }
+
+    return res.json({ hasAttended: false });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Something went wrong while checking attendance.' });
+  }
+});
   
 
   module.exports = router;

@@ -200,6 +200,9 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  #body {
+    width: 30%;
+  }
   .header {
     align-items: flex-start;
     justify-content: space-around;
@@ -214,7 +217,7 @@ button:hover {
   }
 
   .navigation-list {
-    width: 40px;
+    width: 10px;
     margin-top: 25%;
   }
 

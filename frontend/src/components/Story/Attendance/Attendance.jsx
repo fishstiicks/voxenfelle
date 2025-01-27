@@ -6,7 +6,7 @@ import '../../Story/Attendance/Attendance.css';
 const stories = {
   'SEASON I': ['Season I Summary'],
   'DEFENSE MINISTRY': ['Candle Ceremony I', 'Candle Ceremony II', 'An Audience', 'Two Rooks I', 'Two Rooks II'],
-  'SOLSTIA': ['To Solstia', 'The Vessel', 'The Ordainment', 'Solstia Streets']
+  'SOLSTIA': ['To Solstia', 'The Vessel', 'The Ordainment', 'Solstia Streets', `Orion's Shield`]
 };
 
 
@@ -82,18 +82,22 @@ function Attendance() {
                         <div className="attendance-title">
                           <Link to={`/story/${story}`}>{story}</Link>
                         </div>
-                        <div className="attendance-status">
-                          {attendanceStatus[story] ? (
-                            <Link to={`/story/${story}`}>
-                              <p style={{ backgroundColor: '#39393A', borderRadius: '10px' }}>Completed</p>
-                            </Link>
-                          ) : (
-                            <Link to={`/story/${story}`}>
-                              <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
-                            </Link>
-                          )}
+                              <div className="attendance-status">
+                              {attendanceStatus[story] ? (
+                                <Link to={`/story/${story}`}>
+                                  <p style={{ backgroundColor: '#39393A', borderRadius: '10px' }}>Completed</p>
+                                </Link>
+                              ) : (
+                                story === 'Solstia Streets' ? (
+                                  <Link to={`/story/${story}`}><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>Optional Game</p></Link>
+                                ) : (
+                                  <Link to={`/story/${story}`}>
+                                    <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
+                                  </Link>
+                                )
+                              )}
+                              </div>
                         </div>
-                      </div>
                     ))}
                   </div>
                 ))}
@@ -109,20 +113,25 @@ function Attendance() {
                           <Link to={`/story/${story}`}>{story}</Link>
                         </div>
                         <div className="attendance-status">
-                          <Link to={`/story/${story}`}>
-                            <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
-                          </Link>
-                        </div>
+                              {story === 'Solstia Streets' ? (
+                                  <Link to={`/story/${story}`}><p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Play Now</p></Link>
+                                ) : (
+                                  <Link to={`/story/${story}`}>
+                                    <p style={{ backgroundColor: '#ebb217', borderRadius: '10px' }}>Read Now</p>
+                                  </Link>
+                                )
+                              }
+                            </div>
                       </div>
                     ))}
                   </div>
                 ))}
               </>
             )}
-            <div className='attendance-listing'>
+            {/* <div className='attendance-listing'>
               <div className='attendance-title'>???</div>
               <div className='attendance-status'><p style={{ backgroundColor: '#808080', borderRadius: '10px' }}>🔒</p></div>
-            </div>
+            </div> */}
           </div>
         </div>
       

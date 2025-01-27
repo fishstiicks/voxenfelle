@@ -16,6 +16,7 @@ import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetai
 import CharacterRelationsPage from './components/CharacterRelationsPage/CharacterRelationsPage.jsx';
 import MembershipsPage from './components/ClubsPage/MembershipsPage.jsx';
 import Attendance from './components/Story/Attendance/Attendance.jsx';
+import AllAttendance from './components/Story/AllAttendance/AllAttendance.jsx';
 
 import CandleCeremonyI from './components/Story/Story/CandleCeremonyI.jsx';
 import CandleCeremonyII from './components/Story/Story/CandleCremonyII.jsx';
@@ -26,6 +27,7 @@ import SeasonI from './components/Story/Story/SeasonI.jsx';
 import ToSolstia from './components/Story/Story/ToSolstia.jsx';
 import TheVessel from './components/Story/Story/TheVessel.jsx';
 import TheOrdainment from './components/Story/Story/TheOrdainment.jsx';
+import OrionsShield from './components/Story/Story/OrionsShield.jsx';
 
 import FellePress12 from './components/Story/News/FellePress12.jsx';
 import FellePress4 from './components/Story/News/FellePress4.jsx';
@@ -104,6 +106,9 @@ const router = createBrowserRouter([
         path: '/story',
         element: <Attendance />
       },
+      { path: '/attendance',
+        element: <AllAttendance />
+      },
       {
         path: '/story/Season I Summary',
         element: <SeasonI />
@@ -139,6 +144,10 @@ const router = createBrowserRouter([
       {
         path: `/story/The Ordainment`,
         element: <TheOrdainment />
+      },
+      {
+        path: `/story/Orion's Shield`,
+        element: <OrionsShield />
       },
       {
         path: '/FellePress/4',

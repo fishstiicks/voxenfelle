@@ -10,8 +10,13 @@ function Header() {
       <nav>
         <ul className="header-list">
           <li>
-            <NavLink to="/story" className="header-link" activeClassName="active-link">
+            <NavLink to="/" className="header-link" activeClassName="active-link">
               Story
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/attendance" className="header-link" activeClassName="active-link">
+              Attendance
             </NavLink>
           </li>
           <li>

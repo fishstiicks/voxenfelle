@@ -146,7 +146,8 @@ function ToSolstia() {
         <p>Slowly, you rouse from your sleep. It takes a while for your eyes to adjust to your surroundings. Around you are familiar faces, waking up for the morning after a long night’s rest. The atmosphere is mostly quiet, only disturbed by the hum of the train’s engine and the occasional yawn of your classmate.</p>
         <p>Were you dreaming about something? You can’t seem to remember, but you think you’re forgetting something important.</p>
         <p>A light glows from underneath the window curtain beside you. You pull it back, and what greets you is the sight of a white city, standing proudly in front of a backdrop of glittering blue waters.</p>
-        <p>Welcome to Solstia!</p>
+        <p className='center' style={{ fontSize: '35px'}}><i>Welcome to Solstia!</i></p>
+        <img className='story-cg' src='https://i.ibb.co/NYzYfhL/Solstia-Streets-Phed-Ione.png'></img>
         <p>The Solstia Central Station looks to be half the size of the Grand Hysse Station, but the statue of the goddess Hylia at its center is just as majestic, and perhaps even more well-loved than the one in the capital. People can be found lining up in front of Her, following an age-old tradition: touch Her hand to feel Her warm welcome, when you arrive in Solstia, the Holy City!</p>
         <p>The sun is high in the sky. It's clear that it's a beautiful day, visible even from indoors, through the windows that open up to a perfect blue and rays of filtered light. Locals seem to be dressed for warmer weather outside, so it's no wonder the air conditioning here is working overtime. The air feels as refreshing as a summer breeze.</p>
 

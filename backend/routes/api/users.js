@@ -67,5 +67,16 @@ router.post(
     }
   );
 
+// GET ALL USERS
+  router.get('/', async (req, res) => {
+      try {
+        const users = await User.findAll();
+        return res.status(200).json({ Users: users });
+      } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Unable to fetch users.' });
+      }
+    });
+
 
   module.exports = router;

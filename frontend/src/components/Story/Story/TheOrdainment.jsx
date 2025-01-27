@@ -217,7 +217,7 @@ function TheOrdainment() {
             </div>
             <div className="story-footer">
                 <Link to={`/story/The Vessel`}>🠄 Previous</Link>
-                <Link to={`/story/Solstia Streets`} style={{marginLeft: '3%'}}>Home 🠆</Link>
+                <Link to={`/story/Solstia Streets`} style={{marginLeft: '3%'}}>Next  🠆</Link>
             </div>
             </div>
         

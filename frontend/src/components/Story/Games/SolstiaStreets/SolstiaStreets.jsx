@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './SolstiaStreets.css'
+import { Link } from 'react-router-dom';
 
 const newsboy = 'https://i.ibb.co/gwVxBFt/Illustration47.png';
 const mille = 'https://i.ibb.co/XtWNzzT/Illustration3.png';
@@ -2682,11 +2683,17 @@ setAction(`❌ ${rollResult} What are we going to do with all our Hylia's Vessel
                 </div></div>
 
                 <p className='big'>CONGRATULATIONS ON FINISHING SOLSTIA STREETS!</p>
+                <p>Click the Next button to continue to midnight.</p>
 
         </div>
         </div>
-    }
+        
+    }                    <div className="story-footer" style={{backgroundColor:' rgba(245, 237, 222, 0.9)', borderRadius: '20px', marginLeft: '150px', width: '1026px'}}>
+    <Link to={`/story/The Ordainment`}>🠄 Previous</Link>
+    <Link to={`/story/Orion's Shield`} style={{marginLeft: '3%'}}>Next 🠆</Link>
+</div>
     </div></div></div>
+    
   );
 }
 
